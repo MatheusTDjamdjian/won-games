@@ -16,36 +16,28 @@ describe('<Logo />', () => {
        color: '#FAFAFA' 
     })
   })
-})
 
-describe('<Logo />', () => {
   it('should render a black label when color is passed', () => {
     renderWithTheme(<Logo color="black" />)
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
        color: '#030517' 
     })
   })
-})
 
-describe('<Logo />', () => {
   it('should render a normal logo when size is default', () => {
     renderWithTheme(<Logo/>)
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
        width: '11rem' 
     })
   })
-})
 
-describe('<Logo />', () => {
   it('should render a bigger logo', () => {
     renderWithTheme(<Logo size="large" />)
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
        width: '20rem' 
     })
-  })  
-})
+  })
 
-describe('<Logo />', () => {
   it('should render a bigger logo without text if hideOnMobile', () => {
     renderWithTheme(<Logo hideOnMobile />)
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyleRule(
@@ -55,5 +47,5 @@ describe('<Logo />', () => {
         media: '(max-width: 768px)'
       }
     )
-  })  
+  })
 })
