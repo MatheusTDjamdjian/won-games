@@ -1,9 +1,26 @@
 import { Meta, StoryObj } from '@storybook/react'
 import Logo from '.'
 
-export default {
+const meta: Meta = {
   title: 'Logo',
-  component: Logo
-} as Meta
+  component: Logo,
+  argTypes: {
+    color: {
+      control: 'radio',
+      options: ['white', 'black']
+    },
+    size: {
+      control: 'radio',
+      options: ['normal', 'large']
+    }
+  }
+}
 
-export const Default: StoryObj = {}
+export default meta
+
+export const Default: StoryObj = {
+  args: {
+    color: 'white',
+    size: 'normal'
+  }
+}
