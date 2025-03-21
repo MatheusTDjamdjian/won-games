@@ -4,23 +4,23 @@ import media from 'styled-media-query'
 import { HeadingProps } from '.'
 
 const wrapperModifiers = {
-    lineLeft: (theme: DefaultTheme) => css `
+    lineLeft: (theme: DefaultTheme) => css`
         padding-left: ${theme.spacings.xxsmall};
         border-left: 0.7rem solid ${theme.colors.secondary};
     `,
 
-    lineBottom: (theme: DefaultTheme) => css `
-        position: relative;
-        margin-bottom: ${theme.spacings.medium};
+    lineBottom: (theme: DefaultTheme) => css`
+    position: relative;
+    margin-bottom: ${theme.spacings.medium};
 
-        &::after {
-            position: absolute;
-            left: 0%;
-            bottom: -1rem;
-            content: '';
-            width: 5rem;
-            border-bottom: 0.5rem solid ${theme.colors.primary};
-        }
+    &::after {
+        position: absolute;
+        left: 0%;
+        bottom: -1rem;
+        content: '';
+        width: 5rem;
+        border-bottom: 0.5rem solid ${theme.colors.primary};
+    }
     `
 }
 
