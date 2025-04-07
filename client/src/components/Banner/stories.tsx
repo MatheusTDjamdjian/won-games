@@ -1,11 +1,17 @@
-import { Meta, StoryObj } from '@storybook/react'
+import React from 'react'
+import { Meta, StoryFn} from '@storybook/react'
 import Banner, { BannerProps } from '.'
 
 export default {
   title: 'Banner',
   component: Banner,
+  argTypes: {
+    ribbon: {
+      type: 'string'
+    }
+  },
   args: {
-    img: '	https://ogimg.infoglobo.com.br/in/23001849-c2f-667/FT1086A/INFOCHPDPICT000041975439.jpg',
+    img: 'https://cdn.pixabay.com/photo/2023/09/27/12/15/river-8279466_1280.jpg',
     title: 'Defy death',
     subtitle: '<p>Play the new <strong>CrashLands</strong> season',
     buttonLabel: 'Buy now',
@@ -16,6 +22,20 @@ export default {
   }
 } as Meta
 
-export const Default: StoryObj<BannerProps> = {
-  args: {}
+export const Default: StoryFn<BannerProps> = (args: BannerProps) => (
+  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
+    <Banner {...args} />
+  </div>
+)
+
+export const WithRibbon: StoryFn<BannerProps> = (args: BannerProps) => (
+  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
+    <Banner {...args} />
+  </div>
+)
+
+WithRibbon.args = {
+  ribbon: '20% OFF',
+  ribbonSize: 'normal',
+  ribbonColor: 'primary'
 }

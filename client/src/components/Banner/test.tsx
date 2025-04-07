@@ -5,7 +5,7 @@ import Banner from '.'
 import { renderWithTheme } from '@/utils/tests/helpers'
 
 const props = {
-  img: 'https://source.unsplash.com/user/willianjusten/1042x580',
+  img: 'https://cdn.pixabay.com/photo/2023/09/27/12/15/river-8279466_1280.jpg',
   title: 'Defy death',
   subtitle: '<p>Play the new <strong>CrashLands</strong> season',
   buttonLabel: 'Buy now',
@@ -27,5 +27,18 @@ describe('<Banner />', () => {
     expect(screen.getByRole('img', { name: /Defy death/i })).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
+  })
+
+  it('should render a Ribbon', () => {
+    renderWithTheme(<Banner {...props}  ribbon="My Ribbon" ribbonSize="small" ribbonColor="secondary"/>)
+
+    const ribbon = screen.getByText(/My Ribbon/i)
+
+    expect(ribbon).toBeInTheDocument()
+    expect(ribbon).toHaveStyle({ backgroundColor: '#3CD3C1'})
+    expect(ribbon).toHaveStyle({
+      height: '2.6rem',
+      fontSize: '1.2rem',
+    })
   })
 })
