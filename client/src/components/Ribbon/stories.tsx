@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 import Ribbon, { RibbonProps } from '.'
 
 export default {
@@ -7,21 +7,30 @@ export default {
   component: Ribbon,
   args: {
     children: 'Best Seller'
-  }, argTypes: {
+  },
+  argTypes: {
     children: {
       type: 'string'
     }
   }
-} as Meta
+} as Meta<RibbonProps>
 
 export const Default: StoryObj<RibbonProps> = {
-  render: (args) => <div style={{
-    width: '40rem',
-    height: '25rem',
-    position: 'relative',
-    backgroundColor: '#888'
-  }}
-  >
-    <Ribbon {...args}/>
-  </div>
+  args: {
+    color: 'secondary',
+    size: 'normal'
+  },
+
+  render: (args) => (
+    <div
+      style={{
+        width: '40rem',
+        height: '25rem',
+        position: 'relative',
+        backgroundColor: '#888'
+      }}
+    >
+      <Ribbon {...args} />
+    </div>
+  )
 }
