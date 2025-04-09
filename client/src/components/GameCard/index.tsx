@@ -3,9 +3,9 @@ import * as S from './styles'
 import { GameCardProps } from './types'
 
 import Button from '../Button'
-import { AddShoppingCart, FavoriteBorder } from 'styled-icons/material'
+import { AddShoppingCart, Favorite, FavoriteBorder } from 'styled-icons/material'
 
-const GameCard = ({title, developer, img, price, promotionalPrice}: GameCardProps) => (
+const GameCard = ({title, developer, img, price, promotionalPrice, favorite = false, onFav}: GameCardProps) => (
   <S.Wrapper>
     <S.ImageBox>
       <img src={img} alt={title}/>
@@ -15,8 +15,8 @@ const GameCard = ({title, developer, img, price, promotionalPrice}: GameCardProp
         <S.Title>{title}</S.Title>
         <S.Developer>{developer}</S.Developer>
       </S.Info>
-      <S.FavButton role="button">
-        <FavoriteBorder aria-label="Add to wishlist"/>
+      <S.FavButton onClick={onFav} role="button">
+        {favorite ? <Favorite arial-label="Remove from Wishlist" />: <FavoriteBorder aria-label="Add to wishlist"/>}
       </S.FavButton>
       <S.BuyBox>
         {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}

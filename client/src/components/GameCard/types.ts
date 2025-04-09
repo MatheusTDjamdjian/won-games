@@ -4,5 +4,7 @@ export type GameCardProps = {
     img: string,
     price: string,
     promotionalPrice?: string
+    favorite?: boolean
+    onFav?: () => void
 }
   
