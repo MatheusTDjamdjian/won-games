@@ -2,11 +2,17 @@ import React from 'react'
 import * as S from './styles'
 import { GameCardProps } from './types'
 
+import Ribbon from '../Ribbon'
 import Button from '../Button'
 import { AddShoppingCart, Favorite, FavoriteBorder } from 'styled-icons/material'
 
-const GameCard = ({title, developer, img, price, promotionalPrice, favorite = false, onFav}: GameCardProps) => (
+const GameCard = ({title, developer, img, price, promotionalPrice, favorite = false, ribbon, ribbonColor = 'primary', ribbonSize = 'small', onFav}: GameCardProps) => (
   <S.Wrapper>
+    {!!ribbon && (
+      <Ribbon color={ribbonColor} size={ribbonSize}>
+        {ribbon}
+      </Ribbon>
+    )}
     <S.ImageBox>
       <img src={img} alt={title}/>
     </S.ImageBox>
