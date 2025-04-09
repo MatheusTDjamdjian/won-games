@@ -16,6 +16,7 @@ export const ImageBox = styled.div`
     height: 14rem;
     width: 100%;
     background: #f6f7f8;
+    cursor: pointer;
     background-image: linear-gradient(
     to right,
     #f6f7f8 0%,
@@ -96,3 +97,34 @@ export const BuyBox = styled.div`
     `}
 `
 
+type PriceProps = {
+    isPromotional?: boolean
+}
+
+const priceModifiers = {
+    default: (theme: DefaultTheme) => css`
+        color: ${theme.colors.white};
+        padding: 0 ${theme.spacings.xxsmall};
+        background-color: ${theme.colors.secondary};
+        border-radius: ${theme.border.radius};
+        margin-right: calc(${theme.spacings.xxsmall} / 2);
+    `,
+  
+    promotional: (theme: DefaultTheme) => css`
+        color: ${theme.colors.gray};
+        text-decoration: line-through;
+        margin-right: ${theme.spacings.xsmall};
+    `
+  }
+
+export const Price = styled.div<PriceProps>`
+    ${({ theme, isPromotional }) => css`
+        display: inline-flex;
+        font-weight: ${theme.font.bold};
+        height: 3rem;
+        align-items: center;
+    
+        ${!isPromotional && priceModifiers.default(theme)}
+        ${isPromotional && priceModifiers.promotional(theme)}
+    `}
+`

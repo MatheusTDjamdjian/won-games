@@ -19,6 +19,8 @@ const GameCard = ({title, developer, img, price, promotionalPrice}: GameCardProp
         <FavoriteBorder aria-label="Add to wishlist"/>
       </S.FavButton>
       <S.BuyBox>
+        {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
+        <S.Price>{promotionalPrice || price}</S.Price>
         <Button icon={<AddShoppingCart/>} size="small"/>
       </S.BuyBox>
     </S.Content>
