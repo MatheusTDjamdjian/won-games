@@ -32,7 +32,7 @@ const GlobalStyles = createGlobalStyle <{ removeBg?: boolean }>`
             css`
                 backgorund-color: ${theme.colors.mainBg};
             `}
-            background-color: ${theme.colors.mainBg}
+            background-color: ${theme.colors.mainBg};
         }
     `}
 

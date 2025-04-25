@@ -4,6 +4,11 @@ import Logo from '.'
 const meta: Meta = {
   title: 'Logo',
   component: Logo,
+  parameters: {
+    backgrounds: {
+      default: 'won-dark'
+    }
+  },
   argTypes: {
     color: {
       control: 'radio',
