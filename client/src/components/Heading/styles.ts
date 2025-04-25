@@ -40,12 +40,15 @@ const wrapperModifiers = {
     `
 }
 
-export const Wrapper = styled.h2 <HeadingProps> `
-    ${({ theme, color, lineLeft, lineBottom, lineColor='primary', size }) => css`
-        color: ${theme.colors[color!]};
+export const Wrapper = styled.h2.withConfig({
+  shouldForwardProp: (prop) =>
+    !['lineLeft', 'lineBottom', 'lineColor', 'size', 'color'].includes(prop)
+})<HeadingProps>`
+  ${({ theme, color, lineLeft, lineBottom, lineColor = 'primary', size }) => css`
+    color: ${theme.colors[color!]};
 
-        ${lineLeft && wrapperModifiers.lineLeft(theme, lineColor)}
-        ${lineBottom && wrapperModifiers.lineBottom(theme, lineColor)}
-        ${!!size && wrapperModifiers[size](theme)}
-    `}
+    ${lineLeft && wrapperModifiers.lineLeft(theme, lineColor)}
+    ${lineBottom && wrapperModifiers.lineBottom(theme, lineColor)}
+    ${!!size && wrapperModifiers[size](theme)}
+  `}
 `
