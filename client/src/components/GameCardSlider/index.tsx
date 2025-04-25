@@ -7,12 +7,13 @@ import {GameCardProps} from "../GameCard/types"
 import Slider, {SliderSettings} from '../Slider'
 import * as S from './styles'
 
-type GameCardSliderProps = {
+export type GameCardSliderProps = {
   items: GameCardProps[]
   color?: 'white' | 'black'
 }
 
 const settings: SliderSettings = {
+  arrows: true,
   infinite: false,
   slidesToShow: 4,
   lazyLoad: 'ondemand',
@@ -42,7 +43,7 @@ const settings: SliderSettings = {
       breakpoint: 375,
       settings: {
         arrows: false,
-        slidesToShow: 1.1
+        slidesToShow: 1.1,
       }
     }
   ],
@@ -50,14 +51,13 @@ const settings: SliderSettings = {
   prevArrow: <ArrowLeft aria-label="previous games"/>
 }
 
-const GameCardSlider = ({items, color = 'black'}: GameCardSliderProps) => (
+const GameCardSlider = ({items, color = 'white'}: GameCardSliderProps) => (
   <S.Wrapper color={color}>
     <Slider settings={settings}>
       {items.map((item, index) => (
           <GameCard key={index} {...item} />
       ))}
     </Slider>
-
   </S.Wrapper>
 )
 
