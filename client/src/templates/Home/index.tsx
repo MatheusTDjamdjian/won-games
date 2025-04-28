@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 
 import Menu from '@/components/Menu'
@@ -5,7 +6,7 @@ import { Container } from '@/components/Container'
 import Footer from '@/components/Footer'
 import Heading from '@/components/Heading'
 
-const Home = () => (
+const Home = ( { heading }: any) => (
   <section>
     <Container>
       <Menu/>
@@ -18,7 +19,7 @@ const Home = () => (
     </Container>
 
     <Container>
-      <Heading lineLeft lineColor="secondary">Most Popular</Heading>
+      <Heading lineLeft lineColor="secondary">{heading}</Heading>
     </Container>
 
     <Container>
