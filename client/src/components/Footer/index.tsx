@@ -78,7 +78,7 @@ const Footer = () => (
         <span>Lorem, ipsum dolor.</span>
       </S.Column>
     </S.Content>
-    <S.Copyright>Won Games 2020 © All rights reserved.</S.Copyright>
+    <S.Copyright>Won Games 2025 © All rights reserved.</S.Copyright>
   </S.Wrapper>
 )
 
