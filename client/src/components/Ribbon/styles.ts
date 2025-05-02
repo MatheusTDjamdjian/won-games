@@ -13,7 +13,7 @@ const wrapperModifiers = {
     }
   `,
 
-  normal: (theme: DefaultTheme) => css`
+  normal: (theme: DefaultTheme) => css`                 
     font-size: ${theme.font.sizes.small};
     padding: 0 ${theme.spacings.small};
     height: 3.6rem;
