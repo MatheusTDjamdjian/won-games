@@ -1,41 +1,42 @@
-'use client'
-import { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle, css } from 'styled-components';
 
-const GlobalStyles = createGlobalStyle <{ removeBg?: boolean }>`
-    body {
+interface GlobalStylesProps {
+    removeBg?: boolean;
+}
+
+const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
+  body {
     background: ${({ removeBg }) => (removeBg ? 'transparent' : '#fff')};
-    }
+  }
 
-    * {
+  * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;   
+    -moz-osx-font-smoothing: grayscale;
 
     &::before,
     &::after {
-        box-sizing: inherit;
+      box-sizing: inherit;
     }
+  }
+
+  ${({ theme, removeBg }) => css`
+    html {
+      font-size: 62.5%;
     }
 
-    ${({ theme, removeBg }) => css`
-        html {
-        font-size: 62.5%;
-        }
+    body {
+      font-family: ${theme.font.family};
+      font-size: ${theme.font.sizes.medium};
 
-        body {
-            font-family: ${theme.font.family};
-            font-size: ${theme.font.sizes.medium};
+      ${!removeBg &&
+      css`
+        background-color: ${theme.colors.mainBg};
+      `}
+    }
+  `}
+`;
 
-            ${!removeBg && 
-            css`
-                backgorund-color: ${theme.colors.mainBg};
-            `}
-            background-color: ${theme.colors.mainBg};
-        }
-    `}
-
-`
-
-export default GlobalStyles
+export default GlobalStyles;

@@ -7,6 +7,11 @@ export default function Index(props: any) {
 }
 
 export function getServerSideProps() {
+  // fazer lógica
+  // buscar dados em alguma API
+  // fazer cálculo ou leitura de context
+
+  // retorno dos dados
   return {
     props: {
       heading: 'Olha eu aqui'
