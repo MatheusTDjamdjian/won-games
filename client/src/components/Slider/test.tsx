@@ -1,4 +1,4 @@
-import '../../../.jest/match-media-mock'
+import '../../../.github/workflows/.jest/match-media-mock'
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
