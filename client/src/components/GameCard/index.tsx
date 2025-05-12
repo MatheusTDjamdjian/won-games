@@ -4,9 +4,9 @@ import { GameCardProps } from './types'
 
 import Ribbon from '../Ribbon'
 import Button from '../Button'
-import { AddShoppingCart, Favorite, FavoriteBorder } from 'styled-icons/material'
+import { Favorite, FavoriteBorder } from 'styled-icons/material'
 //import Favorite from './icons/favorite.png'
-//import AddShoppingCart from './icons/add_shopping_cart.png'
+import AddShoppingCart from './icons/add_shopping_cart.png'
 
 const GameCard = ({title, developer, img, price, promotionalPrice, favorite = false, ribbon, ribbonColor = 'primary', ribbonSize = 'small', onFav}: GameCardProps) => (
   <S.Wrapper>
@@ -29,7 +29,7 @@ const GameCard = ({title, developer, img, price, promotionalPrice, favorite = fa
       <S.BuyBox>
         {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
         <S.Price>{promotionalPrice || price}</S.Price>
-        <Button icon={<AddShoppingCart/>} size="small"/>
+        <Button icon={<img src={AddShoppingCart.src} alt="Add to cart" />} size="small"/>
       </S.BuyBox>
     </S.Content>
   </S.Wrapper>
