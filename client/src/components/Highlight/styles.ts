@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { HighlightProps } from './types'
 import media from 'styled-media-query';
 
-type WrapperProps = Pick<HighlightProps, 'backgroundimage' | 'alignment'>;
+type WrapperProps = Pick<HighlightProps, '$backgroundimage' | '$alignment'>;
 
 const wrapperModifiers = {
     right: () => css`
@@ -28,9 +28,9 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.section<WrapperProps>`
-    ${({ theme, backgroundimage, alignment }) => css`
+    ${({ theme, $backgroundimage, $alignment }) => css`
         position: relative;
-        background-image: url(${backgroundimage});
+        background-image: url(${$backgroundimage});
         z-index: ${theme.layers.base};
         background-position: center center;
         background-size: cover;
@@ -52,7 +52,7 @@ export const Wrapper = styled.section<WrapperProps>`
             
         `}
 
-        ${wrapperModifiers[alignment!]()}
+        ${wrapperModifiers[$alignment!]()}
     `}
 `
 

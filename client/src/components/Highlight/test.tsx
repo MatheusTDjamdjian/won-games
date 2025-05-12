@@ -9,7 +9,7 @@ import * as S from './styles'
 const props = {
   title: 'Heading 1',
   subtitle: 'Heading 2',
-  backgroundimage: '/img/red-dead-img.jpg',
+  $backgroundimage: '/img/red-dead-img.jpg',
   buttonLabel: 'Buy now',
   buttonLink: '/rdr2',
 }
@@ -28,7 +28,7 @@ describe('<Highlight />', () => {
     const { container } = renderWithTheme(<Highlight {...props} />)
 
     expect(container.firstChild).toHaveStyle({
-    backgroundImage: `url(${props.backgroundimage})`
+    $backgroundImage: `url(${props.$backgroundimage})`
     })
   })
 
@@ -57,7 +57,7 @@ describe('<Highlight />', () => {
   })
 
   it('should render align left by default', () => {
-    const { container } = renderWithTheme(<Highlight {...props} alignment="left"/>)
+    const { container } = renderWithTheme(<Highlight {...props} $alignment="left"/>)
 
     expect(container.firstChild).toHaveStyleRule(
       'grid-template-areas',

@@ -28,7 +28,7 @@ Default.args = {
 export const withIcon: StoryObj = {
   args: {
     size: 'large',
-    fullWidth: false
+    $fullWidth: false,
   },
 
   render: (args) => <Button {...args} />

@@ -1,3 +1,4 @@
+'use client'
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import * as S from './styles'
 
@@ -7,13 +8,13 @@ type ButtonTypes =
 
 export type ButtonProps = {
   size?: 'small' | 'medium' | 'large'
-  fullWidth?: boolean
+  $fullWidth?: boolean
   icon?: React.ReactNode
   as?: React.ElementType
 } & ButtonTypes
 
-const Button = ({ children, size = 'medium', fullWidth = false, icon, ...props }: ButtonProps) => (
-  <S.Wrapper size={size} fullWidth={fullWidth} hasIcon={!!icon} {...props}>
+const Button = ({ children, size = 'medium', $fullWidth = false, icon, ...props }: ButtonProps) => (
+  <S.Wrapper size={size} $fullWidth={$fullWidth} $hasIcon={!!icon} {...props}>
     {icon}
     {!!children && <span>{children}</span>}
   </S.Wrapper>

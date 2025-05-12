@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import * as S from './styles'
 import { useState } from 'react'
@@ -15,21 +16,21 @@ export type MenuProps = {
 }
 
 const Menu = ({ username } : MenuProps) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [$isOpen, setIsOpen] = useState(false)
 
   return (
     <S.Wrapper>
-      <MediaMatch lessThan="medium">
+      <MediaMatch $lessThan="medium">
         <S.IconWrapper onClick={() => setIsOpen(true)}> 
           <MenuIcon aria-label="Open Menu"/>
         </S.IconWrapper>
       </MediaMatch>
 
       <S.LogoWrapper>
-        <Logo hideOnMobile />
+        <Logo $hideOnMobile />
       </S.LogoWrapper>
 
-      <MediaMatch greaterThan="medium">
+      <MediaMatch $greaterThan="medium">
         <S.MenuNav>
           <S.MenuLink href="#">Home</S.MenuLink>
           <S.MenuLink href="#">Explore</S.MenuLink>
@@ -44,13 +45,13 @@ const Menu = ({ username } : MenuProps) => {
           <ShoppingCartIcon aria-label="Open Shopping Cart"/> 
         </S.IconWrapper>
         {!username && (
-          <MediaMatch greaterThan="medium">
+          <MediaMatch $greaterThan="medium">
             <Button>Sign in</Button>
           </MediaMatch>
         )}
       </S.MenuGroup>
 
-      <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
+      <S.MenuFull aria-hidden={!$isOpen} $isOpen={$isOpen}>
         <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
         <S.MenuNav>
           <S.MenuLink href="#">Home</S.MenuLink>
@@ -64,7 +65,7 @@ const Menu = ({ username } : MenuProps) => {
         </S.MenuNav>
         {!username && (
           <S.RegisterBox>
-            <Button fullWidth size="large">
+            <Button $fullWidth size="large">
               Log in now
             </Button>
             <span>or</span>

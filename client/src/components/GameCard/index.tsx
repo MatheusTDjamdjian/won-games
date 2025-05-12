@@ -5,6 +5,8 @@ import { GameCardProps } from './types'
 import Ribbon from '../Ribbon'
 import Button from '../Button'
 import { AddShoppingCart, Favorite, FavoriteBorder } from 'styled-icons/material'
+//import Favorite from './icons/favorite.png'
+//import AddShoppingCart from './icons/add_shopping_cart.png'
 
 const GameCard = ({title, developer, img, price, promotionalPrice, favorite = false, ribbon, ribbonColor = 'primary', ribbonSize = 'small', onFav}: GameCardProps) => (
   <S.Wrapper>

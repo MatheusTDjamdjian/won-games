@@ -2,19 +2,21 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 import * as RibbonStyles from '../Ribbon/styles'
+import { MediaMatchProps } from '../MediaMatch'
 
-export const Wrapper = styled.main`
+export const Wrapper = styled.main<MediaMatchProps>`
   position: relative;
-
-  ${media.lessThan('large')`
-    ${RibbonStyles.Wrapper} {
-      right: 0;
-      
-      &::before {
-        display: none;
+  ${({ $lessThan }) =>
+    $lessThan &&
+    media.lessThan($lessThan)`
+      ${RibbonStyles.Wrapper} {
+        right: 0;
+  
+        &::before {
+          display: none;
+        }
       }
-    }  
-  `}
+    `}
 
   ${media.greaterThan('medium')`
     box-shadow: 0 0.4rem 0.5rem 0 rgba(0, 0, 0, 0.2);
