@@ -97,12 +97,16 @@ export const BuyBox = styled.div`
     `}
 `
 
-export const FavBorder = styled.div`
-    ${() => css`
-        .FavBorder {
-        position: absolute;
-        }
-    `}
+export const FavBorder = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 2.4rem;
+    height: 2.4rem;
+    object-fit: contain;
+  }
 `
 
 type PriceProps = {

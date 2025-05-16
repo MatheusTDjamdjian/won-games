@@ -28,9 +28,9 @@ const GameCard = ({title, developer, img, price, promotionalPrice, favorite = fa
   icon={
     favorite ? ( <img src={Favorite.src} alt="Remove from Wishlist" /> ) :
     (
-      <span className="FavBorder">
+      <S.FavBorder>
         <img src={FavoriteBorder.src} aria-label="Add to Wishlist" />
-      </span>
+      </S.FavBorder>
     )
   }
 />
