@@ -4,7 +4,7 @@ import { GameCardProps } from './types'
 
 import Ribbon from '../Ribbon'
 import Button from '../Button'
-import { FavoriteBorder } from 'styled-icons/material'
+import FavoriteBorder from './icons/coracao.png'
 import Favorite from './icons/favorite.png'
 import AddShoppingCart from './icons/add_shopping_cart.png'
 
@@ -28,7 +28,9 @@ const GameCard = ({title, developer, img, price, promotionalPrice, favorite = fa
   icon={
     favorite ? ( <img src={Favorite.src} alt="Remove from Wishlist" /> ) :
     (
-      <FavoriteBorder aria-label="Add to Wishlist" />
+      <span className="FavBorder">
+        <img src={FavoriteBorder.src} aria-label="Add to Wishlist" />
+      </span>
     )
   }
 />

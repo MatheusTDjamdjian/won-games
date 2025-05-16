@@ -30,7 +30,7 @@ const wrapperModifiers = {
             width: 1.5rem;
 
             & + span {
-                margin-left: ${theme.spacings.xxsmall};
+                margin-left: ${theme.spacings.xsmall};
             }
         }
     `

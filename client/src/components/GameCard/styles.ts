@@ -97,6 +97,14 @@ export const BuyBox = styled.div`
     `}
 `
 
+export const FavBorder = styled.div`
+    ${() => css`
+        .FavBorder {
+        position: absolute;
+        }
+    `}
+`
+
 type PriceProps = {
     isPromotional?: boolean
 }
