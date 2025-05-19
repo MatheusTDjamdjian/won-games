@@ -14,6 +14,6 @@ export default {
 
 export const Default: StoryObj<CheckboxProps> = {
   render: (args) => (
-      <Checkbox {...args} />
+      <Checkbox isChecked {...args} />
   )
 }
