@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-undef
-module.exports = (plop) => {
+export default function (plop) {
     // create your generators here
     plop.setGenerator('component', {
         description: 'Create a component',
