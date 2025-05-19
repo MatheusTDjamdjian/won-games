@@ -2,6 +2,7 @@ import React from 'react'
 import { screen } from '@testing-library/react'
 
 import Checkbox from '.'
+import theme from '@/styles/theme'
 import { renderWithTheme } from '@/utils/tests/helpers'
 
 describe('<Checkbox />', () => {
@@ -18,5 +19,11 @@ describe('<Checkbox />', () => {
     renderWithTheme(<Checkbox />)
 
     expect(screen.queryByLabelText('Checkbox')).not.toBeInTheDocument()
+  })
+
+  it('should render with black label', () => {
+    renderWithTheme(<Checkbox  label="checkbox label" labelFor="check" labelColor="black"/>)
+
+    expect(screen.getByText(/checkbox label/i)).toHaveStyle({ color: theme.colors.black })
   })
 })
