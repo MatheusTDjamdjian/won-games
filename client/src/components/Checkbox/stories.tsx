@@ -6,7 +6,10 @@ import { CheckboxProps } from './types'
 
 export default {
   title: 'Checkbox',
-  component: Checkbox
+  component: Checkbox,
+  argTypes: {
+    onCheck: { action: 'checked' }
+  }
 } as Meta
 
 export const Default: StoryObj<CheckboxProps> = {
