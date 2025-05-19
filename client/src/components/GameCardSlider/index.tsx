@@ -1,6 +1,7 @@
-import { ArrowBackIos as ArrowLeft } from '@styled-icons/material-outlined/ArrowBackIos'
-import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined/ArrowForwardIos'
+import { ArrowBackIos as ArrowLeftBase } from '@styled-icons/material-outlined/ArrowBackIos'
+import { ArrowForwardIos as ArrowRightBase } from '@styled-icons/material-outlined/ArrowForwardIos'
 
+import styled from 'styled-components'
 import React from 'react'
 import GameCard from '../GameCard'
 import {GameCardProps} from "../GameCard/types"
@@ -12,11 +13,31 @@ export type GameCardSliderProps = {
   color?: 'white' | 'black'
 }
 
+const ArrowLeftIcon = styled((props) => {
+  const { currentSlide, slideCount, ...rest } = props
+  void currentSlide
+  void slideCount
+  return <ArrowLeftBase {...rest} />
+})`
+  cursor: pointer;
+`
+
+const ArrowRightIcon = styled((props) => {
+  const { currentSlide, slideCount, ...rest } = props
+  void currentSlide
+  void slideCount
+  return <ArrowRightBase {...rest} />
+})`
+  cursor: pointer;
+`
+
 const settings: SliderSettings = {
   arrows: true,
   infinite: false,
   slidesToShow: 4,
   lazyLoad: 'ondemand',
+  nextArrow: <ArrowRightIcon aria-label="next games" />,
+  prevArrow: <ArrowLeftIcon aria-label="previous games" />,
   responsive: [
     {
       breakpoint: 1375,
@@ -47,8 +68,6 @@ const settings: SliderSettings = {
       }
     }
   ],
-  nextArrow: <ArrowRight aria-label="next games"/>,
-  prevArrow: <ArrowLeft aria-label="previous games"/>
 }
 
 const GameCardSlider = ({items, color = 'white'}: GameCardSliderProps) => (
