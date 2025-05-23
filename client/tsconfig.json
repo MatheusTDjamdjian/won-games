@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "types": ["styled-components"],
+    "baseUrl": ".",
     "target": "ES2017",
     "lib": [
       "dom",
@@ -25,6 +27,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@styles/*": [
+        "styles/*"
       ]
     }
   },

@@ -23,18 +23,19 @@ const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
     }
   }
 
-  ${({ theme, removeBg }) => css`
+  ${({ removeBg }) => css`
     html {
       font-size: 62.5%;
     }
 
     body {
-      font-family: ${theme.font.family};
-      font-size: ${theme.font.sizes.medium};
+      font-family: Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+      font-size: 1.6rem;
 
       ${!removeBg &&
       css`
-        background-color: ${theme.colors.mainBg};
+        background-color: #06092B;
       `}
     }
   `}
