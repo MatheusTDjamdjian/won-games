@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/nextjs'
 import Radio from '.'
 import { RadioProps } from './types'
 
