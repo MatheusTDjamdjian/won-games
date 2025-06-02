@@ -8,6 +8,7 @@ type WrapperProps = Pick<TextFieldProps, 'disabled'> & { error?: boolean }
 export const InputWrapper = styled.div`
   ${({ theme }) => css`
     display: flex;
+    align-items: center;
     background: ${theme.colors.lightGray};
     border-radius: 0.2rem;
     padding: 0 ${theme.spacings.xsmall};
@@ -45,12 +46,17 @@ export const Label = styled.label`
 export const Icon = styled.div<IconPositionProps>`
   ${({ theme, iconPosition }) => css`
     display: flex;
-    width: 2.2rem;
+    align-items: center;
+    justify-content: center;
+    width: ${theme.spacings.medium};
+    height: ${theme.spacings.medium};
     color: ${theme.colors.gray};
     order: ${iconPosition === 'right' ? 1 : 0};
 
-    & > svg {
-      width: 100%;
+    svg, img {
+      width: 2rem;
+      height: 2rem;
+      object-fit: contain;
     }
   `}
 `

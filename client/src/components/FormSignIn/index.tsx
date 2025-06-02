@@ -5,7 +5,10 @@ import Link from 'next/link'
 import TextField from '../TextField'
 import Button from '../Button'
 
-import { Email, Lock } from 'styled-icons/material-outlined'
+import Image from 'next/image'
+import Email  from '../FormSignUp/icons/e-mail.png'
+import Lock  from '../FormSignUp/icons/cadeado.png'
+
 import { FormLink, FormWrapper } from '../Form'
 
 const FormSignIn = () => (
@@ -15,13 +18,27 @@ const FormSignIn = () => (
         name="email"
         placeholder="Email"
         type="email"
-        icon={<Email />}
+        icon={
+          <Image 
+            src={Email} 
+            alt="Email icon" 
+            width={20} 
+            height={20} 
+          />
+        }
       />
       <TextField
         name="password"
         placeholder="Password"
         type="password"
-        icon={<Lock />}
+        icon={
+          <Image 
+            src={Lock} 
+            alt="Password icon" 
+            width={20} 
+            height={20} 
+          />
+        }
       />
       <S.ForgotPassword href="#">
         Forgot your password?

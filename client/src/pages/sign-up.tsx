@@ -1,6 +1,10 @@
 import React from 'react'
 import Auth from "@/templates/Auth"
 
+import FormSignUp from '@/components/FormSignUp'
+
 export default function SignUp() {
-    return <Auth title='Sign Up'>children</Auth>
+    return <Auth title='Sign Up'>
+        <FormSignUp/>
+    </Auth>
 }

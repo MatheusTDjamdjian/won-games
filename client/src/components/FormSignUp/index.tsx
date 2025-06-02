@@ -5,7 +5,11 @@ import Link from 'next/link'
 import Button from '../Button'
 import TextField from '../TextField'
 
-import { AccountCircle, Email, Lock } from 'styled-icons/material-outlined'
+
+import Image from 'next/image'
+import AccountCircle  from './icons/perfil.png'
+import Email  from './icons/e-mail.png'
+import Lock  from './icons/cadeado.png'
 
 const FormSignUp = () => (
   <FormWrapper>
@@ -14,25 +18,53 @@ const FormSignUp = () => (
         name="name"
         placeholder="Name"
         type="name"
-        icon={<AccountCircle />}
+        icon={
+          <Image 
+            src={AccountCircle} 
+            alt="Account icon" 
+            width={20} 
+            height={20} 
+          />
+        }
       />
       <TextField
         name="email"
         placeholder="Email"
         type="email"
-        icon={<Email />}
+        icon={
+          <Image 
+            src={Email} 
+            alt="Email icon" 
+            width={20} 
+            height={20} 
+          />
+        }
       />
       <TextField
         name="password"
         placeholder="Password"
         type="password"
-        icon={<Lock />}
+        icon={
+          <Image 
+            src={Lock} 
+            alt="Password icon" 
+            width={20} 
+            height={20} 
+          />
+        }
       />
       <TextField
         name="confirm-password"
         placeholder="Confirm password"
         type="password"
-        icon={<Lock />}
+        icon={
+          <Image 
+            src={Lock} 
+            alt="Confirm password icon" 
+            width={20} 
+            height={20} 
+          />
+        }
       />
 
       <Button size="large" $fullWidth>
