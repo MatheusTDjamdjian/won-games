@@ -1,6 +1,8 @@
  import { StoryObj, Meta } from '@storybook/nextjs'
- import Heading, { HeadingProps } from '.'
+ import Heading from '.'
  import React from 'react'
+
+import { HeadingProps } from './types'
  
  export default {
    title: 'Heading',

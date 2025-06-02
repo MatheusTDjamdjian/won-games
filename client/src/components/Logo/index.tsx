@@ -1,5 +1,4 @@
 'use client'
-/* eslint-disable react/no-unknown-property */
 import * as S from './styles'
 import React from 'react';
 
