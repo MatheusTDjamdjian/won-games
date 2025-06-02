@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { LogoProps } from './index';
+import { LogoProps } from './types';
 import media from 'styled-media-query'
 
 const wrapperModifiers = {
