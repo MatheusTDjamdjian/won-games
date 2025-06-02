@@ -12,7 +12,7 @@ const Auth = ({ title, children }: AuthProps) => (
         <Logo id='Banner'/>
 
         <div>
-          <Heading>
+          <Heading size="huge">
             All your favorite games in one place
           </Heading>
           <S.Subtitle>
