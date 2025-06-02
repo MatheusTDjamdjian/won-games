@@ -1,5 +1,7 @@
 import React from 'react'
-import Home, { HomeTemplateProps } from '../templates/Home'
+import Home from '../templates/Home'
+
+import { HomeTemplateProps } from '@/templates/Home/types'
 
 import bannersMock from '../components/BannerSlider/mock'
 import gamesMock from '../components/GameCardSlider/mock'

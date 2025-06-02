@@ -1,4 +1,4 @@
-import { RibbonColors, RibbonSizes } from '../Ribbon'
+import { RibbonColors, RibbonSizes } from '../Ribbon/types'
 
 export type GameCardProps = {
     title: string,

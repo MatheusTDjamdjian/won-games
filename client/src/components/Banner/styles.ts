@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 import * as RibbonStyles from '../Ribbon/styles'
-import { MediaMatchProps } from '../MediaMatch'
+import { MediaMatchProps } from '../MediaMatch/types'
 
 export const Wrapper = styled.main<MediaMatchProps>`
   position: relative;

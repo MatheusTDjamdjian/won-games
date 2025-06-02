@@ -10,22 +10,7 @@ import GameCardSlider from '@/components/GameCardSlider'
 import Highlight from '@/components/Highlight'
 import { Container } from '@/components/Container'
 
-import { BannerProps } from '@/components/Banner'
-import { GameCardProps } from '@/components/GameCard/types'
-import { HighlightProps } from '@/components/Highlight/types'
-
-
-export type HomeTemplateProps = {
-  banners: BannerProps[]
-  newGames: GameCardProps[]
-  mostPopularHighlight: HighlightProps
-  mostPopularGames: GameCardProps[]
-  upcommingGames: GameCardProps[]
-  upcommingHighligth: HighlightProps
-  upcommingMoreGames: GameCardProps[]
-  freeGames: GameCardProps[]
-  freeHighligth: HighlightProps
-}
+import { HomeTemplateProps } from './types'
 
 const Home = ( { 
 banners, 
