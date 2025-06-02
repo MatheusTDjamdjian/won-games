@@ -1,20 +1,11 @@
 'use client'
 import React from 'react'
 import * as S from './styles'
+
 import Button from '../Button'
+import Ribbon from '../Ribbon'
 
-import Ribbon, { RibbonColors, RibbonSizes } from '../Ribbon'
-
-export type BannerProps = {
-  img: string
-  title: string
-  subtitle: string 
-  buttonLabel: string
-  buttonLink: string
-  ribbon?: React.ReactNode
-  ribbonColor?: RibbonColors
-  ribbonSize?: RibbonSizes
-}
+import { BannerProps } from './types'
 
 const Banner = ({ img, title, subtitle, buttonLabel, buttonLink, ribbon, ribbonColor = 'primary', ribbonSize = 'normal' }: BannerProps) => (
   <S.Wrapper>

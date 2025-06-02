@@ -1,6 +1,9 @@
 import React from 'react'
 import { StoryObj, Meta } from '@storybook/nextjs'
-import BannerSlider, { BannerSliderProps } from '.'
+
+import BannerSlider from '.'
+
+import { BannerSliderProps } from './types'
  
 import items from './mock'
  

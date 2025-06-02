@@ -1,6 +1,9 @@
 import React from 'react'
 import { Meta, StoryFn} from '@storybook/nextjs'
-import Banner, { BannerProps } from '.'
+
+import Banner from '.'
+
+import { BannerProps } from './types'
 
 export default {
   title: 'Banner',

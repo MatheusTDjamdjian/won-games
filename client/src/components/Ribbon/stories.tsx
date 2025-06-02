@@ -1,6 +1,8 @@
 import React from 'react'
 import { StoryObj, Meta } from '@storybook/nextjs'
-import Ribbon, { RibbonProps } from '.'
+import Ribbon from '.'
+
+import { RibbonProps } from './types'
 
 export default {
   title: 'Ribbon',

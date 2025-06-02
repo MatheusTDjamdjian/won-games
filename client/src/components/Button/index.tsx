@@ -1,18 +1,8 @@
 'use client'
-import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
+import React from 'react'
 import * as S from './styles'
 
-type ButtonTypes = 
-| AnchorHTMLAttributes<HTMLAnchorElement> 
-| ButtonHTMLAttributes<HTMLButtonElement>
-
-export type ButtonProps = {
-  size?: 'small' | 'medium' | 'large'
-  $fullWidth?: boolean
-  $minimal?: boolean
-  icon?: React.ReactNode
-  as?: React.ElementType
-} & ButtonTypes
+import { ButtonProps } from './types'
 
 const Button = ({ children, size = 'small', $fullWidth = false,$minimal = false, icon, ...props }: ButtonProps) => (
   <S.Wrapper size={size} $fullWidth={$fullWidth} $hasIcon={!!icon} $minimal={$minimal} {...props}>

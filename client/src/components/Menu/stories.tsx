@@ -1,6 +1,8 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/nextjs'
-import Menu, { MenuProps } from '.'
+import Menu from '.'
+
+import { MenuProps } from './types'
 
 export default {
   title: 'Menu',

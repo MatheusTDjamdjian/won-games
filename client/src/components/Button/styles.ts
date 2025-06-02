@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { ButtonProps } from '.'
+import { ButtonProps } from './types'
 import { DefaultTheme } from 'styled-components/dist/types'
 
 type WrapperProps = {

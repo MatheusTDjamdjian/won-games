@@ -3,15 +3,12 @@ import { ArrowForwardIos as ArrowRightBase } from '@styled-icons/material-outlin
 
 import styled from 'styled-components'
 import React from 'react'
-import GameCard from '../GameCard'
-import {GameCardProps} from "../GameCard/types"
-import Slider, {SliderSettings} from '../Slider'
 import * as S from './styles'
 
-export type GameCardSliderProps = {
-  items: GameCardProps[]
-  color?: 'white' | 'black'
-}
+import GameCard from '../GameCard'
+import Slider from '../Slider'
+import {SliderSettings} from '../Slider/types'
+import { GameCardSliderProps } from './types'
 
 const ArrowLeftIcon = styled((props) => {
   const { currentSlide, slideCount, ...rest } = props

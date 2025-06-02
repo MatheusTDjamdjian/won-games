@@ -1,11 +1,11 @@
 import React from 'react'
 import * as S from './styles'
-import Banner, { BannerProps } from '../Banner'
-import Slider, { SliderSettings } from '../Slider'
 
-export type BannerSliderProps = {
-  items: BannerProps[]
-}
+import Banner from '../Banner'
+import Slider from '../Slider'
+import {SliderSettings} from '../Slider/types'
+
+import { BannerSliderProps } from './types'
 
 const settings: SliderSettings = {
   dots: true,

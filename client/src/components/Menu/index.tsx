@@ -11,9 +11,7 @@ import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 import MediaMatch from '../MediaMatch'
 import Button from '../Button'
 
-export type MenuProps = {
-  username?: string
-}
+import { MenuProps } from './types'
 
 const Menu = ({ username } : MenuProps) => {
   const [$isOpen, setIsOpen] = useState(false)
