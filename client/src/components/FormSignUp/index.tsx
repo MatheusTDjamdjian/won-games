@@ -1,5 +1,5 @@
 import React from 'react'
-import * as S from './styles'
+import { FormWrapper, FormLink } from '../Form'
 import Link from 'next/link'
 
 import Button from '../Button'
@@ -8,7 +8,7 @@ import TextField from '../TextField'
 import { AccountCircle, Email, Lock } from 'styled-icons/material-outlined'
 
 const FormSignUp = () => (
-  <S.Wrapper>
+  <FormWrapper>
     <form>
       <TextField
         name="name"
@@ -39,14 +39,14 @@ const FormSignUp = () => (
         Sign up now
       </Button>
 
-      <S.FormLink>
+      <FormLink>
         Already have an account?{' '}
         <Link href="/sign-in">
           Sign in
         </Link>
-      </S.FormLink>
+      </FormLink>
     </form>
-  </S.Wrapper>
+  </FormWrapper>
 )
 
 export default FormSignUp

@@ -6,9 +6,10 @@ import TextField from '../TextField'
 import Button from '../Button'
 
 import { Email, Lock } from 'styled-icons/material-outlined'
+import { FormLink, FormWrapper } from '../Form'
 
 const FormSignIn = () => (
-  <S.Wrapper>
+  <FormWrapper>
     <form>
       <TextField
         name="email"
@@ -30,14 +31,14 @@ const FormSignIn = () => (
         Sign in now
       </Button>
 
-      <S.FormLink>
+      <FormLink>
         Don’t have an account?{' '}
         <Link href="/sign-up">
           Sign up
         </Link>
-      </S.FormLink>
+      </FormLink>
     </form>
-  </S.Wrapper>
+  </FormWrapper>
 )
 
 export default FormSignIn
