@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { ButtonProps } from './types'
 import { DefaultTheme } from 'styled-components/dist/types'
 
-type WrapperProps = {
+export type WrapperProps = {
     $hasIcon: boolean
 } & Pick<ButtonProps, 'size' | '$fullWidth' | '$minimal'>
 
