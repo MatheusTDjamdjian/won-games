@@ -14,7 +14,10 @@ export default {
     children: {
       type: 'string'
     }
-  }
+  },
+    backgrounds: {
+       default: 'won-light'
+     }
 } as Meta<RibbonProps>
 
 export const Default: StoryObj<RibbonProps> = {

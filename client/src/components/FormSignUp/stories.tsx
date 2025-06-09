@@ -4,7 +4,10 @@ import FormSignUp from '.'
 
 export default {
   title: 'Form/FormSignUp',
-  component: FormSignUp
+  component: FormSignUp,
+    backgrounds: {
+       default: 'won-light'
+     }
 } as Meta
 
 export const Default: StoryObj = {

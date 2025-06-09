@@ -4,10 +4,10 @@ import { ThemeProvider } from 'styled-components'
 import theme from '../src/styles/theme'
 
 export const decorators = [
-  ( Story ) => (
+  (Story) => (
     <ThemeProvider theme={theme}>
-      <GlobalStyles removeBg={true} />
-      <Story/>
+      <GlobalStyles removeBg={false} /> {/* NÃO remover o background, deixe o Storybook aplicar */}
+      <Story />
     </ThemeProvider>
   )
 ]
@@ -15,17 +15,13 @@ export const decorators = [
 const preview = {
   parameters: {
     backgrounds: {
+      default: 'won-dark',
       values: [
-        // 👇 Default values
-
-        // 👇 Add your own
         { name: 'won-light', value: theme.colors.white },
-        { name: 'won-dark', value: theme.colors.mainBg },
-      ],
-      // 👇 Specify which background is shown by default
-      default: 'won-light',
-    },
-  },
-};
+        { name: 'won-dark', value: theme.colors.mainBg }
+      ]
+    }
+  }
+}
 
 export default preview

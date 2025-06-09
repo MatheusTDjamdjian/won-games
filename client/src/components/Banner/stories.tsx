@@ -22,7 +22,10 @@ export default {
   },
   parameters: {
     layout: 'fullscreen'
-  }
+  },
+  backgrounds: {
+       default: 'won-light'
+     }
 } as Meta
 
 export const Default: StoryFn<BannerProps> = (args: BannerProps) => (

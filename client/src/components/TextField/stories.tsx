@@ -19,7 +19,10 @@ export default {
   argTypes: {
     onInput: { action: 'changed' },
     icon: { control: false }
-  }
+  },
+    backgrounds: {
+       default: 'won-light'
+     }
 } as Meta
 
 export const Default: StoryObj<TextFieldProps> = {

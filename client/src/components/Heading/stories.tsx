@@ -11,7 +11,10 @@ import { HeadingProps } from './types'
      children: {
        type: 'string'
      }
-   }
+   },
+    backgrounds: {
+       default: 'won-light'
+     }
  } as Meta
  
  export const Default: StoryObj<HeadingProps> = (args: HeadingProps) => <Heading {...args} />

@@ -13,7 +13,10 @@ export default {
     },
     icon: {
       control: false
-    }
+    },
+    backgrounds: {
+       default: 'won-light'
+     }
   }
 } as Meta
 

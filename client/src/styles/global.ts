@@ -31,7 +31,7 @@ const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
     body {
       font-family: Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-      font-size: 1.6rem;
+ ShowCas     font-size: 1.6rem;
 
       ${!removeBg &&
       css`
