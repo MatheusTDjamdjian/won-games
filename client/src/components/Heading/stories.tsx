@@ -1,25 +1,31 @@
- import { StoryObj, Meta } from '@storybook/nextjs'
- import Heading from '.'
- import React from 'react'
+import { StoryObj, Meta } from '@storybook/nextjs'
+import Heading from '.'
+import React from 'react'
 
 import { HeadingProps } from './types'
- 
- export default {
-   title: 'Heading',
-   component: Heading,
-   argTypes: {
-     children: {
-       type: 'string'
-     }
-   },
-    backgrounds: {
-       default: 'won-light'
-     }
- } as Meta
- 
- export const Default: StoryObj<HeadingProps> = (args: HeadingProps) => <Heading {...args} />
+import theme from '../../styles/theme'
+import GlobalStyles from '../../styles/global'
+import { ThemeProvider } from 'styled-components'
 
- Default.args = {
-   children: 'Most Populars',
-   color: 'black'
- }
+export default {
+  title: 'Heading',
+  component: Heading,
+  argTypes: {
+    children: {
+      type: 'string'
+    }
+  }
+} as Meta<HeadingProps>
+
+export const Default: StoryObj<HeadingProps> = {
+  render: (args) => (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles bgColor={theme.colors.white} />
+      <Heading {...args} />
+    </ThemeProvider>
+  ),
+  args: {
+    children: 'Most Populars',
+    color: 'black'
+  }
+}

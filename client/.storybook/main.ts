@@ -1,7 +1,11 @@
 const config = {
   staticDirs: ['..\\public'],
   stories: ['../src/components/**/stories.tsx'],
-  addons: ['@storybook/addon-docs'],
+  addons: [
+    '@storybook/addon-docs',
+    '@storybook/addon-links',
+    '@storybook/addon-themes'
+  ],
   framework: {
     name: '@storybook/nextjs',
     options: {}
@@ -12,4 +16,5 @@ const config = {
     return config
   }
 }
+
 export default config

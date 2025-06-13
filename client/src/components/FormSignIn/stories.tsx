@@ -1,13 +1,21 @@
-import React from 'react';
+import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
 import FormSignIn from '.'
+import theme from '../../styles/theme'
+import GlobalStyles from '../../styles/global'
+import { ThemeProvider } from 'styled-components'
 
 export default {
   title: 'Form/FormSignIn',
   component: FormSignIn,
-    backgrounds: {
-       default: 'won-light'
-     }
+  decorators: [
+    (Story) => (
+      <ThemeProvider theme={theme}>
+        <GlobalStyles bgColor={theme.colors.white} />
+        <Story />
+      </ThemeProvider>
+    )
+  ]
 } as Meta
 
 export const WithFloatImage: StoryObj = {
@@ -16,4 +24,4 @@ export const WithFloatImage: StoryObj = {
       <FormSignIn />
     </div>
   )
-};
+}

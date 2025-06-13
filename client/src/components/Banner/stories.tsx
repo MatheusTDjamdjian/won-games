@@ -21,11 +21,11 @@ export default {
     buttonLink: '/games/defy-death'
   },
   parameters: {
-    layout: 'fullscreen'
-  },
+    layout: 'fullscreen',
   backgrounds: {
-       default: 'won-light'
-     }
+    default: 'won-dark'
+  }
+}
 } as Meta
 
 export const Default: StoryFn<BannerProps> = (args: BannerProps) => (

@@ -4,24 +4,37 @@ import { ThemeProvider } from 'styled-components'
 import theme from '../src/styles/theme'
 
 export const decorators = [
-  (Story) => (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles removeBg={false} /> {/* NÃO remover o background, deixe o Storybook aplicar */}
-      <Story />
-    </ThemeProvider>
-  )
+  (Story, context) => {
+    // pega o tema selecionado no painel
+    const currentTheme = context.globals.theme || 'Won Dark'
+
+    // define a cor de fundo conforme o tema
+    const bgColor =
+      currentTheme === 'Won Dark' ? theme.colors.mainBg : theme.colors.white
+
+    return (
+      <ThemeProvider theme={theme}>
+        <GlobalStyles removeBg={false} bgColor={bgColor} />
+        <Story />
+      </ThemeProvider>
+    )
+  }
 ]
 
-const preview = {
-  parameters: {
-    backgrounds: {
-      default: 'won-dark',
-      values: [
-        { name: 'won-light', value: theme.colors.white },
-        { name: 'won-dark', value: theme.colors.mainBg }
-      ]
-    }
-  }
+export const preview = {
+  themes: {
+    default: 'Won Dark',
+    list: [
+      {
+        name: 'Won Light',
+        color: theme.colors.white,
+      },
+      {
+        name: 'Won Dark',
+        color: theme.colors.mainBg,
+      },
+    ],
+  },
 }
 
 export default preview

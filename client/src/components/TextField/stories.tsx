@@ -4,6 +4,9 @@ import TextField from '.'
 import { Email } from '@styled-icons/material-outlined'
 
 import { TextFieldProps } from './types'
+import theme from '../../styles/theme'
+import GlobalStyles from '../../styles/global'
+import { ThemeProvider } from 'styled-components'
 
 export default {
   title: 'Form/TextField',
@@ -20,10 +23,15 @@ export default {
     onInput: { action: 'changed' },
     icon: { control: false }
   },
-    backgrounds: {
-       default: 'won-light'
-     }
-} as Meta
+  decorators: [
+    (Story) => (
+      <ThemeProvider theme={theme}>
+        <GlobalStyles bgColor={theme.colors.white} />
+        <Story />
+      </ThemeProvider>
+    )
+  ]
+} as Meta<TextFieldProps>
 
 export const Default: StoryObj<TextFieldProps> = {
   render: (args) => (
@@ -38,9 +46,8 @@ export const withError: StoryObj<TextFieldProps> = {
     <div style={{ maxWidth: 300, padding: 15 }}>
       <TextField {...args} />
     </div>
-  )
-}
-
-withError.args = {
-  error: 'Ops...something is wrong'
+  ),
+  args: {
+    error: 'Ops...something is wrong'
+  }
 }
