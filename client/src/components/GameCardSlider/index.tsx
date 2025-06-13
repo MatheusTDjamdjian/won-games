@@ -8,9 +8,9 @@ import * as S from './styles'
 import GameCard from '../GameCard'
 import Slider from '../Slider'
 import {SliderSettings} from '../Slider/types'
-import { GameCardSliderProps } from './types'
+import { GameCardSliderProps, CustomArrowProps } from './types'
 
-const ArrowLeftIcon = styled((props) => {
+const ArrowLeftIcon = styled((props: CustomArrowProps) => {
   const { currentSlide, slideCount, ...rest } = props
   void currentSlide
   void slideCount
@@ -19,7 +19,7 @@ const ArrowLeftIcon = styled((props) => {
   cursor: pointer;
 `
 
-const ArrowRightIcon = styled((props) => {
+const ArrowRightIcon = styled((props: CustomArrowProps) => {
   const { currentSlide, slideCount, ...rest } = props
   void currentSlide
   void slideCount

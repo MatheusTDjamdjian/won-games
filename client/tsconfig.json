@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -11,14 +15,26 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",  // <-- OBRIGATÓRIO para JSX funcionar
+    "jsx": "preserve", // <-- OBRIGATÓRIO para JSX funcionar
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@styles/*": ["styles/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ]
     },
-    "types": ["@types/react", "@types/react-dom"]
+    "types": [
+      "@types/react",
+      "@types/react-dom"
+    ],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "/.jest/setup.ts",
@@ -29,5 +45,7 @@
     "src",
     "prop-types.d.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
