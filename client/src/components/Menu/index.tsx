@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as S from './styles'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -14,8 +14,15 @@ import Button from '../Button'
 
 import { MenuProps } from './types'
 
+
+
 const Menu = ({ username } : MenuProps) => {
   const [$isOpen, setIsOpen] = useState(false)
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <S.Wrapper>
@@ -43,7 +50,7 @@ const Menu = ({ username } : MenuProps) => {
         <S.IconWrapper> 
           <img src={ShoppingCart.src} alt="Open Shopping Cart" />
         </S.IconWrapper>
-        {!username && (
+        {isClient && !username && (
           <MediaMatch $greaterThan="medium">
             <Link href="/sign-in" passHref>
               <Button>Sign in</Button>
@@ -64,7 +71,7 @@ const Menu = ({ username } : MenuProps) => {
           </>
           )}
         </S.MenuNav>
-        {!username && (
+        {isClient && !username && (
           <S.RegisterBox>
              <Link href="/sign-in" passHref>
               <Button $fullWidth size="large">

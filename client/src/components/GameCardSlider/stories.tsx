@@ -1,5 +1,5 @@
 import React from 'react'
-import { StoryObj, Meta } from '@storybook/nextjs'
+import type { Meta, StoryObj } from '@storybook/react'
  
 import {GameCardProps} from "../GameCard/types"
 import GameCardSlider from '.'

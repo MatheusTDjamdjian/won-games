@@ -1,5 +1,5 @@
-import React from 'react';
-import { Meta, StoryObj } from '@storybook/nextjs'
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
 import Menu from '.'
 
 import { MenuProps } from './types'

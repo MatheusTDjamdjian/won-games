@@ -1,4 +1,4 @@
-import { StoryObj, Meta } from '@storybook/nextjs'
+import type { Meta, StoryObj } from '@storybook/react'
 import Heading from '.'
 import React from 'react'
 

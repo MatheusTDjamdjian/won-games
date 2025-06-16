@@ -1,5 +1,5 @@
 import React from 'react'
-import { StoryObj, Meta } from '@storybook/nextjs'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import BannerSlider from '.'
 

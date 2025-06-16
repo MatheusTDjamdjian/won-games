@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { HighlightProps } from './types'
-import { Meta, StoryObj } from '@storybook/nextjs'
+import type { Meta, StoryObj } from '@storybook/react'
 import Highlight from '.'
 
 import item from './mock'
