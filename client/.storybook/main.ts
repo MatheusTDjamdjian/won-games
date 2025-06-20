@@ -1,3 +1,5 @@
+/// <reference types="node" />
+
 const config = {
   staticDirs: ['..\\public'],
   stories: ['../src/components/**/stories.tsx'],
