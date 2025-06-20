@@ -8,7 +8,6 @@ import Showcase from '@/components/Showcase'
 import { Container } from '@/components/Container'
 
 import { HomeTemplateProps } from './types'
-
 const Home = ( { 
 banners, 
 newGames,

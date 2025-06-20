@@ -5,10 +5,8 @@ import theme from '../src/styles/theme'
 
 export const decorators = [
   (Story, context) => {
-    // pega o tema selecionado no painel
     const currentTheme = context.globals.theme || 'Won Dark'
 
-    // define a cor de fundo conforme o tema
     const bgColor =
       currentTheme === 'Won Dark' ? theme.colors.mainBg : theme.colors.white
 
@@ -21,20 +19,56 @@ export const decorators = [
   }
 ]
 
-export const preview = {
+export const parameters = {
   themes: {
     default: 'Won Dark',
     list: [
       {
         name: 'Won Light',
-        color: theme.colors.white,
+        color: theme.colors.white
       },
       {
         name: 'Won Dark',
-        color: theme.colors.mainBg,
-      },
-    ],
+        color: theme.colors.mainBg
+      }
+    ]
   },
+  viewport: {
+    viewports: {
+      desktopLarge: {
+        name: 'Desktop Large',
+        styles: {
+          width: '1400px', // ativa arrows
+          height: '800px'
+        }
+      },
+      desktop: {
+        name: 'Desktop padrão',
+        styles: {
+          width: '1200px',
+          height: '800px'
+        }
+      },
+      tablet: {
+        name: 'Tablet',
+        styles: {
+          width: '1024px',
+          height: '800px'
+        }
+      },
+      mobile: {
+        name: 'Mobile',
+        styles: {
+          width: '375px',
+          height: '800px'
+        }
+      }
+    },
+    defaultViewport: 'desktopLarge' // inicia já no maior para ver o slider funcionando
+  }
 }
 
-export default preview
+export default {
+  decorators,
+  parameters
+}
