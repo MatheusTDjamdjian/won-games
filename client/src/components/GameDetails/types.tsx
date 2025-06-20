@@ -8,4 +8,5 @@ export type GameDetailsProps = {
   releaseDate: string
   rating: Rating
   genres: string[]
+  publisher: string
 }

@@ -1,23 +1,27 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import GameDetails from '.'
+import mockGame from './mock'
 
 const meta: Meta<typeof GameDetails> = {
   title: 'Game/GameDetails',
   component: GameDetails,
-  args: {
-    developer: 'Different Tales',
-    releaseDate: '2020-11-21T23:00:00',
-    platforms: ['windows', 'mac', 'linux'],
-    rating: 'BR0',
-    genres: ['Role-playing']
-  },
+  args: mockGame,
   argTypes: {
+    releaseDate: {
+      control: 'date'
+    },
     platforms: {
       control: {
-        type: 'check', // 'check' funciona melhor para arrays
+        type: 'check'
       },
       options: ['windows', 'linux', 'mac']
+    },
+    genres: {
+      control: {
+        type: 'check'
+      },
+      options: ['Role-playing', 'Narrative']
     }
   }
 }
