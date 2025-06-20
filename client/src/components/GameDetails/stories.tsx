@@ -1,16 +1,30 @@
 import React from 'react'
-import { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import GameDetails from '.'
 
-export default {
+const meta: Meta<typeof GameDetails> = {
   title: 'Game/GameDetails',
   component: GameDetails,
-} as Meta
+  args: {
+    platforms: ['windows', 'linux', 'mac']
+  },
+  argTypes: {
+    platforms: {
+      control: {
+        type: 'check', // 'check' funciona melhor para arrays
+      },
+      options: ['windows', 'linux', 'mac']
+    }
+  }
+}
+export default meta
 
-export const Default: StoryObj = {
-  render: () => (
+type Story = StoryObj<typeof GameDetails>
+
+export const Default: Story = {
+  render: (args) => (
     <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
-      <GameDetails platforms={['windows', 'linux', 'mac']} />
+      <GameDetails {...args} />
     </div>
   )
 }

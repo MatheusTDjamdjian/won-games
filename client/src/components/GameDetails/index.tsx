@@ -5,7 +5,7 @@ import Heading from '@/components/Heading'
 import MediaMatch from '@/components/MediaMatch'
 
 import { Apple, Windows, Linux } from '@styled-icons/fa-brands'
-import { GameDetailsProps, Platform } from './typex'
+import { GameDetailsProps, Platform } from './types'
 
 const GameDetails = ({ platforms }: GameDetailsProps) => {
   const platformIcons = {
