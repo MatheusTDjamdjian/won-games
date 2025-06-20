@@ -8,6 +8,11 @@ import { Apple, Windows, Linux } from '@styled-icons/fa-brands'
 import { GameDetailsProps, Platform } from './typex'
 
 const GameDetails = ({ platforms }: GameDetailsProps) => {
+  const platformIcons = {
+    linux: <Linux title="Linux" size={18} />,
+    mac: <Apple title="Mac" size={18} />,
+    windows: <Windows title="Windows" size={18} />
+  }
 
   return (
     <S.Wrapper>
@@ -31,6 +36,8 @@ const GameDetails = ({ platforms }: GameDetailsProps) => {
         <S.Block>
           <S.Label>Platforms</S.Label>
           <S.IconsWrapper>
+            {platforms.map((icon: Platform) => (
+              <S.Icon key={icon}>{platformIcons[icon]}</S.Icon>
             ))}
           </S.IconsWrapper>
         </S.Block>
