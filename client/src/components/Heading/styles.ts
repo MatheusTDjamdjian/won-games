@@ -4,7 +4,7 @@ import media from 'styled-media-query'
 import { LineColors } from '.'
 import { HeadingProps } from './types'
 
-const wrapperModifiers = {
+export const wrapperModifiers = {
     small: (theme: DefaultTheme) => css`
     font-size: ${theme.font.sizes.medium};
 
