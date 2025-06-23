@@ -4,7 +4,6 @@ const config = {
   staticDirs: ['..\\public'],
   stories: ['../src/components/**/stories.tsx'],
   addons: [
-    '@storybook/addon-viewport'
   ],
   framework: {
     name: '@storybook/nextjs',

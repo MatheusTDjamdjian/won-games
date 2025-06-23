@@ -1,6 +1,9 @@
 'use client'
 import { createGlobalStyle, css } from 'styled-components'
 
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
 interface GlobalStylesProps {
   removeBg?: boolean
   bgColor?: string  // nova prop para cor do fundo

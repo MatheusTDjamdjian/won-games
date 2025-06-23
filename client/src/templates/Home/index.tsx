@@ -38,6 +38,7 @@ freeHighligth
     </S.SectionUpcoming>
 
     <Showcase title="Free games" highlight={freeHighligth} games={freeGames}/>
+
   </Base>
 )
 
