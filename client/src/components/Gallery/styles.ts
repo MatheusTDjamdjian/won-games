@@ -91,7 +91,17 @@ export const Close = styled.div`
   `}
 `
 
-export const Content = styled.div`Add commentMore actions
+export const Content = styled.div`
   max-width: min(120rem, 100%);
   max-height: 80rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-height: 80rem;
+    max-width: 100%;
+    object-fit: contain;
+  }
 `
