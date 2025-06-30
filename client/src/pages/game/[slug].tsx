@@ -1,7 +1,10 @@
 import React from "react"
 
 import Game, { GameTemplateProps } from "@/templates/Game"
+
 import galleryMock from '@/components/Gallery/mock'
+import gamesMock from '@/components/GameCardSlider/mock'
+import highlightMock from '@/components/Highlight/mock'
 
 export default function Index(props: GameTemplateProps) {
   return <Game {...props} />
@@ -52,7 +55,10 @@ export async function getStaticProps() {
         publisher: 'CD PROJEKT RED',
         rating: 'BR18',
         genres: ['Action', 'Role-playing']
-      }
+      },
+      upcommingGames: gamesMock,
+      upcommingHighlight: highlightMock,
+      recommendedGames: gamesMock
     }
   }
 }
