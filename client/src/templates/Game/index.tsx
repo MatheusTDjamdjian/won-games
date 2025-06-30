@@ -1,15 +1,24 @@
 import React from 'react'
 import * as S from './styles'
 
+import GameInfo from '@/components/GameInfo'
+import { GameInfoProps } from '@/components/GameInfo/types'
 import Base from '../Base'
 
-const Game = () => (
+export type GameTemplateProps = {
+  cover: string
+  gameInfo: GameInfoProps
+}
+
+const Game = ({ cover, gameInfo }: GameTemplateProps) => (
   <Base>
-    <S.Cover
-      src="https://images.gog-statics.com/5643a7c831df452d29005caeca24c28cdbfaa6fbea5a9556b147ee26d325fa70_bg_crop_1366x655.jpg"
-      role="image"
-      aria-label="cover"
-    />
+    <S.Cover src={cover} role="image" aria-label="cover" />
+
+    <S.Main>
+      <S.SectionGameInfo>
+        <GameInfo {...gameInfo} />
+      </S.SectionGameInfo>
+    </S.Main>
   </Base>
 )
 

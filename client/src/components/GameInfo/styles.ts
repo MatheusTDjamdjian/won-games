@@ -3,13 +3,13 @@ import media from 'styled-media-query'
 
 import * as RibbonStyles from '@/components/Ribbon/styles'
 
-export const Wrapper = styled.div`Add commentMore actions
+export const Wrapper = styled.div`
   ${({ theme }) => css`
     position: relative;
     background: ${theme.colors.white};
     padding: ${theme.spacings.small};
 
-    ${RibbonStyles.Wrapper} {Add commentMore actions
+    ${RibbonStyles.Wrapper} {
       right: -1rem;
 
       &:before {
@@ -30,7 +30,7 @@ export const Wrapper = styled.div`Add commentMore actions
   `}
 `
 
-export const Description = styled.p`Add commentMore actions
+export const Description = styled.p`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.small};
     color: ${theme.colors.gray};
