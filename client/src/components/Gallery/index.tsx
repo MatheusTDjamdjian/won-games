@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect, useRef } from 'react'
 import * as S from './styles'
 
@@ -57,7 +59,6 @@ const modalSettings: SliderSettings = {
 
 const Gallery = ({ items }: GalleryProps) => {
   const modalSlider = useRef<SlickSlider>(null)
-
   const [isOpen, setIsOpen] = useState(false)
   const [current, setCurrent] = useState(0)
 
@@ -73,56 +74,60 @@ const Gallery = ({ items }: GalleryProps) => {
   useEffect(() => {
     if (isOpen && modalSlider.current) {
       modalSlider.current.slickGoTo(current, true)
-      modalSlider.current.slickPlay();
+      modalSlider.current.slickPlay()
     }
   }, [isOpen, current])
 
   return (
-  <S.Wrapper>
-    {/* Slider principal (sem ref, sem isModal) */}
-    <Slider settings={settings}>
-      {items.map((item, index) => (
-        <img
-          role="button"
-          key={`thumb-${index}`}
-          src={item.src}
-          alt={`Thumb - ${item.label}`}
-          onClick={() => {
-            setCurrent(index)
-            setIsOpen(true)
-          }}
-        />
-      ))}
-    </Slider>
+    <S.Wrapper>
+      <Slider settings={settings}>
+        {items.map((item, index) => (
+          <img
+            loading="lazy"
+            role="button"
+            key={`thumb-${index}`}
+            src={item.src}
+            alt={`Thumb - ${item.label}`}
+            onClick={() => {
+              setCurrent(index)
+              setIsOpen(true)
+            }}
+          />
+        ))}
+      </Slider>
 
-    {/* Modal */}
-    <S.Modal
-      isOpen={isOpen}
-      aria-label="modal"
-      aria-hidden={!isOpen}
-      onClick={() => setIsOpen(false)}
-    >
-      <S.Close
-        role="button"
-        aria-label="close modal"
-        onClick={(e) => {
-          e.stopPropagation()
-          setIsOpen(false)
-        }}
+      <S.Modal
+        isOpen={isOpen}
+        aria-label="modal"
+        aria-hidden={!isOpen}
+        onClick={() => setIsOpen(false)}
       >
-        <Close size={40} />
-      </S.Close>
+        <S.Close
+          role="button"
+          aria-label="close modal"
+          onClick={(e) => {
+            e.stopPropagation()
+            setIsOpen(false)
+          }}
+        >
+          <Close size={40} />
+        </S.Close>
 
-      <S.Content onClick={(e) => e.stopPropagation()}>
-        <Slider ref={modalSlider} settings={modalSettings}>
-          {items.map((item, index) => (
-            <img key={`gallery-${index}`} src={item.src} alt={item.label} />
-          ))}
-        </Slider>
-      </S.Content>
-    </S.Modal>
-  </S.Wrapper>
-)
+        <S.Content onClick={(e) => e.stopPropagation()}>
+          <Slider ref={modalSlider} settings={modalSettings}>
+            {items.map((item, index) => (
+              <img
+                key={`gallery-${index}`}
+                src={item.src}
+                alt={item.label}
+                loading="lazy"
+              />
+            ))}
+          </Slider>
+        </S.Content>
+      </S.Modal>
+    </S.Wrapper>
+  )
 }
 
 export default Gallery

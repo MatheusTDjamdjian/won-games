@@ -3,7 +3,7 @@ import { screen } from '@testing-library/react'
 
 import Button from '.'
 import { renderWithTheme } from '@/utils/tests/helpers'
-import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
+import AddShoppingCart from '../GameCard/icons/add_shopping_cart.png'
 
 describe('<Button />', () => {
   it('should render the medium size by default', () => {
@@ -46,7 +46,7 @@ describe('<Button />', () => {
   })
 
   it('should render a minimal version', () => {
-    renderWithTheme(<Button icon={<AddShoppingCart data-testid="icon"/>} $minimal>
+    renderWithTheme(<Button icon={<img src={AddShoppingCart.src} data-testid="icon" />} $minimal>
       Buy Now
     </Button>)
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
+import AddShoppingCart from '../GameCard/icons/add_shopping_cart.png'
 import Button from '.'
 
 export default {
@@ -40,7 +40,7 @@ export const withIcon: StoryObj = {
 withIcon.args = {
   size: 'small',
   children: 'Buy Now',
-  icon: <AddShoppingCart />
+  icon: <img src={AddShoppingCart.src} alt="Add to cart" />
 }
 
 export const asLink: StoryObj = {

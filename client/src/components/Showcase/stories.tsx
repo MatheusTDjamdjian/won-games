@@ -1,7 +1,8 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/nextjs'
 
-import Showcase, { ShowcaseProps } from '.'
+import Showcase from '.'
+import { ShowcaseProps } from './types'
 
 import highlightMock from '../Highlight/mock'
 import gamesMock from '../GameCardSlider/mock'

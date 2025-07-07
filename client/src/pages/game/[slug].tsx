@@ -10,7 +10,6 @@ export default function Index(props: GameTemplateProps) {
   return <Game {...props} />
 }
 
-// gerar em build time (/game/bla, /bame/foo ...)
 export async function getStaticPaths() {
   return {
     paths: [{ params: { slug: 'cyberpunk-2077' } }],
@@ -19,6 +18,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
+  console.time('getStaticProps')
   const descriptionHTML = `
     <img src="https://items.gog.com/not_a_cp/ENG_product-page-addons-2020_yellow_on_black.png"><br>
     * Exclusive Digital Comic - Cyberpunk 2077: Big City Dreams will be available in English only.
@@ -36,6 +36,8 @@ export async function getStaticProps() {
     CD PROJEKT S.A. All rights reserved. All other copyrights and trademarks are the property of their
     respective owners.
   </p>`
+  console.timeEnd('getStaticProps')
+
   return {
     props: {
       cover:
@@ -59,6 +61,7 @@ export async function getStaticProps() {
       upcomingGames: gamesMock,
       upcomingHighlight: highlightMock,
       recommendedGames: gamesMock
-    }
+    },
+    revalidate: 60
   }
 }

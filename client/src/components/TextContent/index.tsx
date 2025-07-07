@@ -4,16 +4,20 @@ import * as S from './styles'
 import Heading from '../Heading'
 import { TextContentProps } from './types'
 
-const TextContent = ({ title, content }: TextContentProps) => (
-  <S.Wrapper>
-    {!!title && (
-      <Heading lineLeft lineColor="secondary">
-        {title}
-      </Heading>
-    )}
+const TextContent = ({ title, content }: TextContentProps) => {
+  const optimizedContent = content.replace(/<img /g, '<img loading="lazy" ')
 
-    <div dangerouslySetInnerHTML={{ __html: content }} />
-  </S.Wrapper>
-)
+  return (
+    <S.Wrapper>
+      {!!title && (
+        <Heading lineLeft lineColor="secondary">
+          {title}
+        </Heading>
+      )}
+
+      <div dangerouslySetInnerHTML={{ __html: optimizedContent }} />
+    </S.Wrapper>
+  )
+}
 
 export default TextContent
