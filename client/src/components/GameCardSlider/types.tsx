@@ -5,7 +5,7 @@ export interface CustomArrowProps {
   style?: React.CSSProperties
   onClick?: () => void
   currentSlide?: number
-  slideCount?: number
+  $slideCount?: number
   'aria-label'?: string
   tabIndex?: number
   role?: string

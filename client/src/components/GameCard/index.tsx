@@ -26,7 +26,7 @@ const GameCard = ({title, developer, img, price, promotionalPrice, favorite = fa
     favorite ? ( <img src="/img/icons/favorite.png"alt="Remove from Wishlist" /> ) :
     (
       <S.FavBorder>
-        <img src="/img/icons/favorite-border.png" aria-label="Add to Wishlist" />
+        <img src="/img/icons/coracao.png" aria-label="Add to Wishlist" />
       </S.FavBorder>
     )
   }
@@ -35,7 +35,7 @@ const GameCard = ({title, developer, img, price, promotionalPrice, favorite = fa
       <S.BuyBox>
         {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
         <S.Price>{promotionalPrice || price}</S.Price>
-        <Button icon={<img src="/img/icons/add-shopping-card.png" alt="Add to cart" />} size="small"/>
+        <Button icon={<img src="/img/icons/add-shopping-cart.png" alt="Add to cart" />} size="small"/>
       </S.BuyBox>
     </S.Content>
   </S.Wrapper>

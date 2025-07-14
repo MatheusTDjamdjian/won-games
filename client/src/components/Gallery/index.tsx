@@ -59,7 +59,7 @@ const modalSettings: SliderSettings = {
 
 const Gallery = ({ items }: GalleryProps) => {
   const modalSlider = useRef<SlickSlider>(null)
-  const [isOpen, setIsOpen] = useState(false)
+  const [$isOpen, setIsOpen] = useState(false)
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
@@ -72,11 +72,11 @@ const Gallery = ({ items }: GalleryProps) => {
   }, [])
 
   useEffect(() => {
-    if (isOpen && modalSlider.current) {
+    if ($isOpen && modalSlider.current) {
       modalSlider.current.slickGoTo(current, true)
       modalSlider.current.slickPlay()
     }
-  }, [isOpen, current])
+  }, [$isOpen, current])
 
   return (
     <S.Wrapper>
@@ -97,9 +97,9 @@ const Gallery = ({ items }: GalleryProps) => {
       </Slider>
 
       <S.Modal
-        isOpen={isOpen}
+        $isOpen={$isOpen}
         aria-label="modal"
-        aria-hidden={!isOpen}
+        aria-hidden={!$isOpen}
         onClick={() => setIsOpen(false)}
       >
         <S.Close

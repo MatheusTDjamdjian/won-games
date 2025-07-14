@@ -11,18 +11,18 @@ import {SliderSettings} from '../Slider/types'
 import { GameCardSliderProps, CustomArrowProps } from './types'
 
 const ArrowLeftIcon = styled((props: CustomArrowProps) => {
-  const { currentSlide, slideCount, ...rest } = props
+  const { currentSlide, $slideCount, ...rest } = props
   void currentSlide
-  void slideCount
+  void $slideCount
   return <ArrowLeftBase {...rest} />
 })`
   cursor: pointer;
 `
 
 const ArrowRightIcon = styled((props: CustomArrowProps) => {
-  const { currentSlide, slideCount, ...rest } = props
+  const { currentSlide, $slideCount, ...rest } = props
   void currentSlide
-  void slideCount
+  void $slideCount
   return <ArrowRightBase {...rest} />
 })`
   cursor: pointer;

@@ -47,7 +47,7 @@ const Menu = ({ username } : MenuProps) => {
           <SearchIcon aria-label="Search"/>
         </S.IconWrapper>
         <S.IconWrapper> 
-          <img src="/img/icons/add-shopping-card.png" alt="Open Shopping Cart" />
+          <img src="/img/icons/add-shopping-cart.png" alt="Open Shopping Cart" />
         </S.IconWrapper>
         {isClient && !username && (
           <MediaMatch $greaterThan="medium">

@@ -105,7 +105,10 @@ export const FavBorder = styled.span`
   img {
     width: 2.4rem;
     height: 2.4rem;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
+    display: block;
   }
 `
 

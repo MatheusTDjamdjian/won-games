@@ -38,7 +38,7 @@ const FormSignIn = () => {
           type="password"
           icon={
             <Image
-              src="img/icons/cadeado.png"
+              src="/img/icons/cadeado.png"
               alt="Password icon"
               width={20}
               height={20}

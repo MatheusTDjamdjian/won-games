@@ -49,7 +49,7 @@ const FormSignUp = () => {
           type="password"
           icon={
             <Image
-              src="img/icons/cadeado.png"
+              src="/img/icons/cadeado.png"
               alt="Password icon"
               width={20}
               height={20}
@@ -62,7 +62,7 @@ const FormSignUp = () => {
           type="password"
           icon={
             <Image
-              src="img/icons/cadeado.png"
+              src="/img/icons/cadeado.png"
               alt="Confirm password icon"
               width={20}
               height={20}
