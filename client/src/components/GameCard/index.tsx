@@ -4,9 +4,6 @@ import { GameCardProps } from './types'
 
 import Ribbon from '../Ribbon'
 import Button from '../Button'
-import FavoriteBorder from './icons/coracao.png'
-import Favorite from './icons/favorite.png'
-import AddShoppingCart from './icons/add_shopping_cart.png'
 
 const GameCard = ({title, developer, img, price, promotionalPrice, favorite = false, ribbon, ribbonColor = 'primary', ribbonSize = 'small', onFav}: GameCardProps) => (
   <S.Wrapper>
@@ -26,10 +23,10 @@ const GameCard = ({title, developer, img, price, promotionalPrice, favorite = fa
       <S.FavButton onClick={onFav} role="button">
       <Button
   icon={
-    favorite ? ( <img src={Favorite.src} alt="Remove from Wishlist" /> ) :
+    favorite ? ( <img src="/img/icons/favorite.png"alt="Remove from Wishlist" /> ) :
     (
       <S.FavBorder>
-        <img src={FavoriteBorder.src} aria-label="Add to Wishlist" />
+        <img src="/img/icons/favorite-border.png" aria-label="Add to Wishlist" />
       </S.FavBorder>
     )
   }
@@ -38,7 +35,7 @@ const GameCard = ({title, developer, img, price, promotionalPrice, favorite = fa
       <S.BuyBox>
         {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
         <S.Price>{promotionalPrice || price}</S.Price>
-        <Button icon={<img src={AddShoppingCart.src} alt="Add to cart" />} size="small"/>
+        <Button icon={<img src="/img/icons/add-shopping-card.png" alt="Add to cart" />} size="small"/>
       </S.BuyBox>
     </S.Content>
   </S.Wrapper>

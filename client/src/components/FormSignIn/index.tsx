@@ -6,8 +6,6 @@ import TextField from '../TextField'
 import Button from '../Button'
 
 import Image from 'next/image'
-import Email from '../FormSignUp/icons/e-mail.png'
-import Lock from '../FormSignUp/icons/cadeado.png'
 
 import { FormLink, FormWrapper } from '../Form'
 
@@ -27,7 +25,7 @@ const FormSignIn = () => {
           type="email"
           icon={
             <Image
-              src={Email}
+              src="/img/icons/e-mail.png"
               alt="Email icon"
               width={20}
               height={20}
@@ -40,7 +38,7 @@ const FormSignIn = () => {
           type="password"
           icon={
             <Image
-              src={Lock}
+              src="img/icons/cadeado.png"
               alt="Password icon"
               width={20}
               height={20}

@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components'
 
 type WrapperProps = {
-  isModal?: boolean
+  $isModal?: boolean
 }
 
 export const Wrapper = styled.section<WrapperProps>`
-  ${({ isModal }) => css`
+  ${({ $isModal }) => css`
     /* Slider */
     .slick-slider {
       position: relative;
@@ -112,7 +112,7 @@ export const Wrapper = styled.section<WrapperProps>`
       display: none;
     }
 
-    ${isModal &&
+    ${$isModal &&
     css`
       // 🟢 ALTERADO: estilos aplicados somente no modal
       .slick-slide {

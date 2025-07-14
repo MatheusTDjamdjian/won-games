@@ -6,7 +6,6 @@ import { useState } from 'react'
 import Logo from '../Logo'
 
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
-import ShoppingCart from '../GameCard/icons/shopping_cart.png'
 import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 import MediaMatch from '../MediaMatch'
@@ -48,7 +47,7 @@ const Menu = ({ username } : MenuProps) => {
           <SearchIcon aria-label="Search"/>
         </S.IconWrapper>
         <S.IconWrapper> 
-          <img src={ShoppingCart.src} alt="Open Shopping Cart" />
+          <img src="/img/icons/add-shopping-card.png" alt="Open Shopping Cart" />
         </S.IconWrapper>
         {isClient && !username && (
           <MediaMatch $greaterThan="medium">

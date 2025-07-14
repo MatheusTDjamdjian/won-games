@@ -5,5 +5,5 @@ export type SliderSettings = Settings
 export type SliderProps = {
   children: React.ReactNode
   settings: SliderSettings
-  isModal?: boolean
+  $isModal?: boolean
 }

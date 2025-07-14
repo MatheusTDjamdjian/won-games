@@ -6,9 +6,6 @@ import Button from '../Button'
 import TextField from '../TextField'
 
 import Image from 'next/image'
-import AccountCircle from './icons/perfil.png'
-import Email from './icons/e-mail.png'
-import Lock from './icons/cadeado.png'
 
 const FormSignUp = () => {
   const [isClient, setIsClient] = useState(false)
@@ -26,7 +23,7 @@ const FormSignUp = () => {
           type="text"
           icon={
             <Image
-              src={AccountCircle}
+              src="/img/icons/perfil.png"
               alt="Account icon"
               width={20}
               height={20}
@@ -39,7 +36,7 @@ const FormSignUp = () => {
           type="email"
           icon={
             <Image
-              src={Email}
+              src="/img/icons/e-mail.png"
               alt="Email icon"
               width={20}
               height={20}
@@ -52,7 +49,7 @@ const FormSignUp = () => {
           type="password"
           icon={
             <Image
-              src={Lock}
+              src="img/icons/cadeado.png"
               alt="Password icon"
               width={20}
               height={20}
@@ -65,7 +62,7 @@ const FormSignUp = () => {
           type="password"
           icon={
             <Image
-              src={Lock}
+              src="img/icons/cadeado.png"
               alt="Confirm password icon"
               width={20}
               height={20}
