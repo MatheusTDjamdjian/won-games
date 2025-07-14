@@ -1,11 +1,12 @@
 import React from 'react'
-import * as S from './styles'
+import * as S from '.'
 
 import GameCard from '@/components/GameCard'
 import Showcase from '@/components/Showcase'
 import Base from '../Base'
 import Heading from '@/components/Heading'
 import { Container } from '@/components/Container'
+import { Grid } from '@/components/Grid'
 import { WishlistTemplateProps } from './types'
 
 const Wishlist = ({
@@ -19,9 +20,11 @@ const Wishlist = ({
         Wishlist
       </Heading>
 
-      {games?.map((game, index) => (
-        <GameCard key={`wishlist-${index}`} {...game} />
-      ))}
+      <Grid>
+        {games?.map((game, index) => (
+          <GameCard key={`wishlist-${index}`} {...game} />
+        ))}
+      </Grid>
     </Container>
 
     <Showcase
