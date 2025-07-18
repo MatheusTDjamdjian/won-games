@@ -12,14 +12,14 @@ export default {
   args: {
     cards: cardsMock
   },
-  handlePayment: {
-      action: 'clicked'
-  },
   argTypes: {
   cards: {
     control: { disable: true },
     table: { disable: true }
   },
+  handlePayment: {
+      action: 'clicked'
+  }
  }
 } as Meta
 
