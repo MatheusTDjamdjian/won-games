@@ -43,6 +43,7 @@ export const Content = styled.div`
 
 export const Title = styled.h3`
   ${({ theme }) => css`
+    display: flex;
     font-size: ${theme.font.sizes.small};
     line-height: ${theme.font.sizes.small};
     font-weight: ${theme.font.bold};
@@ -65,4 +66,16 @@ export const Price = styled.div`
     font-size: ${theme.font.sizes.small};
     font-weight: ${theme.font.bold};
   `}
+`
+
+export const DownloadLink = styled.a`
+  ${({ theme }) => css`
+    color: ${theme.colors.primary};
+    margin-left: ${theme.spacings.xxsmall};
+  `}
+`
+export const DownloadIcon = styled.img`
+  width: 2.2rem;
+  height: 2.2rem;
+  filter: brightness(0) saturate(100%) invert(26%) sepia(95%) saturate(3546%) hue-rotate(291deg) brightness(93%) contrast(101%);
 `

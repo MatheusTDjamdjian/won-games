@@ -3,7 +3,7 @@ import * as S from './styles'
 
 import { GameItemProps } from './types'
 
-const GameItem = ({ img, title, price }: GameItemProps) => (
+const GameItem = ({ img, title, price, downloadLink }: GameItemProps) => (
   <S.Wrapper>
     <S.GameContent>
       <S.ImageBox>
@@ -11,7 +11,19 @@ const GameItem = ({ img, title, price }: GameItemProps) => (
       </S.ImageBox>
 
       <S.Content>
-        <S.Title>{title}</S.Title>
+        <S.Title>
+          {title}
+          {!!downloadLink && (
+            <S.DownloadLink
+              href={downloadLink}
+              target="_blank"
+              aria-label={`Get ${title} here`}
+            >
+              
+            <S.DownloadIcon src="/img/icons/download.png" alt={`Download ${title}`} />
+            </S.DownloadLink>
+          )}
+        </S.Title>
         <S.Price>{price}</S.Price>
       </S.Content>
     </S.GameContent>

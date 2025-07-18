@@ -31,3 +31,12 @@ export const Default: StoryObj<GameItemProps> = {
       <GameItem {...args} />
   )
 }
+
+export const WithPayment: StoryObj<GameItemProps> = {
+  render: (args) => (
+      <GameItem {...args} />
+  )
+}
+WithPayment.args = {
+  downloadLink: 'https://5454812484318'
+}
