@@ -38,5 +38,11 @@ export const WithPayment: StoryObj<GameItemProps> = {
   )
 }
 WithPayment.args = {
-  downloadLink: 'https://5454812484318'
+  downloadLink: 'https://5454812484318',
+  paymentInfo: {
+    flag: 'mastercard',
+    img: '/img/master-card.png',
+    number: '**** **** **** 1234',
+    purchaseDate: 'Purchase made on 07/20/2020 at 20:32'
+  }
 }
