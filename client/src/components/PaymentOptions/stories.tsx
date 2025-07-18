@@ -6,26 +6,26 @@ import { PaymentOptionsProps } from './types'
 
 import cardsMock from './mock'
 
-import { ThemeProvider } from 'styled-components'
-import GlobalStyles from '@/styles/global'
-import theme from '@/styles/theme'
-
 export default {
   title: 'PaymentOptions',
   component: PaymentOptions,
   args: {
     cards: cardsMock
   },
-  decorators: [
-        (Story) => (
-          <ThemeProvider theme={theme}>
-            <GlobalStyles bgColor={theme.colors.white} />
-            <Story />
-          </ThemeProvider>
-        )
-      ]
+  handlePayment: {
+      action: 'clicked'
+  },
+  argTypes: {
+  cards: {
+    control: { disable: true },
+    table: { disable: true }
+  },
+ }
 } as Meta
 
 export const Default: StoryObj<PaymentOptionsProps> = {
-  render: (args) => <PaymentOptions {...args} />
+  render: (args) => 
+  <div style={{ padding: 16, maxWidth: 400 }}>
+    <PaymentOptions {...args} />
+  </div>
 }
