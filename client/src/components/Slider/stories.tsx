@@ -7,9 +7,9 @@ import styled from 'styled-components';
 export default {
   title: 'Slider',
   component: Slider,
-    backgrounds: {
-       default: 'won-light'
-     }
+  backgrounds: {
+    default: 'won-light'
+  }
 } as Meta
 const settings: Settings = {
   dots: true,
