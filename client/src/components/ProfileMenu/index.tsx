@@ -1,13 +1,13 @@
 import React from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
+import NextLink from 'next/link'
 import * as S from './styles'
 
 const ProfileMenu = () => (
   <S.Nav>
-    <Link href="/profile/me" passHref>
+    <NextLink href="/profile/me" passHref>
       <S.Link>
-        <Image
+        <img
+          className="icon"
           src="/img/icons/perfil.png"
           alt="Account icon"
           width={24}
@@ -15,11 +15,12 @@ const ProfileMenu = () => (
         />
         <span>My profile</span>
       </S.Link>
-    </Link>
+    </NextLink>
 
-    <Link href="/profile/cards" passHref>
+    <NextLink href="/profile/cards" passHref>
       <S.Link>
-        <Image
+        <img
+          className="icon"
           src="/img/icons/credit-card.png"
           alt="cards"
           width={24}
@@ -27,11 +28,12 @@ const ProfileMenu = () => (
         />
         <span>My cards</span>
       </S.Link>
-    </Link>
+    </NextLink>
 
-    <Link href="/profile/orders" passHref>
+    <NextLink href="/profile/orders" passHref>
       <S.Link>
-        <Image
+        <img
+          className="icon"
           src="/img/icons/list.png"
           alt="orders"
           width={24}
@@ -39,11 +41,12 @@ const ProfileMenu = () => (
         />
         <span>My orders</span>
       </S.Link>
-    </Link>
+    </NextLink>
 
-    <Link href="/logout" passHref>
+    <NextLink href="/logout" passHref>
       <S.Link>
-        <Image
+        <img
+          className="icon"
           src="/img/icons/sign-out.png"
           alt="logout"
           width={24}
@@ -51,7 +54,7 @@ const ProfileMenu = () => (
         />
         <span>Sign out</span>
       </S.Link>
-    </Link>
+    </NextLink>
   </S.Nav>
 )
 
