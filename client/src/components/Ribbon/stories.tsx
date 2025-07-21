@@ -4,6 +4,10 @@ import Ribbon from '.'
 
 import { RibbonProps } from './types'
 
+import { ThemeProvider } from 'styled-components'
+import GlobalStyles from '@/styles/global'
+import theme from '@/styles/theme'
+
 export default {
   title: 'Ribbon',
   component: Ribbon,
@@ -15,9 +19,14 @@ export default {
       type: 'string'
     }
   },
-    backgrounds: {
-       default: 'won-light'
-     }
+  decorators: [
+        (Story) => (
+          <ThemeProvider theme={theme}>
+            <GlobalStyles bgColor={theme.colors.white} />
+            <Story />
+          </ThemeProvider>
+        )
+      ]
 } as Meta<RibbonProps>
 
 export const Default: StoryObj<RibbonProps> = {

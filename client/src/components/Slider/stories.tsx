@@ -1,15 +1,25 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs'
 import Slider from '.'
+
 import { Settings } from 'react-slick';
 import styled from 'styled-components';
+
+import { ThemeProvider } from 'styled-components'
+import GlobalStyles from '@/styles/global'
+import theme from '@/styles/theme'
 
 export default {
   title: 'Slider',
   component: Slider,
-  backgrounds: {
-    default: 'won-light'
-  }
+  decorators: [
+        (Story) => (
+          <ThemeProvider theme={theme}>
+            <GlobalStyles bgColor={theme.colors.white} />
+            <Story />
+          </ThemeProvider>
+        )
+      ]
 } as Meta
 const settings: Settings = {
   dots: true,

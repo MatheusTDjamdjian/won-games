@@ -4,6 +4,10 @@ import type { Meta, StoryObj } from '@storybook/nextjs'
 import AddShoppingCart from '../../../public/img/icons/add-shopping-cart.png'
 import Button from '.'
 
+import { ThemeProvider } from 'styled-components'
+import GlobalStyles from '@/styles/global'
+import theme from '@/styles/theme'
+
 export default {
   title: 'Button',
   component: Button,
@@ -14,10 +18,15 @@ export default {
     icon: {
       control: false
     },
-    backgrounds: {
-       default: 'won-light'
-     }
-  }
+  },
+  decorators: [
+        (Story) => (
+          <ThemeProvider theme={theme}>
+            <GlobalStyles bgColor={theme.colors.white} />
+            <Story />
+          </ThemeProvider>
+        )
+      ]
 } as Meta
 
 export const Default: StoryObj = {
