@@ -5,7 +5,12 @@ import { ProfileMenuProps } from './types'
 
 export default {
   title: 'ProfileMenu',
-  component: ProfileMenu
+  component: ProfileMenu,
+  parameters: {
+    actions: {
+      handles: ['click']
+    }
+  }
 } as Meta
 
 export const Default: StoryObj<ProfileMenuProps> = {
