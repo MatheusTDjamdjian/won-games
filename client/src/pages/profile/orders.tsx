@@ -1,29 +1,23 @@
 import React from 'react'
 
-import Heading from "@/components/Heading"
-import ProfileMenu from "@/components/ProfileMenu"
-import Base from "@/templates/Base"
-import { Container } from "@/components/Container"
+import OrdersList from "@/components/OrdersList"
+import { OrdersListProps } from "@/components/OrdersList/types"
+import Profile from "@/templates/Profile"
 
-import * as S from '../../templates/Profile/styles'
+import ordersMock from '@/components/OrdersList/mock'
 
-export type ProfileTemplateProps = {
-  children: React.ReactNode
+export default function Orders({ items }: OrdersListProps) {
+  return (
+    <Profile>
+      <OrdersList items={items} />
+    </Profile>
+  )
 }
 
-const Profile = ({ children }: ProfileTemplateProps) => (
-  <Base>
-    <Container>
-      <Heading lineLeft lineColor="secondary">
-        My profile
-      </Heading>
-
-      <S.Main>
-        <ProfileMenu />
-        <S.Content>{children}</S.Content>
-      </S.Main>
-    </Container>
-  </Base>
-)
-
-export default Profile
+export function getServerSideProps() {
+  return {
+    props: {
+      items: ordersMock
+    }
+  }
+}
