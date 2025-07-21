@@ -1,6 +1,8 @@
 import React from 'react'
 import { Meta, StoryObj } from '@storybook/nextjs'
+
 import FormSignUp from '.'
+
 import theme from '../../styles/theme'
 import GlobalStyles from '../../styles/global'
 import { ThemeProvider } from 'styled-components'
