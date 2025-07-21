@@ -35,3 +35,11 @@ export const WithButton: StoryObj<CartListProps> = {
     </div>
   )
 }
+
+export const Empty: StoryObj<CartListProps> = {
+  render: () => (
+    <div style={{ maxWidth: 800 }}>
+      <CartList />
+    </div>
+  )
+}
