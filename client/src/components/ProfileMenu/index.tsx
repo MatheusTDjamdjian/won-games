@@ -1,11 +1,12 @@
 import React from 'react'
 import NextLink from 'next/link'
 import * as S from './styles'
+import { ProfileMenuProps } from './types'
 
-const ProfileMenu = () => (
+const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
   <S.Nav>
     <NextLink href="/profile/me" passHref>
-      <S.Link>
+      <S.Link isActive={activeLink === '/profile/me'} title="My profile">
         <img
           className="icon"
           src="/img/icons/perfil.png"
@@ -18,7 +19,7 @@ const ProfileMenu = () => (
     </NextLink>
 
     <NextLink href="/profile/cards" passHref>
-      <S.Link>
+      <S.Link isActive={activeLink === '/profile/cards'} title="My cards">
         <img
           className="icon"
           src="/img/icons/credit-card.png"
@@ -31,7 +32,7 @@ const ProfileMenu = () => (
     </NextLink>
 
     <NextLink href="/profile/orders" passHref>
-      <S.Link>
+      <S.Link isActive={activeLink === '/profile/orders'} title="My orders">
         <img
           className="icon"
           src="/img/icons/list.png"
