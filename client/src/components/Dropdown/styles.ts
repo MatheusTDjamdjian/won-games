@@ -34,7 +34,7 @@ export const Content = styled.div`
 `
 
 type WrapperProps = {
-  isOpen?: boolean
+  $isOpen?: boolean
 }
 
 const wrapperModifiers = {
@@ -51,15 +51,15 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.div<WrapperProps>`
-  ${({ theme, isOpen }) => css`
+  ${({ theme, $isOpen }) => css`
     position: relative;
     width: max-content;
 
     ${Content} {
       transition: transform 0.2s ease-in, opacity ${theme.transition.default};
 
-      ${isOpen && wrapperModifiers.open()}
-      ${!isOpen && wrapperModifiers.close()}
+      ${$isOpen && wrapperModifiers.open()}
+      ${!$isOpen && wrapperModifiers.close()}
     }
   `}
 `

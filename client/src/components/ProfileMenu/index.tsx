@@ -5,7 +5,7 @@ import { ProfileMenuProps } from './types'
 
 const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
   <S.Nav>
-    <NextLink href="/profile/me" passHref legacyBehavior>
+    <NextLink href="/profile/me" passHref>
       <S.Link isActive={activeLink === '/profile/me'} title="My profile">
         <img
           className="icon"
@@ -18,7 +18,7 @@ const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
       </S.Link>
     </NextLink>
 
-    <NextLink href="/profile/cards" passHref legacyBehavior>
+    <NextLink href="/profile/cards" passHref>
       <S.Link isActive={activeLink === '/profile/cards'} title="My cards">
         <img
           className="icon"
@@ -31,7 +31,7 @@ const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
       </S.Link>
     </NextLink>
 
-    <NextLink href="/profile/orders" passHref legacyBehavior>
+    <NextLink href="/profile/orders" passHref>
       <S.Link isActive={activeLink === '/profile/orders'} title="My orders">
         <img
           className="icon"
@@ -44,7 +44,7 @@ const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
       </S.Link>
     </NextLink>
 
-    <NextLink href="/logout" passHref legacyBehavior>
+    <NextLink href="/logout" passHref>
       <S.Link>
         <img
           className="icon"

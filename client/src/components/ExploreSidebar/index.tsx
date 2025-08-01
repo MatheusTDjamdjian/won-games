@@ -30,7 +30,7 @@ const ExploreSidebar = ({
   }
 
   return (
-    <S.Wrapper isOpen={$isOpen}>
+    <S.Wrapper $isOpen={$isOpen}>
       <S.Overlay aria-hidden={$isOpen} />
       <S.IconWrapper>
         <FilterList aria-label="open filters" onClick={() => setIsOpen(true)} />

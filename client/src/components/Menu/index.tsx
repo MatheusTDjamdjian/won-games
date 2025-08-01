@@ -34,16 +34,16 @@ const Menu = ({ username } : MenuProps) => {
         </S.IconWrapper>
       </MediaMatch>
       <S.LogoWrapper>
-        <Link href="/" legacyBehavior>
+        <Link href="/">
           <Logo $hideOnMobile />
         </Link>
       </S.LogoWrapper>
       <MediaMatch $greaterThan="medium">
         <S.MenuNav>
-          <Link href="/" passHref legacyBehavior>
+          <Link href="/" passHref>
             <S.MenuLink>Home</S.MenuLink>
           </Link>
-          <Link href="/games" passHref legacyBehavior>
+          <Link href="/games" passHref>
             <S.MenuLink>Explore</S.MenuLink>
           </Link>
         </S.MenuNav>
@@ -64,7 +64,7 @@ const Menu = ({ username } : MenuProps) => {
         </S.IconWrapper>
           <MediaMatch $greaterThan="medium">
         { isClient && !username ? (
-            <Link href="/sign-in" passHref legacyBehavior>
+            <Link href="/sign-in" passHref>
               <Button>Sign in</Button>
             </Link>
         ) : (<UserDropdown username={username as string} />)}
@@ -73,18 +73,18 @@ const Menu = ({ username } : MenuProps) => {
       <S.MenuFull aria-hidden={!$isOpen} $isOpen={$isOpen}>
         <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
         <S.MenuNav>
-          <Link href="/" passHref legacyBehavior>
+          <Link href="/" passHref>
             <S.MenuLink>Home</S.MenuLink>
           </Link>
-          <Link href="/games" passHref legacyBehavior>
+          <Link href="/games" passHref>
             <S.MenuLink>Explore</S.MenuLink>
           </Link>
           {!!username && (
             <>
-            <Link href="/profile/me" passHref legacyBehavior>
+            <Link href="/profile/me" passHref>
               <S.MenuLink>My profile</S.MenuLink>
             </Link>
-            <Link href="/profile/wishlist" passHref legacyBehavior>
+            <Link href="/profile/wishlist" passHref>
               <S.MenuLink>Wishlist</S.MenuLink>
             </Link>
           </>
@@ -92,13 +92,13 @@ const Menu = ({ username } : MenuProps) => {
         </S.MenuNav>
         {isClient && !username && (
           <S.RegisterBox>
-             <Link href="/sign-in" passHref legacyBehavior>
+             <Link href="/sign-in" passHref>
               <Button $fullWidth size="large">
                 Sign in
               </Button>
             </Link>
             <span>or</span>
-             <Link href="/sign-up" passHref legacyBehavior>
+             <Link href="/sign-up" passHref>
               <S.CreateAccount title="Sign Up">Sign Up</S.CreateAccount>
             </Link>
           </S.RegisterBox>

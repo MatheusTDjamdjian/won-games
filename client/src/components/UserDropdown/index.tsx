@@ -28,7 +28,7 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
     }
   >
     <S.Nav>
-      <Link href="/profile/me" passHref legacyBehavior>
+      <Link href="/profile/me" passHref>
         <S.Link>
           <Image
                       src="/img/icons/perfil.png"
@@ -39,7 +39,7 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
           <span>My profile</span>
         </S.Link>
       </Link>
-      <Link href="/wishlist" passHref legacyBehavior>
+      <Link href="/wishlist" passHref>
         <S.Link title="Wishlist">
           <Image
               src="/img/icons/favorite2.png"
@@ -51,7 +51,7 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
         </S.Link>
       </Link>
 
-      <Link href="/logout" passHref legacyBehavior>
+      <Link href="/logout" passHref>
         <S.Link title="Sign out">
         <Image
           className="icon"

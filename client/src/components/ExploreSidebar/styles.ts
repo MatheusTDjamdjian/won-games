@@ -145,14 +145,14 @@ const wrapperModifiers = {
 }
 
 type WrapperProps = {
-  isOpen: boolean
+  $isOpen: boolean
 }
 
 export const Wrapper = styled.div<WrapperProps>`
-  ${({ theme, isOpen }) => css`
+  ${({ theme, $isOpen }) => css`
     ${media.lessThan('medium')`
-      ${!!isOpen && wrapperModifiers.open(theme)}
-      ${!isOpen && wrapperModifiers.close(theme)}
+      ${!!$isOpen && wrapperModifiers.open(theme)}
+      ${!$isOpen && wrapperModifiers.close(theme)}
     `}
   `}
 `

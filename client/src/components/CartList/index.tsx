@@ -9,7 +9,7 @@ import GameItem from '../GameItem'
 import { CartListProps } from './types'
 
 const CartList = ({ items = [], total, hasButton = false }: CartListProps) => (
-  <S.Wrapper isEmpty={!items.length}>
+  <S.Wrapper $isEmpty={!items.length}>
     {items.length ? (
       <>
         {items.map((item) => (
@@ -21,7 +21,7 @@ const CartList = ({ items = [], total, hasButton = false }: CartListProps) => (
           <S.Total>{total}</S.Total>
 
       {hasButton && (
-            <Link href="/cart" legacyBehavior>
+            <Link href="/cart">
               <Button as="a">Buy it now</Button>
             </Link>
           )}

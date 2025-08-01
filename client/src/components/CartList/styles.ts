@@ -5,17 +5,17 @@ import { tint } from 'polished'
 import * as EmptyStyles from '@/components/Empty/styles'
 
 type WrapperProps = {
-  isEmpty: boolean
+  $isEmpty: boolean
 }
 
 export const Wrapper = styled.div<WrapperProps>`
-  ${({ theme, isEmpty }) => css`
+  ${({ theme, $isEmpty }) => css`
     background: ${theme.colors.white};
     display: flex;
     flex-direction: column;
     align-self: start;
 
-    ${isEmpty &&
+    ${$isEmpty &&
     css`
       ${EmptyStyles.Wrapper} {
         padding-bottom: ${theme.spacings.medium};
