@@ -18,7 +18,7 @@ const Auth = ({ title, children }: AuthProps) => {
       <S.BannerBlock>
         {isClient && (
           <S.BannerContent>
-            <Link href="/">
+            <Link href="/" legacyBehavior>
               <Logo id="banner" />
             </Link>
 
@@ -37,11 +37,10 @@ const Auth = ({ title, children }: AuthProps) => {
           </S.BannerContent>
         )}
       </S.BannerBlock>
-
       <S.Content>
         {isClient && (
           <S.ContentWrapper>
-            <Link href="/">
+            <Link href="/" legacyBehavior>
               <Logo id="content" color="black" size="large" />
             </Link>
             <Heading color="black" lineColor="secondary" lineLeft>
@@ -53,7 +52,7 @@ const Auth = ({ title, children }: AuthProps) => {
         )}
       </S.Content>
     </S.Wrapper>
-  )
+  );
 }
 
 export default Auth

@@ -6,14 +6,24 @@ import { MenuProps } from './types'
 
 export default {
   title: 'Menu',
-  component: Menu
+  component: Menu,
+  parameters: {
+    layout: 'fullscreen',
+  }
 } as Meta
 
-export const Default: StoryObj<MenuProps> = (args: MenuProps) => <Menu {...args} />;
+export const Default: StoryObj<MenuProps> = {
+  render: (args) => (
+      <Menu {...args} />
+  )
+};
 
-Default.parameters = {
-  layout: "fullscreen",
-  backgrounds: {
-    default: 'won-dark'
-  }
+export const Logged: StoryObj<MenuProps> = {
+  render: (args) => (
+      <Menu {...args} />
+  )
+};
+
+Logged.args = {
+  username: 'John Doe'
 }

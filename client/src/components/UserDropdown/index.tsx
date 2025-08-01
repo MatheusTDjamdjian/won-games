@@ -6,7 +6,10 @@ import Image from 'next/image'
 import { ChevronDown } from 'styled-icons/boxicons-regular'
 
 import Dropdown from '../Dropdown'
-import { UserDropdownProps } from './types'
+
+export type UserDropdownProps = {
+  username: string
+}
 
 const UserDropdown = ({ username }: UserDropdownProps) => (
   <Dropdown
@@ -25,7 +28,7 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
     }
   >
     <S.Nav>
-      <Link href="/profile/me" passHref>
+      <Link href="/profile/me" passHref legacyBehavior>
         <S.Link>
           <Image
                       src="/img/icons/perfil.png"
@@ -36,7 +39,7 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
           <span>My profile</span>
         </S.Link>
       </Link>
-      <Link href="/wishlist" passHref>
+      <Link href="/wishlist" passHref legacyBehavior>
         <S.Link title="Wishlist">
           <Image
               src="/img/icons/favorite2.png"
@@ -48,7 +51,7 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
         </S.Link>
       </Link>
 
-      <Link href="/logout" passHref>
+      <Link href="/logout" passHref legacyBehavior>
         <S.Link title="Sign out">
         <Image
           className="icon"

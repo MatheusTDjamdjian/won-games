@@ -12,6 +12,7 @@ import MediaMatch from '../MediaMatch'
 import Button from '../Button'
 import CartDropdown from '../CartDropdown'
 import CartIcon from '../CartIcon'
+import UserDropdown from '../UserDropdown'
 
 import { MenuProps } from './types'
 
@@ -32,24 +33,21 @@ const Menu = ({ username } : MenuProps) => {
           <MenuIcon aria-label="Open Menu"/>
         </S.IconWrapper>
       </MediaMatch>
-
       <S.LogoWrapper>
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <Logo $hideOnMobile />
         </Link>
       </S.LogoWrapper>
-
       <MediaMatch $greaterThan="medium">
         <S.MenuNav>
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <S.MenuLink>Home</S.MenuLink>
           </Link>
-          <Link href="/games" passHref>
+          <Link href="/games" passHref legacyBehavior>
             <S.MenuLink>Explore</S.MenuLink>
           </Link>
         </S.MenuNav>
       </MediaMatch>
-
       <S.MenuGroup>
         <S.IconWrapper>
           <SearchIcon aria-label="Search"/>
@@ -59,53 +57,54 @@ const Menu = ({ username } : MenuProps) => {
             <CartDropdown/>
           </MediaMatch>
           <MediaMatch $lessThan="medium">
-            <Link href="/cart"  legacyBehavior>
-              <a>
+            <Link href="/cart">
                 <CartIcon/>
-              </a>
             </Link>
           </MediaMatch>
         </S.IconWrapper>
-        {isClient && !username && (
           <MediaMatch $greaterThan="medium">
-            <Link href="/sign-in" passHref>
+        { isClient && !username ? (
+            <Link href="/sign-in" passHref legacyBehavior>
               <Button>Sign in</Button>
             </Link>
-          </MediaMatch>
-        )}
+        ) : (<UserDropdown username={username as string} />)}
+        </MediaMatch>
       </S.MenuGroup>
-
       <S.MenuFull aria-hidden={!$isOpen} $isOpen={$isOpen}>
         <CloseIcon aria-label="Close Menu" onClick={() => setIsOpen(false)} />
         <S.MenuNav>
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <S.MenuLink>Home</S.MenuLink>
           </Link>
-          <Link href="/games" passHref>
+          <Link href="/games" passHref legacyBehavior>
             <S.MenuLink>Explore</S.MenuLink>
           </Link>
           {!!username && (
             <>
-            <S.MenuLink href="#">My account</S.MenuLink>
-            <S.MenuLink href="#">Wishlist</S.MenuLink>
+            <Link href="/profile/me" passHref legacyBehavior>
+              <S.MenuLink>My profile</S.MenuLink>
+            </Link>
+            <Link href="/profile/wishlist" passHref legacyBehavior>
+              <S.MenuLink>Wishlist</S.MenuLink>
+            </Link>
           </>
           )}
         </S.MenuNav>
         {isClient && !username && (
           <S.RegisterBox>
-             <Link href="/sign-in" passHref>
+             <Link href="/sign-in" passHref legacyBehavior>
               <Button $fullWidth size="large">
                 Sign in
               </Button>
             </Link>
             <span>or</span>
-             <Link href="/sign-up" passHref>
+             <Link href="/sign-up" passHref legacyBehavior>
               <S.CreateAccount title="Sign Up">Sign Up</S.CreateAccount>
             </Link>
           </S.RegisterBox>
         )}
       </S.MenuFull>
     </S.Wrapper>
-)}
+  );}
 
 export default Menu

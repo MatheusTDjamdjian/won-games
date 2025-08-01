@@ -10,7 +10,7 @@ import { BaseTemplateProps } from './types'
 const Base = ({ children }: BaseTemplateProps) => (
   <S.Wrapper>
     <Container>
-      <Menu />
+      <Menu/>
     </Container>
 
     <S.Content>{children}</S.Content>
