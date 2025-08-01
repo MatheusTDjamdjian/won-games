@@ -24,7 +24,6 @@ export const Link = styled.a`
   ${({ theme }) => css`
     display: flex;
     align-items: center;
-    text-decoration: none !important;
     background: ${theme.colors.white};
     color: ${theme.colors.black};
     padding: ${theme.spacings.xsmall} ${theme.spacings.small};
@@ -42,6 +41,7 @@ export const Link = styled.a`
 
     > span {
       margin-left: ${theme.spacings.xsmall};
+    text-decoration: none !important;
     }
   `}
 `

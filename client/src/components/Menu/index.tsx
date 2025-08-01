@@ -10,6 +10,8 @@ import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 import MediaMatch from '../MediaMatch'
 import Button from '../Button'
+import CartDropdown from '../CartDropdown'
+import CartIcon from '../CartIcon'
 
 import { MenuProps } from './types'
 
@@ -42,7 +44,9 @@ const Menu = ({ username } : MenuProps) => {
           <Link href="/" passHref>
             <S.MenuLink>Home</S.MenuLink>
           </Link>
-          <S.MenuLink href="#">Explore</S.MenuLink>
+          <Link href="/games" passHref>
+            <S.MenuLink>Explore</S.MenuLink>
+          </Link>
         </S.MenuNav>
       </MediaMatch>
 
@@ -51,7 +55,16 @@ const Menu = ({ username } : MenuProps) => {
           <SearchIcon aria-label="Search"/>
         </S.IconWrapper>
         <S.IconWrapper> 
-          <img src="/img/icons/add-shopping-cart.png" alt="Open Shopping Cart" />
+          <MediaMatch $greaterThan="medium">
+            <CartDropdown/>
+          </MediaMatch>
+          <MediaMatch $lessThan="medium">
+            <Link href="/cart"  legacyBehavior>
+              <a>
+                <CartIcon/>
+              </a>
+            </Link>
+          </MediaMatch>
         </S.IconWrapper>
         {isClient && !username && (
           <MediaMatch $greaterThan="medium">
@@ -68,7 +81,9 @@ const Menu = ({ username } : MenuProps) => {
           <Link href="/" passHref>
             <S.MenuLink>Home</S.MenuLink>
           </Link>
-          <S.MenuLink href="#">Explore</S.MenuLink>
+          <Link href="/games" passHref>
+            <S.MenuLink>Explore</S.MenuLink>
+          </Link>
           {!!username && (
             <>
             <S.MenuLink href="#">My account</S.MenuLink>

@@ -17,6 +17,7 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
                       alt="Account icon"
                       width={24}
                       height={24}
+                      style={{ filter: 'invert(1)' }}
         />
         <S.Username>{username}</S.Username>
         <ChevronDown size={24} />
@@ -38,7 +39,7 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
       <Link href="/wishlist" passHref>
         <S.Link title="Wishlist">
           <Image
-              src="/img/icons/favorite.png"
+              src="/img/icons/favorite2.png"
               alt="favorite border"
                 width={24}
                 height={24}

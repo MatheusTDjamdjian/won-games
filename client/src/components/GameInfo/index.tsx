@@ -35,7 +35,7 @@ const GameInfo = ({ title, description, price }: GameInfoProps) => (
       <Button
         icon={
           <Image
-            src="/img/icons/coracao.png"
+            src="/img/icons/favorite.png"
             alt="Add to Wishlist"
             width={27}
             height={27}

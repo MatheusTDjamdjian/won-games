@@ -23,10 +23,10 @@ const GameCard = ({title, developer, img, price, promotionalPrice, favorite = fa
       <S.FavButton onClick={onFav} role="button">
       <Button
   icon={
-    favorite ? ( <img src="/img/icons/favorite.png"alt="Remove from Wishlist" /> ) :
+    favorite ? ( <img src="/img/icons/coracao.png"alt="Remove from Wishlist" /> ) :
     (
       <S.FavBorder>
-        <img src="/img/icons/coracao.png" aria-label="Add to Wishlist" />
+        <img src="/img/icons/favorite.png" aria-label="Add to Wishlist" />
       </S.FavBorder>
     )
   }
