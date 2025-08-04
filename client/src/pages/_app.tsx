@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { ApolloProvider } from '@apollo/client'
 import { ThemeProvider } from 'styled-components'
 
 import { AppProps } from 'next/app'
@@ -8,10 +8,12 @@ import Head from 'next/head'
 
 import GlobalStyles from '../styles/global'
 import theme from '../styles/theme'
+import { useApollo } from '@/utils/apollo'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 function App({ Component, pageProps }: AppProps) {
+  const client = useApollo(pageProps.initialApoloState)
 
   return (
     <ApolloProvider client={client}>
