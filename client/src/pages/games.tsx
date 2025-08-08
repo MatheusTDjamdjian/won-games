@@ -12,47 +12,36 @@ export default function GamesPage(props: GamesTemplateProps) {
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
-const { data } = await apolloClient.query({
-  query: gql`
-    query QueryGames {
-      games {
-        data {
-          id
-          attributes {
-            name
-            slug
-            price
-            cover {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-            developers {
-              data {
-                attributes {
-                  name
-                }
-              }
-            }
+  const { data } = await apolloClient.query({
+    query: gql`
+      query QueryGames {
+        games {
+          name
+          slug
+          cover {
+            url
           }
+          developers {
+            name
+          }
+          price
         }
       }
-    }
-  `
-})
+    `
+  })
+
   return {
     props: {
       revalidate: 60,
-      games: data.games.data.map((game) => ({
-        title: game.attributes.name,
-        developer: game.attributes.developers.data[0]?.attributes.name ?? '',
-        img: `http://localhost:1337${game.attributes.cover?.data?.attributes?.url ?? ''}`,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      games: data.games.map((game: any) => ({
+        title: game.name,
+        developer: game.developers[0].name,
+        img: `http://localhost:1337${game.cover.url}`,
         price: new Intl.NumberFormat('en', {
           style: 'currency',
           currency: 'USD'
-        }).format(game.attributes.price)
+        }).format(game.price)
       })),
       filterItems: filterItemsMock
     }

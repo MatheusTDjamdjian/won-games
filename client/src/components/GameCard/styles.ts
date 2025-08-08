@@ -103,8 +103,8 @@ export const FavBorder = styled.span`
   justify-content: center;
 
   img {
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.2rem;
+    height: 2.2rem;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
