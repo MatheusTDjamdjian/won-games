@@ -227,7 +227,7 @@ type Game {
 }
 
 type GameEntityResponseCollection {
-  nodes: [Game]
+  nodes: [Game!]!
   pageInfo: Pagination!
 }
 

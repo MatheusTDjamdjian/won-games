@@ -341,7 +341,7 @@ export type GamePlatforms_ConnectionArgs = {
 
 export type GameEntityResponseCollection = {
   __typename?: 'GameEntityResponseCollection';
-  nodes: Maybe<Array<Maybe<Game>>>;
+  nodes: Array<Game>;
   pageInfo: Pagination;
 };
 
@@ -1556,6 +1556,13 @@ export type QueryGamesQueryVariables = Exact<{
 
 export type QueryGamesQuery = { __typename?: 'Query', games: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, cover: { __typename?: 'UploadFile', url: string } | null, developers: Array<{ __typename?: 'Developer', name: string } | null> } | null> };
 
+export type QueryGamesBySlugQueryVariables = Exact<{
+  slug: Scalars['String']['input'];
+}>;
+
+
+export type QueryGamesBySlugQuery = { __typename?: 'Query', games: Array<{ __typename?: 'Game', name: string, short_description: string | null, description: string | null, price: number, rating: Enum_Game_Rating | null, release_date: any | null, gallery: Array<{ __typename?: 'UploadFile', src: string, label: string | null } | null>, cover: { __typename?: 'UploadFile', src: string } | null, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null> };
+
 
 export const QueryGamesDocument = gql`
     query QueryGames($limit: Int!) {
@@ -1605,3 +1612,67 @@ export type QueryGamesQueryHookResult = ReturnType<typeof useQueryGamesQuery>;
 export type QueryGamesLazyQueryHookResult = ReturnType<typeof useQueryGamesLazyQuery>;
 export type QueryGamesSuspenseQueryHookResult = ReturnType<typeof useQueryGamesSuspenseQuery>;
 export type QueryGamesQueryResult = Apollo.QueryResult<QueryGamesQuery, QueryGamesQueryVariables>;
+export const QueryGamesBySlugDocument = gql`
+    query QueryGamesBySlug($slug: String!) {
+  games(filters: {slug: {eq: $slug}}) {
+    name
+    short_description
+    description
+    price
+    rating
+    release_date
+    gallery(pagination: {limit: 9}) {
+      src: url
+      label: alternativeText
+    }
+    cover {
+      src: url
+    }
+    developers {
+      name
+    }
+    publisher {
+      name
+    }
+    categories {
+      name
+    }
+    platforms {
+      name
+    }
+  }
+}
+    `;
+
+/**
+ * __useQueryGamesBySlugQuery__
+ *
+ * To run a query within a React component, call `useQueryGamesBySlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `useQueryGamesBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useQueryGamesBySlugQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useQueryGamesBySlugQuery(baseOptions: Apollo.QueryHookOptions<QueryGamesBySlugQuery, QueryGamesBySlugQueryVariables> & ({ variables: QueryGamesBySlugQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<QueryGamesBySlugQuery, QueryGamesBySlugQueryVariables>(QueryGamesBySlugDocument, options);
+      }
+export function useQueryGamesBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<QueryGamesBySlugQuery, QueryGamesBySlugQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<QueryGamesBySlugQuery, QueryGamesBySlugQueryVariables>(QueryGamesBySlugDocument, options);
+        }
+export function useQueryGamesBySlugSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<QueryGamesBySlugQuery, QueryGamesBySlugQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<QueryGamesBySlugQuery, QueryGamesBySlugQueryVariables>(QueryGamesBySlugDocument, options);
+        }
+export type QueryGamesBySlugQueryHookResult = ReturnType<typeof useQueryGamesBySlugQuery>;
+export type QueryGamesBySlugLazyQueryHookResult = ReturnType<typeof useQueryGamesBySlugLazyQuery>;
+export type QueryGamesBySlugSuspenseQueryHookResult = ReturnType<typeof useQueryGamesBySlugSuspenseQuery>;
+export type QueryGamesBySlugQueryResult = Apollo.QueryResult<QueryGamesBySlugQuery, QueryGamesBySlugQueryVariables>;

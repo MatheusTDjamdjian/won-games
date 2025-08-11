@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 import { initializeApollo } from '@/utils/apollo'
 import { QUERY_GAMES } from '@/graphql/queries/games'
 import { QueryGames, QueryGamesVariables } from '@/graphql/queries/games'
