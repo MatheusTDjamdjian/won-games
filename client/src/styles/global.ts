@@ -14,6 +14,7 @@ const GlobalStyles = createGlobalStyle<GlobalStylesProps>`
     * {
       margin: 0;
       padding: 0;
+      text-decoration: none;
       box-sizing: border-box;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;

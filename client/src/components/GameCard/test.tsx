@@ -6,6 +6,7 @@ import { renderWithTheme } from '@/utils/tests/helpers'
 import theme from '@/styles/theme'
 
 const props = {
+  slug: 'population-zero',
   title: 'Population Zero',
   developer: 'Rockstar Games',
   img: 'https://i.ibb.co/TB7mRjzj/landscapes-2887796-960-720-1.jpg',
@@ -27,6 +28,11 @@ describe('<GameCard />', () => {
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
       'src',
       props.img
+    )
+
+    expect(screen.getByRole('link', { name: props.title })).toHaveAttribute(
+      'href',
+      `/game/${props.slug}`
     )
 
     expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()

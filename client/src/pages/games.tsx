@@ -25,6 +25,7 @@ export async function getStaticProps() {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       games: data.games.map((game: any) => ({
         title: game.name,
+        slug: game.slug,
         developer: game.developers[0].name,
         img: `http://localhost:1337${game.cover!.url}`,
         price: new Intl.NumberFormat('en', {

@@ -1,25 +1,30 @@
 import React from 'react'
+import Link from 'next/link'
 import * as S from './styles'
 import { GameCardProps } from './types'
 
 import Ribbon from '../Ribbon'
 import Button from '../Button'
 
-const GameCard = ({title, developer, img, price, promotionalPrice, favorite = false, ribbon, ribbonColor = 'primary', ribbonSize = 'small', onFav}: GameCardProps) => (
+const GameCard = ({slug, title, developer, img, price, promotionalPrice, favorite = false, ribbon, ribbonColor = 'primary', ribbonSize = 'small', onFav}: GameCardProps) => (
   <S.Wrapper>
     {!!ribbon && (
       <Ribbon color={ribbonColor} size={ribbonSize}>
         {ribbon}
       </Ribbon>
     )}
-    <S.ImageBox>
-      <img src={img} alt={title}/>
-    </S.ImageBox>
+    <Link href={`game/${slug}`} passHref>
+      <S.ImageBox>
+        <img src={img} alt={title} />
+      </S.ImageBox>
+    </Link>
     <S.Content>
-      <S.Info>
-        <S.Title>{title}</S.Title>
-        <S.Developer>{developer}</S.Developer>
-      </S.Info>
+      <Link href={`game/${slug}`} passHref>
+        <S.Info>
+          <S.Title>{title}</S.Title>
+          <S.Developer>{developer}</S.Developer>
+        </S.Info>
+      </Link>
       <S.FavButton onClick={onFav} role="button">
       <Button
   icon={
