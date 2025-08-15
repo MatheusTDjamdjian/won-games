@@ -57,10 +57,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         price: gameData.price,
         description: gameData.short_description
       },
-      gallery: gameData.gallery?.map((img) => ({
-        src: img?.src,
-        label: img?.label || ''
-      })),
+      gallery: gameData.gallery
+        .filter((image) => image !== null)
+        .map((image) => ({
+          src: `http://localhost:1337${image!.src}`,
+          label: image!.label || ''
+        })),
       description: gameData.description,
       details: {
         developer: gameData.developers?.[0]?.name,

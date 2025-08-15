@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import formatPrice from '../../utils/format-price'
 import * as S from './styles'
 import { GameCardProps } from './types'
 
@@ -38,8 +39,10 @@ const GameCard = ({slug, title, developer, img, price, promotionalPrice, favorit
 />
       </S.FavButton>
       <S.BuyBox>
-        {!!promotionalPrice && <S.Price isPromotional>{price}</S.Price>}
-        <S.Price>{promotionalPrice || price}</S.Price>
+        {!!promotionalPrice && (
+          <S.Price isPromotional>{formatPrice(price)}</S.Price>
+        )}
+        <S.Price>{formatPrice(promotionalPrice || price)}</S.Price>
         <Button icon={<img src="/img/icons/add-shopping-cart.png" alt="Add to cart" />} size="small"/>
       </S.BuyBox>
     </S.Content>
