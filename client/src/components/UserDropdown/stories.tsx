@@ -1,7 +1,6 @@
 import React from 'react'
 import { Meta, StoryObj } from '@storybook/react'
-import UserDropdown from '.'
-import { UserDropdownProps } from './types'
+import UserDropdown, { UserDropdownProps } from '.'
 
 export default {
   title: 'UserDropdown',

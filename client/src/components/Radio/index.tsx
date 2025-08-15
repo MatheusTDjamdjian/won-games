@@ -6,7 +6,7 @@ import { RadioProps } from './types'
 const Radio = ({
   label,
   onCheck,
-  labelColor = 'white',
+  $labelColor = 'white',
   labelFor = '',
   value,
   ...props
@@ -25,7 +25,7 @@ const Radio = ({
         {...props}
       />
       {!!label && (
-        <S.Label labelColor={labelColor} htmlFor={labelFor}>
+        <S.Label $labelColor={$labelColor} htmlFor={labelFor}>
           {label}
         </S.Label>
       )}

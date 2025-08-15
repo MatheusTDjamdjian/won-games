@@ -19,7 +19,7 @@ describe('<Radio />', () => {
   })
 
   it('should render with label (black)', () => {
-    renderWithTheme(<Radio label="Radio" labelColor="black" />)
+    renderWithTheme(<Radio label="Radio" $labelColor="black" />)
 
     const label = screen.getByText('Radio')
     expect(label).toBeInTheDocument()

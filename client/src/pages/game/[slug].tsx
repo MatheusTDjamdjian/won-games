@@ -4,13 +4,12 @@ import { initializeApollo } from "@/utils/apollo"
 
 import Game, { GameTemplateProps } from "@/templates/Game"
 
-import galleryMock from '@/components/Gallery/mock'
 import gamesMock from '@/components/GameCardSlider/mock'
 import highlightMock from '@/components/Highlight/mock'
 
-import { QueryGames, QueryGamesVariables } from '../../graphql/generated/index'
+import { QueryGamesQuery, QueryGamesQueryVariables } from '../../graphql/generated/index'
 import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from "@/graphql/queries/games"
-import { QueryGamesBySlug, QueryGamesBySlugVariables } from '@/graphql/generated/QueryGamesBySlug'
+import { QueryGamesBySlugQuery, QueryGamesBySlugQueryVariables } from '@/graphql/generated/index'
 import { GetStaticProps } from "next"
 
 const apolloClient = initializeApollo()
@@ -27,56 +26,53 @@ export default function Index(props: GameTemplateProps) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await apolloClient.query<QueryGames, QueryGamesVariables>({
+  const { data } = await apolloClient.query<QueryGamesQuery, QueryGamesQueryVariables>({
     query: QUERY_GAMES,
     variables: { limit: 9 }
   })
 
-  const paths = data.games.map(({ slug }) => ({
-    params: { slug }
+  const paths = data.games.map((game) => ({
+    params: { slug: game?.slug || '' }
   }))
 
   return { paths, fallback: true }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { data } = await apolloClient.query<
-    QueryGameBySlug,
-    QueryGameBySlugVariables
-  >({
+  const { data } = await apolloClient.query<QueryGamesBySlugQuery, QueryGamesBySlugQueryVariables>({
     query: QUERY_GAME_BY_SLUG,
-    variables: { slug: `${params?.slug}` }
+    variables: { slug: String(params?.slug) }
   })
 
-  if (!data.games.length) {
-    return { notFound: true }
-  }
+  const gameData = data.games[0]
 
-  const game = data.games[0]
+  if (!gameData) return { notFound: true }
 
   return {
     props: {
       revalidate: 60,
-      cover: `http://localhost:1337${game.cover?.src}`,
+      cover: `http://localhost:1337${gameData.cover?.src}`,
       gameInfo: {
-        title: game.name,
-        price: game.price,
-        description: game.short_description
+        title: gameData.name,
+        price: gameData.price,
+        description: gameData.short_description
       },
-      gallery: game.gallery,
-      description: game.description,
+      gallery: gameData.gallery?.map((img) => ({
+        src: img?.src,
+        label: img?.label || ''
+      })),
+      description: gameData.description,
       details: {
-        developer: game.developers[0].name,
-        releaseDate: game.release_date,
-        platforms: game.platforms.map((platform) => platform.name),
-        publisher: game.publisher?.name,
-        rating: game.rating,
-        genres: game.categories.map((category) => category.name)
+        developer: gameData.developers?.[0]?.name,
+        releaseDate: gameData.release_date,
+        platforms: gameData.platforms?.map((p) => p?.name),
+        publisher: gameData.publisher?.name,
+        rating: gameData.rating,
+        genres: gameData.categories?.map((c) => c?.name),
       },
       upcomingGames: gamesMock,
       upcomingHighlight: highlightMock,
       recommendedGames: gamesMock
-    },
-    revalidate: 60
+    }
   }
 }

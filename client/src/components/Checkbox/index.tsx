@@ -7,7 +7,7 @@ const Checkbox = ({
   isChecked = false,
   label, 
   labelFor = '', 
-  labelColor = 'white',
+  $labelColor = 'white',
   value,
   ...props
 }: CheckboxProps) => {
@@ -25,7 +25,7 @@ const Checkbox = ({
   return (
     <S.Wrapper>
       <S.Input id={labelFor} type="checkbox" onChange={onChange} checked={checked} value={value} {...props} />
-      {!! label && <S.Label htmlFor={labelFor} labelColor={labelColor}>{label}</S.Label>}
+      {!! label && <S.Label htmlFor={labelFor} $labelColor={$labelColor}>{label}</S.Label>}
     </S.Wrapper>
 )}
 
