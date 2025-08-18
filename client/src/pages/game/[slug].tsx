@@ -7,7 +7,7 @@ import Game, { GameTemplateProps } from "@/templates/Game"
 import gamesMock from '@/components/GameCardSlider/mock'
 import highlightMock from '@/components/Highlight/mock'
 
-import { QueryGamesQuery, QueryGamesQueryVariables } from '../../graphql/generated/index'
+import { GamesListQuery, QueryGamesQueryVariables } from '../../graphql/generated/index'
 import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from "@/graphql/queries/games"
 import { QueryGamesBySlugQuery, QueryGamesBySlugQueryVariables } from '@/graphql/generated/index'
 import { GetStaticProps } from "next"
@@ -26,7 +26,7 @@ export default function Index(props: GameTemplateProps) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await apolloClient.query<QueryGamesQuery, QueryGamesQueryVariables>({
+  const { data } = await apolloClient.query<GamesListQuery, QueryGamesQueryVariables>({
     query: QUERY_GAMES,
     variables: { limit: 9 }
   })

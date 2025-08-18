@@ -169,6 +169,44 @@ export type ComponentPageButtonInput = {
   link: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ComponentPageHighlight = {
+  __typename?: 'ComponentPageHighlight';
+  alignment: Maybe<Enum_Componentpagehighlight_Alignment>;
+  background: UploadFile;
+  buttonLabel: Scalars['String']['output'];
+  buttonLink: Scalars['String']['output'];
+  floatImage: Maybe<UploadFile>;
+  id: Scalars['ID']['output'];
+  subtitle: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type ComponentPageHighlightInput = {
+  alignment: InputMaybe<Enum_Componentpagehighlight_Alignment>;
+  background: InputMaybe<Scalars['ID']['input']>;
+  buttonLabel: InputMaybe<Scalars['String']['input']>;
+  buttonLink: InputMaybe<Scalars['String']['input']>;
+  floatImage: InputMaybe<Scalars['ID']['input']>;
+  id: InputMaybe<Scalars['ID']['input']>;
+  subtitle: InputMaybe<Scalars['String']['input']>;
+  title: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentPagePopularGames = {
+  __typename?: 'ComponentPagePopularGames';
+  game: Maybe<Game>;
+  highlight: Maybe<ComponentPageHighlight>;
+  id: Scalars['ID']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type ComponentPagePopularGamesInput = {
+  game: InputMaybe<Scalars['ID']['input']>;
+  highlight: InputMaybe<ComponentPageHighlightInput>;
+  id: InputMaybe<Scalars['ID']['input']>;
+  title: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ComponentPageRibbon = {
   __typename?: 'ComponentPageRibbon';
   color: Maybe<Enum_Componentpageribbon_Color>;
@@ -191,6 +229,19 @@ export type ComponentPageRibbonInput = {
   id: InputMaybe<Scalars['ID']['input']>;
   size: InputMaybe<Enum_Componentpageribbon_Size>;
   text: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentPageSection = {
+  __typename?: 'ComponentPageSection';
+  highlight: Maybe<ComponentPageHighlight>;
+  id: Scalars['ID']['output'];
+  title: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentPageSectionInput = {
+  highlight: InputMaybe<ComponentPageHighlightInput>;
+  id: InputMaybe<Scalars['ID']['input']>;
+  title: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DateFilterInput = {
@@ -304,6 +355,11 @@ export type DeveloperRelationResponseCollection = {
   __typename?: 'DeveloperRelationResponseCollection';
   nodes: Array<Developer>;
 };
+
+export enum Enum_Componentpagehighlight_Alignment {
+  Left = 'left',
+  Right = 'right'
+}
 
 export enum Enum_Componentpageribbon_Color {
   Primary = 'primary',
@@ -485,7 +541,27 @@ export type GameRelationResponseCollection = {
   nodes: Array<Game>;
 };
 
-export type GenericMorph = Banner | Category | ComponentPageButton | ComponentPageRibbon | Developer | Game | I18NLocale | Platform | Publisher | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = Banner | Category | ComponentPageButton | ComponentPageHighlight | ComponentPagePopularGames | ComponentPageRibbon | ComponentPageSection | Developer | Game | Home | I18NLocale | Platform | Publisher | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+
+export type Home = {
+  __typename?: 'Home';
+  createdAt: Maybe<Scalars['DateTime']['output']>;
+  documentId: Scalars['ID']['output'];
+  freeGames: Maybe<ComponentPageSection>;
+  newGames: Maybe<ComponentPageSection>;
+  popularGames: Maybe<ComponentPagePopularGames>;
+  publishedAt: Maybe<Scalars['DateTime']['output']>;
+  upcomingGames: Maybe<ComponentPageSection>;
+  updatedAt: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type HomeInput = {
+  freeGames: InputMaybe<ComponentPageSectionInput>;
+  newGames: InputMaybe<ComponentPageSectionInput>;
+  popularGames: InputMaybe<ComponentPagePopularGamesInput>;
+  publishedAt: InputMaybe<Scalars['DateTime']['input']>;
+  upcomingGames: InputMaybe<ComponentPageSectionInput>;
+};
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -610,6 +686,7 @@ export type Mutation = {
   deleteCategory: Maybe<DeleteMutationResponse>;
   deleteDeveloper: Maybe<DeleteMutationResponse>;
   deleteGame: Maybe<DeleteMutationResponse>;
+  deleteHome: Maybe<DeleteMutationResponse>;
   deletePlatform: Maybe<DeleteMutationResponse>;
   deletePublisher: Maybe<DeleteMutationResponse>;
   deleteReviewWorkflowsWorkflow: Maybe<DeleteMutationResponse>;
@@ -632,6 +709,7 @@ export type Mutation = {
   updateCategory: Maybe<Category>;
   updateDeveloper: Maybe<Developer>;
   updateGame: Maybe<Game>;
+  updateHome: Maybe<Home>;
   updatePlatform: Maybe<Platform>;
   updatePublisher: Maybe<Publisher>;
   updateReviewWorkflowsWorkflow: Maybe<ReviewWorkflowsWorkflow>;
@@ -815,6 +893,12 @@ export type MutationUpdateDeveloperArgs = {
 export type MutationUpdateGameArgs = {
   data: GameInput;
   documentId: Scalars['ID']['input'];
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type MutationUpdateHomeArgs = {
+  data: HomeInput;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1007,6 +1091,7 @@ export type Query = {
   game: Maybe<Game>;
   games: Array<Maybe<Game>>;
   games_connection: Maybe<GameEntityResponseCollection>;
+  home: Maybe<Home>;
   i18NLocale: Maybe<I18NLocale>;
   i18NLocales: Array<Maybe<I18NLocale>>;
   i18NLocales_connection: Maybe<I18NLocaleEntityResponseCollection>;
@@ -1119,6 +1204,11 @@ export type QueryGames_ConnectionArgs = {
   filters: InputMaybe<GameFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryHomeArgs = {
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1692,6 +1782,12 @@ export type UsersPermissionsUserRelationResponseCollection = {
   nodes: Array<UsersPermissionsUser>;
 };
 
+export type BannerFragmentFragment = { __typename?: 'Banner', title: string, subtitle: string, image: { __typename?: 'UploadFile', url: string }, button: { __typename?: 'ComponentPageButton', label: string, link: string } | null, ribbon: { __typename?: 'ComponentPageRibbon', text: string | null, color: Enum_Componentpageribbon_Color | null, size: Enum_Componentpageribbon_Size | null } | null };
+
+export type GameFragmentFragment = { __typename?: 'Game', name: string, slug: string | null, price: number, cover: { __typename?: 'UploadFile', url: string } | null, developers: Array<{ __typename?: 'Developer', name: string } | null> };
+
+export type HighlightFragmentFragment = { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null };
+
 export type QueryGamesQueryVariables = Exact<{
   limit: Scalars['Int']['input'];
 }>;
@@ -1718,7 +1814,64 @@ export type QueryHomeQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type QueryHomeQuery = { __typename?: 'Query', banners: Array<{ __typename?: 'Banner', title: string, subtitle: string, image: { __typename?: 'UploadFile', url: string }, button: { __typename?: 'ComponentPageButton', label: string, link: string } | null, ribbon: { __typename?: 'ComponentPageRibbon', text: string | null, color: Enum_Componentpageribbon_Color | null, size: Enum_Componentpageribbon_Size | null } | null } | null> };
 
+export type GamesListQueryVariables = Exact<{
+  limit: Scalars['Int']['input'];
+}>;
 
+
+export type GamesListQuery = { __typename?: 'Query', games: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, cover: { __typename?: 'UploadFile', url: string } | null, developers: Array<{ __typename?: 'Developer', name: string } | null> } | null> };
+
+export type HomePageDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HomePageDataQuery = { __typename?: 'Query', banners: Array<{ __typename?: 'Banner', title: string, subtitle: string, image: { __typename?: 'UploadFile', url: string }, button: { __typename?: 'ComponentPageButton', label: string, link: string } | null, ribbon: { __typename?: 'ComponentPageRibbon', text: string | null, color: Enum_Componentpageribbon_Color | null, size: Enum_Componentpageribbon_Size | null } | null } | null>, newGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, cover: { __typename?: 'UploadFile', url: string } | null, developers: Array<{ __typename?: 'Developer', name: string } | null> } | null> };
+
+export const BannerFragmentFragmentDoc = gql`
+    fragment BannerFragment on Banner {
+  image {
+    url
+  }
+  title
+  subtitle
+  button {
+    label
+    link
+  }
+  ribbon {
+    text
+    color
+    size
+  }
+}
+    `;
+export const GameFragmentFragmentDoc = gql`
+    fragment GameFragment on Game {
+  name
+  slug
+  cover {
+    url
+  }
+  developers {
+    name
+  }
+  price
+}
+    `;
+export const HighlightFragmentFragmentDoc = gql`
+    fragment HighlightFragment on ComponentPageHighlight {
+  title
+  subtitle
+  background {
+    url
+  }
+  floatImage {
+    url
+  }
+  buttonLabel
+  buttonLink
+  alignment
+}
+    `;
 export const QueryGamesDocument = gql`
     query QueryGames($limit: Int!) {
   games(pagination: {limit: $limit}) {
@@ -1948,3 +2101,90 @@ export type QueryHomeQueryHookResult = ReturnType<typeof useQueryHomeQuery>;
 export type QueryHomeLazyQueryHookResult = ReturnType<typeof useQueryHomeLazyQuery>;
 export type QueryHomeSuspenseQueryHookResult = ReturnType<typeof useQueryHomeSuspenseQuery>;
 export type QueryHomeQueryResult = Apollo.QueryResult<QueryHomeQuery, QueryHomeQueryVariables>;
+export const GamesListDocument = gql`
+    query GamesList($limit: Int!) {
+  games(pagination: {limit: $limit}) {
+    ...GameFragment
+  }
+}
+    ${GameFragmentFragmentDoc}`;
+
+/**
+ * __useGamesListQuery__
+ *
+ * To run a query within a React component, call `useGamesListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGamesListQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGamesListQuery({
+ *   variables: {
+ *      limit: // value for 'limit'
+ *   },
+ * });
+ */
+export function useGamesListQuery(baseOptions: Apollo.QueryHookOptions<GamesListQuery, GamesListQueryVariables> & ({ variables: GamesListQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GamesListQuery, GamesListQueryVariables>(GamesListDocument, options);
+      }
+export function useGamesListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GamesListQuery, GamesListQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GamesListQuery, GamesListQueryVariables>(GamesListDocument, options);
+        }
+export function useGamesListSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GamesListQuery, GamesListQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GamesListQuery, GamesListQueryVariables>(GamesListDocument, options);
+        }
+export type GamesListQueryHookResult = ReturnType<typeof useGamesListQuery>;
+export type GamesListLazyQueryHookResult = ReturnType<typeof useGamesListLazyQuery>;
+export type GamesListSuspenseQueryHookResult = ReturnType<typeof useGamesListSuspenseQuery>;
+export type GamesListQueryResult = Apollo.QueryResult<GamesListQuery, GamesListQueryVariables>;
+export const HomePageDataDocument = gql`
+    query HomePageData {
+  banners {
+    ...BannerFragment
+  }
+  newGames: games(
+    filters: {release_date: {lte: "2021-01-27"}}
+    sort: "release_date:desc"
+    pagination: {limit: 8}
+  ) {
+    ...GameFragment
+  }
+}
+    ${BannerFragmentFragmentDoc}
+${GameFragmentFragmentDoc}`;
+
+/**
+ * __useHomePageDataQuery__
+ *
+ * To run a query within a React component, call `useHomePageDataQuery` and pass it any options that fit your needs.
+ * When your component renders, `useHomePageDataQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useHomePageDataQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useHomePageDataQuery(baseOptions?: Apollo.QueryHookOptions<HomePageDataQuery, HomePageDataQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<HomePageDataQuery, HomePageDataQueryVariables>(HomePageDataDocument, options);
+      }
+export function useHomePageDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<HomePageDataQuery, HomePageDataQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<HomePageDataQuery, HomePageDataQueryVariables>(HomePageDataDocument, options);
+        }
+export function useHomePageDataSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<HomePageDataQuery, HomePageDataQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<HomePageDataQuery, HomePageDataQueryVariables>(HomePageDataDocument, options);
+        }
+export type HomePageDataQueryHookResult = ReturnType<typeof useHomePageDataQuery>;
+export type HomePageDataLazyQueryHookResult = ReturnType<typeof useHomePageDataLazyQuery>;
+export type HomePageDataSuspenseQueryHookResult = ReturnType<typeof useHomePageDataSuspenseQuery>;
+export type HomePageDataQueryResult = Apollo.QueryResult<HomePageDataQuery, HomePageDataQueryVariables>;
