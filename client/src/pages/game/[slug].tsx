@@ -7,9 +7,9 @@ import Game, { GameTemplateProps } from "@/templates/Game"
 import gamesMock from '@/components/GameCardSlider/mock'
 import highlightMock from '@/components/Highlight/mock'
 
-import { GamesListQuery, QueryGamesQueryVariables } from '../../graphql/generated/index'
+import { GamesListQuery, GamesListQueryVariables } from '../../graphql/generated/index'
 import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from "@/graphql/queries/games"
-import { QueryGamesBySlugQuery, QueryGamesBySlugQueryVariables } from '@/graphql/generated/index'
+import { GameBySlugQuery, GameBySlugQueryVariables } from '@/graphql/generated/index'
 import { GetStaticProps } from "next"
 
 const apolloClient = initializeApollo()
@@ -26,7 +26,7 @@ export default function Index(props: GameTemplateProps) {
 }
 
 export async function getStaticPaths() {
-  const { data } = await apolloClient.query<GamesListQuery, QueryGamesQueryVariables>({
+  const { data } = await apolloClient.query<GamesListQuery, GamesListQueryVariables>({
     query: QUERY_GAMES,
     variables: { limit: 9 }
   })
@@ -39,7 +39,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { data } = await apolloClient.query<QueryGamesBySlugQuery, QueryGamesBySlugQueryVariables>({
+  const { data } = await apolloClient.query<GameBySlugQuery, GameBySlugQueryVariables>({
     query: QUERY_GAME_BY_SLUG,
     variables: { slug: String(params?.slug) }
   })

@@ -23,12 +23,13 @@ export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
   const {
-    data: { banners, newGames }
+    data: { banners, newGames, upcomingGames, freeGames }
   } = await apolloClient.query<HomePageDataQuery>({ query: QUERY_HOME })
 
   return {
     props: {
       revalidate: 30,
+
       banners: banners
       .filter((banner): banner is NonNullable<typeof banner> => banner !== null)
       .map((banner) => ({
@@ -43,6 +44,7 @@ export async function getStaticProps() {
           ribbonSize: banner.ribbon.size ?? null
         })
       })),
+
       newGames: newGames
       .filter((game): game is NonNullable<typeof game> => game !== null)
       .map((game) => ({
@@ -52,12 +54,32 @@ export async function getStaticProps() {
         img: `http://localhost:1337${game.cover?.url ?? ''}`,
         price: game.price
       })),
+
       mostPopularHighlight: highlightMock,
       mostPopularGames: gamesMock,
-      upcommingGames: gamesMock,
+
+      upcomingGames:  upcomingGames
+      .filter((game): game is NonNullable<typeof game> => game !== null)
+      .map((game) => ({
+        title: game.name,
+        slug: game.slug ?? '',
+        developer: game.developers?.[0]?.name ?? '',
+        img: `http://localhost:1337${game.cover?.url ?? ''}`,
+        price: game.price
+      })),
+
       upcommingHighligth: highlightMock,
-      upcommingMoreGames: gamesMock,
-      freeGames: gamesMock,
+
+      freeGames: freeGames
+      .filter((game): game is NonNullable<typeof game> => game !== null)
+      .map((game) => ({
+        title: game.name,
+        slug: game.slug ?? '',
+        developer: game.developers?.[0]?.name ?? '',
+        img: `http://localhost:1337${game.cover?.url ?? ''}`,
+        price: game.price
+      })),
+
       freeHighligth: highlightMock
     }
   }
