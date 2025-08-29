@@ -26,7 +26,7 @@ export const QUERY_HOME = gql`
       }
 
       freeGames: games(
-        filters: { price: { eq: 0 } }
+        filters: { price: { lte: 1 } }
         pagination: { limit: 8 }
       ) {
         ...GameFragment

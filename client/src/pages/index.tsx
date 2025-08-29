@@ -68,7 +68,7 @@ export async function getStaticProps() {
         price: game.price
       })),
 
-      upcommingHighligth: highlightMock,
+      upcomingHighlight: highlightMock,
 
       freeGames: freeGames
       .filter((game): game is NonNullable<typeof game> => game !== null)
@@ -80,7 +80,7 @@ export async function getStaticProps() {
         price: game.price
       })),
 
-      freeHighligth: highlightMock
+      freeHighlight: highlightMock
     }
   }
 }

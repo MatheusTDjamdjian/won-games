@@ -1978,7 +1978,7 @@ export const HomePageDataDocument = gql`
     ...GameFragment
   }
   freeGames: games(
-    filters: {price: {eq: 0}}
+    filters: { price: { lte: 1 } }
     sort: "release_date:desc"
     pagination: {limit: 8}
   ) {
