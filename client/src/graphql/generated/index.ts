@@ -1986,7 +1986,7 @@ export const HomePageDataDocument = gql`
   }
 }
     ${BannerFragmentFragmentDoc}
-${GameFragmentFragmentDoc}`;
+    ${GameFragmentFragmentDoc}`;
 
 /**
  * __useHomePageDataQuery__
