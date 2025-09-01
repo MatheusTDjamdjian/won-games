@@ -1,39 +1,38 @@
-import { gql } from '@apollo/client'
-import { BannerFragment } from '../fragments/banner'
-import { GameFragment } from '../fragments/game'
-import { HighlightFragment } from '../fragments/highlight'
+import { gql } from '@apollo/client';
+import { BannerFragment } from '../fragments/banner';
+import { GameFragment } from '../fragments/game';
+import { HighlightFragment } from '../fragments/highlight';
 
-// GET_HOME | QUERY_HOME
 export const QUERY_HOME = gql`
-    query QUERY_HOME {
-      banners {
-        ...BannerFragment
-      }
-      
-      newGames: games(
-        filters: { release_date: { lte: "2025-08-20" } }
-        sort: "release_date:desc"
-        pagination: { limit: 8 }
-      ) {
-        ...GameFragment
-      }
+  query QUERY_HOME {
+    banners {
+      ...BannerFragment
+    }
 
-      upcomingGames: games(
-        filters: { release_date: { lte: "2025-08-20" } }
-        sort: "release_date:desc"
-        pagination: { limit: 8 }
-      ) {
-        ...GameFragment
-      }
+    newGames: games(
+      filters: { release_date: { lte: "2025-08-20" } }
+      sort: "release_date:desc"
+      pagination: { limit: 8 }
+    ) {
+      ...GameFragment
+    }
 
-      freeGames: games(
-        filters: { price: { lte: 1 } }
-        pagination: { limit: 8 }
-      ) {
-        ...GameFragment
-      }
+    upcomingGames: games(
+      filters: { release_date: { gte: "2024-08-20" } }
+      sort: "release_date:asc"
+      pagination: { limit: 8 }
+    ) {
+      ...GameFragment
+    }
 
-      sections: home {
+    freeGames: games(
+      filters: { price: { lte: 1 } }
+      pagination: { limit: 8 }
+    ) {
+      ...GameFragment
+    }
+
+    sections: home {
       newGames {
         title
         highlight {
@@ -46,7 +45,7 @@ export const QUERY_HOME = gql`
         highlight {
           ...HighlightFragment
         }
-        games(limit: 8) {
+        game {
           ...GameFragment
         }
       }
@@ -66,7 +65,8 @@ export const QUERY_HOME = gql`
       }
     }
   }
-${BannerFragment}
-${GameFragment}
-${HighlightFragment}
+
+  ${BannerFragment}
+  ${GameFragment}
+  ${HighlightFragment}
 `

@@ -1782,9 +1782,9 @@ export type UsersPermissionsUserRelationResponseCollection = {
   nodes: Array<UsersPermissionsUser>;
 };
 
-export type BannerFragmentFragment = { __typename?: 'Banner', title: string, subtitle: string, image: { __typename?: 'UploadFile', url: string }, button: { __typename?: 'ComponentPageButton', label: string, link: string } | null, ribbon: { __typename?: 'ComponentPageRibbon', text: string | null, color: Enum_Componentpageribbon_Color | null, size: Enum_Componentpageribbon_Size | null } | null };
+export type BannerFragmentFragment = { __typename?: 'Banner', title: string, subtitle: string, image: { __typename?: 'UploadFile', url: string, name: string }, button: { __typename?: 'ComponentPageButton', label: string, link: string } | null, ribbon: { __typename?: 'ComponentPageRibbon', text: string | null, color: Enum_Componentpageribbon_Color | null, size: Enum_Componentpageribbon_Size | null } | null };
 
-export type GameFragmentFragment = { __typename?: 'Game', name: string, slug: string | null, price: number, cover: { __typename?: 'UploadFile', url: string } | null, developers: Array<{ __typename?: 'Developer', name: string } | null> };
+export type GameFragmentFragment = { __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> };
 
 export type HighlightFragmentFragment = { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null };
 
@@ -1793,24 +1793,25 @@ export type GamesListQueryVariables = Exact<{
 }>;
 
 
-export type GamesListQuery = { __typename?: 'Query', games: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, cover: { __typename?: 'UploadFile', url: string } | null, developers: Array<{ __typename?: 'Developer', name: string } | null> } | null> };
+export type GamesListQuery = { __typename?: 'Query', games: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null> };
 
-export type GameBySlugQueryVariables = Exact<{
+export type GameBySlugQueryQueryVariables = Exact<{
   slug: Scalars['String']['input'];
 }>;
 
 
-export type GameBySlugQuery = { __typename?: 'Query', games: Array<{ __typename?: 'Game', name: string, slug: string | null, short_description: string | null, description: string | null, price: number, rating: Enum_Game_Rating | null, release_date: any | null, gallery: Array<{ __typename?: 'UploadFile', src: string, label: string | null } | null>, cover: { __typename?: 'UploadFile', src: string } | null, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null> };
+export type GameBySlugQueryQuery = { __typename?: 'Query', games: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null> };
 
-export type HomePageDataQueryVariables = Exact<{ [key: string]: never; }>;
+export type Query_HomeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomePageDataQuery = { __typename?: 'Query', banners: Array<{ __typename?: 'Banner', title: string, subtitle: string, image: { __typename?: 'UploadFile', url: string }, button: { __typename?: 'ComponentPageButton', label: string, link: string } | null, ribbon: { __typename?: 'ComponentPageRibbon', text: string | null, color: Enum_Componentpageribbon_Color | null, size: Enum_Componentpageribbon_Size | null } | null } | null>, newGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, cover: { __typename?: 'UploadFile', url: string } | null, developers: Array<{ __typename?: 'Developer', name: string } | null> } | null>, upcomingGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, cover: { __typename?: 'UploadFile', url: string } | null, developers: Array<{ __typename?: 'Developer', name: string } | null> } | null>, freeGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, cover: { __typename?: 'UploadFile', url: string } | null, developers: Array<{ __typename?: 'Developer', name: string } | null> } | null> };
+export type Query_HomeQuery = { __typename?: 'Query', banners: Array<{ __typename?: 'Banner', title: string, subtitle: string, image: { __typename?: 'UploadFile', url: string, name: string }, button: { __typename?: 'ComponentPageButton', label: string, link: string } | null, ribbon: { __typename?: 'ComponentPageRibbon', text: string | null, color: Enum_Componentpageribbon_Color | null, size: Enum_Componentpageribbon_Size | null } | null } | null>, newGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null>, upcomingGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null>, freeGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null>, sections: { __typename?: 'Home', newGames: { __typename?: 'ComponentPageSection', title: string | null, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null } | null, popularGames: { __typename?: 'ComponentPagePopularGames', title: string, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null, game: { __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null } | null, upcomingGames: { __typename?: 'ComponentPageSection', title: string | null, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null } | null, freeGames: { __typename?: 'ComponentPageSection', title: string | null, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null };
 
 export const BannerFragmentFragmentDoc = gql`
     fragment BannerFragment on Banner {
   image {
     url
+    name
   }
   title
   subtitle
@@ -1829,13 +1830,30 @@ export const GameFragmentFragmentDoc = gql`
     fragment GameFragment on Game {
   name
   slug
+  price
+  short_description
+  description
+  rating
+  release_date
   cover {
     url
+  }
+  gallery {
+    url
+    name
   }
   developers {
     name
   }
-  price
+  publisher {
+    name
+  }
+  categories {
+    name
+  }
+  platforms {
+    name
+  }
 }
     `;
 export const HighlightFragmentFragmentDoc = gql`
@@ -1893,129 +1911,130 @@ export type GamesListQueryHookResult = ReturnType<typeof useGamesListQuery>;
 export type GamesListLazyQueryHookResult = ReturnType<typeof useGamesListLazyQuery>;
 export type GamesListSuspenseQueryHookResult = ReturnType<typeof useGamesListSuspenseQuery>;
 export type GamesListQueryResult = Apollo.QueryResult<GamesListQuery, GamesListQueryVariables>;
-export const GameBySlugDocument = gql`
-    query GameBySlug($slug: String!) {
+export const GameBySlugQueryDocument = gql`
+    query GameBySlugQuery($slug: String!) {
   games(filters: {slug: {eq: $slug}}) {
-    name
-    slug
-    short_description
-    description
-    price
-    rating
-    release_date
-    gallery(pagination: {limit: 9}) {
-      src: url
-      label: alternativeText
-    }
-    cover {
-      src: url
-    }
-    developers {
-      name
-    }
-    publisher {
-      name
-    }
-    categories {
-      name
-    }
-    platforms {
-      name
-    }
+    ...GameFragment
   }
 }
-    `;
+    ${GameFragmentFragmentDoc}`;
 
 /**
- * __useGameBySlugQuery__
+ * __useGameBySlugQueryQuery__
  *
- * To run a query within a React component, call `useGameBySlugQuery` and pass it any options that fit your needs.
- * When your component renders, `useGameBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGameBySlugQueryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGameBySlugQueryQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGameBySlugQuery({
+ * const { data, loading, error } = useGameBySlugQueryQuery({
  *   variables: {
  *      slug: // value for 'slug'
  *   },
  * });
  */
-export function useGameBySlugQuery(baseOptions: Apollo.QueryHookOptions<GameBySlugQuery, GameBySlugQueryVariables> & ({ variables: GameBySlugQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+export function useGameBySlugQueryQuery(baseOptions: Apollo.QueryHookOptions<GameBySlugQueryQuery, GameBySlugQueryQueryVariables> & ({ variables: GameBySlugQueryQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GameBySlugQuery, GameBySlugQueryVariables>(GameBySlugDocument, options);
+        return Apollo.useQuery<GameBySlugQueryQuery, GameBySlugQueryQueryVariables>(GameBySlugQueryDocument, options);
       }
-export function useGameBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GameBySlugQuery, GameBySlugQueryVariables>) {
+export function useGameBySlugQueryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GameBySlugQueryQuery, GameBySlugQueryQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GameBySlugQuery, GameBySlugQueryVariables>(GameBySlugDocument, options);
+          return Apollo.useLazyQuery<GameBySlugQueryQuery, GameBySlugQueryQueryVariables>(GameBySlugQueryDocument, options);
         }
-export function useGameBySlugSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GameBySlugQuery, GameBySlugQueryVariables>) {
+export function useGameBySlugQuerySuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GameBySlugQueryQuery, GameBySlugQueryQueryVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<GameBySlugQuery, GameBySlugQueryVariables>(GameBySlugDocument, options);
+          return Apollo.useSuspenseQuery<GameBySlugQueryQuery, GameBySlugQueryQueryVariables>(GameBySlugQueryDocument, options);
         }
-export type GameBySlugQueryHookResult = ReturnType<typeof useGameBySlugQuery>;
-export type GameBySlugLazyQueryHookResult = ReturnType<typeof useGameBySlugLazyQuery>;
-export type GameBySlugSuspenseQueryHookResult = ReturnType<typeof useGameBySlugSuspenseQuery>;
-export type GameBySlugQueryResult = Apollo.QueryResult<GameBySlugQuery, GameBySlugQueryVariables>;
-export const HomePageDataDocument = gql`
-    query HomePageData {
+export type GameBySlugQueryQueryHookResult = ReturnType<typeof useGameBySlugQueryQuery>;
+export type GameBySlugQueryLazyQueryHookResult = ReturnType<typeof useGameBySlugQueryLazyQuery>;
+export type GameBySlugQuerySuspenseQueryHookResult = ReturnType<typeof useGameBySlugQuerySuspenseQuery>;
+export type GameBySlugQueryQueryResult = Apollo.QueryResult<GameBySlugQueryQuery, GameBySlugQueryQueryVariables>;
+export const Query_HomeDocument = gql`
+    query QUERY_HOME {
   banners {
     ...BannerFragment
   }
   newGames: games(
-    filters: {release_date: {lte: "2021-01-27"}}
+    filters: {release_date: {lte: "2025-08-20"}}
     sort: "release_date:desc"
     pagination: {limit: 8}
   ) {
     ...GameFragment
   }
   upcomingGames: games(
-    filters: {release_date: {lte: "2021-01-27"}}
-    sort: "release_date:desc"
+    filters: {release_date: {gte: "2025-08-20"}}
+    sort: "release_date:asc"
     pagination: {limit: 8}
   ) {
     ...GameFragment
   }
-  freeGames: games(
-    filters: { price: { lte: 1 } }
-    sort: "release_date:desc"
-    pagination: {limit: 8}
-  ) {
+  freeGames: games(filters: {price: {lte: 1}}, pagination: {limit: 8}) {
     ...GameFragment
+  }
+  sections: home {
+    newGames {
+      title
+      highlight {
+        ...HighlightFragment
+      }
+    }
+    popularGames {
+      title
+      highlight {
+        ...HighlightFragment
+      }
+      game {
+        ...GameFragment
+      }
+    }
+    upcomingGames {
+      title
+      highlight {
+        ...HighlightFragment
+      }
+    }
+    freeGames {
+      title
+      highlight {
+        ...HighlightFragment
+      }
+    }
   }
 }
     ${BannerFragmentFragmentDoc}
-    ${GameFragmentFragmentDoc}`;
+${GameFragmentFragmentDoc}
+${HighlightFragmentFragmentDoc}`;
 
 /**
- * __useHomePageDataQuery__
+ * __useQuery_HomeQuery__
  *
- * To run a query within a React component, call `useHomePageDataQuery` and pass it any options that fit your needs.
- * When your component renders, `useHomePageDataQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useQuery_HomeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useQuery_HomeQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useHomePageDataQuery({
+ * const { data, loading, error } = useQuery_HomeQuery({
  *   variables: {
  *   },
  * });
  */
-export function useHomePageDataQuery(baseOptions?: Apollo.QueryHookOptions<HomePageDataQuery, HomePageDataQueryVariables>) {
+export function useQuery_HomeQuery(baseOptions?: Apollo.QueryHookOptions<Query_HomeQuery, Query_HomeQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<HomePageDataQuery, HomePageDataQueryVariables>(HomePageDataDocument, options);
+        return Apollo.useQuery<Query_HomeQuery, Query_HomeQueryVariables>(Query_HomeDocument, options);
       }
-export function useHomePageDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<HomePageDataQuery, HomePageDataQueryVariables>) {
+export function useQuery_HomeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Query_HomeQuery, Query_HomeQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<HomePageDataQuery, HomePageDataQueryVariables>(HomePageDataDocument, options);
+          return Apollo.useLazyQuery<Query_HomeQuery, Query_HomeQueryVariables>(Query_HomeDocument, options);
         }
-export function useHomePageDataSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<HomePageDataQuery, HomePageDataQueryVariables>) {
+export function useQuery_HomeSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Query_HomeQuery, Query_HomeQueryVariables>) {
           const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<HomePageDataQuery, HomePageDataQueryVariables>(HomePageDataDocument, options);
+          return Apollo.useSuspenseQuery<Query_HomeQuery, Query_HomeQueryVariables>(Query_HomeDocument, options);
         }
-export type HomePageDataQueryHookResult = ReturnType<typeof useHomePageDataQuery>;
-export type HomePageDataLazyQueryHookResult = ReturnType<typeof useHomePageDataLazyQuery>;
-export type HomePageDataSuspenseQueryHookResult = ReturnType<typeof useHomePageDataSuspenseQuery>;
-export type HomePageDataQueryResult = Apollo.QueryResult<HomePageDataQuery, HomePageDataQueryVariables>;
+export type Query_HomeQueryHookResult = ReturnType<typeof useQuery_HomeQuery>;
+export type Query_HomeLazyQueryHookResult = ReturnType<typeof useQuery_HomeLazyQuery>;
+export type Query_HomeSuspenseQueryHookResult = ReturnType<typeof useQuery_HomeSuspenseQuery>;
+export type Query_HomeQueryResult = Apollo.QueryResult<Query_HomeQuery, Query_HomeQueryVariables>;

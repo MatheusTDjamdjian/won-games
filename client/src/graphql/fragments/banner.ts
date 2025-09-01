@@ -4,6 +4,7 @@ export const BannerFragment = gql`
   fragment BannerFragment on Banner {
     image {
       url
+      name
     }
     title
     subtitle

@@ -1,27 +1,17 @@
-import React from "react"
-import { useRouter } from "next/router"
-import { initializeApollo } from "@/utils/apollo"
+import React from 'react'
+import { GetStaticProps } from 'next'
+import { initializeApollo } from '@/utils/apollo'
+import Game, { GameTemplateProps } from '@/templates/Game'
 
-import Game, { GameTemplateProps } from "@/templates/Game"
+import { QUERY_GAME_BY_SLUG, QUERY_GAMES } from '@/graphql/queries/games'
+import { GamesListQuery, GamesListQueryVariables, GameBySlugQueryQuery, GameBySlugQueryQueryVariables } from '@/graphql/generated'
 
 import gamesMock from '@/components/GameCardSlider/mock'
 import highlightMock from '@/components/Highlight/mock'
 
-import { GamesListQuery, GamesListQueryVariables } from '../../graphql/generated/index'
-import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from "@/graphql/queries/games"
-import { GameBySlugQuery, GameBySlugQueryVariables } from '@/graphql/generated/index'
-import { GetStaticProps } from "next"
-
 const apolloClient = initializeApollo()
 
-export default function Index(props: GameTemplateProps) {
-  const router = useRouter()
-
-  // se a rota não tiver sido gerada ainda
-  // você pode mostrar um loading
-  // uma tela de esqueleto
-  if (router.isFallback) return null
-
+export default function GamePage(props: GameTemplateProps) {
   return <Game {...props} />
 }
 
@@ -39,42 +29,48 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { data } = await apolloClient.query<GameBySlugQuery, GameBySlugQueryVariables>({
+  const { data } = await apolloClient.query<GameBySlugQueryQuery, GameBySlugQueryQueryVariables>({
     query: QUERY_GAME_BY_SLUG,
     variables: { slug: String(params?.slug) }
-  })
+  });
 
-  const gameData = data.games[0]
+  const gameData = data.games[0];
 
-  if (!gameData) return { notFound: true }
+  if (!gameData) return { notFound: true };
 
-  return {
-    props: {
-      revalidate: 60,
-      cover: `http://localhost:1337${gameData.cover?.src}`,
-      gameInfo: {
-        title: gameData.name,
-        price: gameData.price,
-        description: gameData.short_description
-      },
-      gallery: gameData.gallery
-        .filter((image) => image !== null)
-        .map((image) => ({
-          src: `http://localhost:1337${image!.src}`,
-          label: image!.label || ''
-        })),
-      description: gameData.description,
-      details: {
-        developer: gameData.developers?.[0]?.name,
-        releaseDate: gameData.release_date,
-        platforms: gameData.platforms?.map((p) => p?.name),
-        publisher: gameData.publisher?.name,
-        rating: gameData.rating,
-        genres: gameData.categories?.map((c) => c?.name),
-      },
-      upcomingGames: gamesMock,
-      upcomingHighlight: highlightMock,
-      recommendedGames: gamesMock
+    return {
+      props: {
+        revalidate: 60,
+
+        cover: gameData.cover?.url || null,
+
+        gameInfo: {
+          title: gameData.name,
+          price: gameData.price ?? 0,
+          description: gameData.short_description || ''
+        },
+
+        gallery: gameData.gallery
+          .filter((image) => image !== null)
+          .map((image) => ({
+            src: image.url ? `http://localhost:1337${image.url}` : '',
+            label: image.name || ''
+          })) || [],
+
+        description: gameData.description || '',
+
+        details: {
+          developer: gameData.developers?.[0]?.name || '',
+          releaseDate: gameData.release_date || '',
+          platforms: gameData.platforms?.map((p) => p?.name),
+          publisher: gameData.publisher?.name || '',
+          rating: gameData.rating || null,
+          genres: gameData.categories?.map((c) => c?.name),
+
+        upcomingGames: gamesMock,
+        upcomingHighlight: highlightMock,
+        recommendedGames: gamesMock
+      }
     }
   }
 }

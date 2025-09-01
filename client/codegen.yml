@@ -1,5 +1,7 @@
 schema: ./schema.gql
-documents: src/graphql/**/*.ts
+documents:
+  - "src/graphql/**/*.ts"
+  - "!src/graphql/generated/**"
 generates:
   src/graphql/generated/index.ts:
     plugins:
