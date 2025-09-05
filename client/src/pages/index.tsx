@@ -27,6 +27,7 @@ export const getStaticProps: GetStaticProps = async () => {
     query: QUERY_HOME
   })
 
+  const sections = data.sections ?? null;
   const banners = data.banners ?? []
   const newGames = data.newGames ?? []
   const upcomingGames = data.upcomingGames ?? []
@@ -49,6 +50,7 @@ export const getStaticProps: GetStaticProps = async () => {
           ribbonSize: banner.ribbon?.size ?? null
         })),
 
+      newGamesTitle: sections?.newGames?.title,
       newGames: newGames
         .filter((game) => game !== null)
         .map((game) => ({
@@ -59,9 +61,11 @@ export const getStaticProps: GetStaticProps = async () => {
           price: game.price ?? 0
         })),
 
+      mostPopularGamesTitle: sections?.popularGames?.title,
       mostPopularHighlight: highlightMock,
       mostPopularGames: gamesMock,
 
+      upcomingGamesTitle: sections?.upcomingGames?.title,
       upcomingGames: upcomingGames
         .filter((game) => game !== null)
         .map((game) => ({
@@ -74,6 +78,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
       upcomingHighlight: highlightMock,
 
+      freeGamesTitle: sections?.freeGames?.title,
       freeGames: freeGames
         .filter((game) => game !== null)
         .map((game) => ({
