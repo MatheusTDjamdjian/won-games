@@ -17,6 +17,14 @@ export const QUERY_HOME = gql`
       ...GameFragment
     }
 
+    popularGames: games(
+      filters: { release_date: { lte: "2025-08-20" } }
+      sort: "release_date:desc"
+      pagination: { limit: 8 }
+    ) {
+      ...GameFragment
+    }
+
     upcomingGames: games(
       filters: { release_date: { gte: "2024-08-20" } }
       sort: "release_date:asc"

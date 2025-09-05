@@ -5,7 +5,6 @@ import Home from '../templates/Home'
 
 import { HomeTemplateProps } from '@/templates/Home/types'
 
-import gamesMock from '../components/GameCardSlider/mock'
 import highlightMock from '../components/Highlight/mock'
 
 import { initializeApollo } from '@/utils/apollo'
@@ -30,6 +29,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const sections = data.sections ?? null;
   const banners = data.banners ?? []
   const newGames = data.newGames ?? []
+  const popularGames = data.popularGames ?? []
   const upcomingGames = data.upcomingGames ?? []
   const freeGames = data.freeGames ?? []
 
@@ -63,7 +63,15 @@ export const getStaticProps: GetStaticProps = async () => {
 
       mostPopularGamesTitle: sections?.popularGames?.title,
       mostPopularHighlight: highlightMock,
-      mostPopularGames: gamesMock,
+      mostPopularGames: popularGames
+      .filter((game) => game !== null)
+        .map((game) => ({
+          title: game.name ?? '',
+          slug: game.slug ?? '',
+          developer: game.developers?.[0]?.name ?? '',
+          img: game.cover?.url ? `http://localhost:1337${game.cover.url}` : '/images/fallback-bg.jpg',
+          price: game.price ?? 0
+        })),
 
       upcomingGamesTitle: sections?.upcomingGames?.title,
       upcomingGames: upcomingGames
