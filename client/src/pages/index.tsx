@@ -5,8 +5,7 @@ import Home from '../templates/Home'
 
 import { HomeTemplateProps } from '@/templates/Home/types'
 
-import gamesMock from '../components/GameCardSlider/mock'
-import highlightMock from '../components/Highlight/mock'
+import { bannerMapper, gamesMapper, highlightMapper } from '../utils/mappers'
 
 import { initializeApollo } from '@/utils/apollo'
 import { QUERY_HOME } from '../graphql/queries/home'
@@ -37,59 +36,24 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       revalidate: 30,
 
-      banners: banners
-        .filter((banner) => banner !== null)
-        .map((banner) => ({
-          img: banner.image?.url ? `http://localhost:1337${banner.image.url}` : '/images/fallback-bg.jpg',
-          title: banner.title ?? '',
-          subtitle: banner.subtitle ?? '',
-          buttonLabel: banner.button?.label ?? '',
-          buttonLink: banner.button?.link ?? '',
-          ribbon: banner.ribbon?.text ?? null,
-          ribbonColor: banner.ribbon?.color ?? null,
-          ribbonSize: banner.ribbon?.size ?? null
-        })),
+      banners: bannerMapper(banners),
 
       newGamesTitle: sections?.newGames?.title,
-      newGames: newGames
-        .filter((game) => game !== null)
-        .map((game) => ({
-          title: game.name ?? '',
-          slug: game.slug ?? '',
-          developer: game.developers?.[0]?.name ?? '',
-          img: game.cover?.url ? `http://localhost:1337${game.cover.url}` : '/images/fallback-bg.jpg',
-          price: game.price ?? 0
-        })),
+      newGames: gamesMapper(newGames),
 
       mostPopularGamesTitle: sections?.popularGames?.title,
-      mostPopularHighlight: highlightMock,
-      mostPopularGames: gamesMock,
+      mostPopularHighlight: highlightMapper(sections?.popularGames?.highlight),
+      mostPopularGames: sections?.popularGames?.game
+      ? gamesMapper([sections.popularGames.game])
+      : [],
 
       upcomingGamesTitle: sections?.upcomingGames?.title,
-      upcomingGames: upcomingGames
-        .filter((game) => game !== null)
-        .map((game) => ({
-          title: game.name ?? '',
-          slug: game.slug ?? '',
-          developer: game.developers?.[0]?.name ?? '',
-          img: game.cover?.url ? `http://localhost:1337${game.cover.url}` : '/images/fallback-bg.jpg',
-          price: game.price ?? 0
-        })),
-
-      upcomingHighlight: highlightMock,
+      upcomingGames: gamesMapper(upcomingGames),
+      upcomingHighlight: highlightMapper(sections?.upcomingGames?.highlight),
 
       freeGamesTitle: sections?.freeGames?.title,
-      freeGames: freeGames
-        .filter((game) => game !== null)
-        .map((game) => ({
-          title: game.name ?? '',
-          slug: game.slug ?? '',
-          developer: game.developers?.[0]?.name ?? '',
-          img: game.cover?.url ? `http://localhost:1337${game.cover.url}` : '/images/fallback-bg.jpg',
-          price: game.price ?? 0
-        })),
-
-      freeHighlight: highlightMock
+      freeGames: gamesMapper(freeGames),
+      freeHighlight: highlightMapper(sections?.freeGames?.highlight)
     }
   }
 }
