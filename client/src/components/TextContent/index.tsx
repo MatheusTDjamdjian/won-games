@@ -5,7 +5,7 @@ import Heading from '../Heading'
 import { TextContentProps } from './types'
 
 const TextContent = ({ title, content }: TextContentProps) => {
-  const optimizedContent = content.replace(/<img /g, '<img loading="lazy" ')
+  const optimizedContent = (content || '').replace(/<img /g, '<img loading="lazy" ')
 
   return (
     <S.Wrapper>
