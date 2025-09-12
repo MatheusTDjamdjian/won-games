@@ -3,7 +3,7 @@ import { HighlightProps } from "@/components/Highlight/types"
 
 export type WishlistTemplateProps = {
   games?: GameCardProps[]
-  recommendedTitle?: string
+  recommendedTitle: string
   recommendedGames: GameCardProps[]
   recommendedHighlight: HighlightProps
 }
