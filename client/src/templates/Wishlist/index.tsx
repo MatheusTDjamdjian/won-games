@@ -12,6 +12,7 @@ import { WishlistTemplateProps } from './types'
 
 const Wishlist = ({
   games = [],
+  recommendedTitle,
   recommendedGames,
   recommendedHighlight
 }: WishlistTemplateProps) => (
@@ -39,7 +40,7 @@ const Wishlist = ({
     </Container>
 
     <Showcase
-      title="You may like these games"
+      title={recommendedTitle}
       games={recommendedGames}
       highlight={recommendedHighlight}
     />

@@ -40,7 +40,7 @@ const GameCard = ({slug, title, developer, img, price, promotionalPrice, favorit
       </S.FavButton>
       <S.BuyBox>
         {!!promotionalPrice && (
-          <S.Price isPromotional>{formatPrice(price)}</S.Price>
+          <S.Price $isPromotional>{formatPrice(price)}</S.Price>
         )}
         <S.Price>{formatPrice(promotionalPrice || price)}</S.Price>
         <Button icon={<img src="/img/icons/add-shopping-cart.png" alt="Add to cart" />} size="small"/>

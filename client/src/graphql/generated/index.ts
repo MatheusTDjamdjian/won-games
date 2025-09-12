@@ -181,6 +181,17 @@ export type ComponentPageHighlight = {
   title: Scalars['String']['output'];
 };
 
+export type ComponentPageHighlightFiltersInput = {
+  alignment: InputMaybe<StringFilterInput>;
+  and: InputMaybe<Array<InputMaybe<ComponentPageHighlightFiltersInput>>>;
+  buttonLabel: InputMaybe<StringFilterInput>;
+  buttonLink: InputMaybe<StringFilterInput>;
+  not: InputMaybe<ComponentPageHighlightFiltersInput>;
+  or: InputMaybe<Array<InputMaybe<ComponentPageHighlightFiltersInput>>>;
+  subtitle: InputMaybe<StringFilterInput>;
+  title: InputMaybe<StringFilterInput>;
+};
+
 export type ComponentPageHighlightInput = {
   alignment: InputMaybe<Enum_Componentpagehighlight_Alignment>;
   background: InputMaybe<Scalars['ID']['input']>;
@@ -194,14 +205,38 @@ export type ComponentPageHighlightInput = {
 
 export type ComponentPagePopularGames = {
   __typename?: 'ComponentPagePopularGames';
-  game: Maybe<Game>;
+  games: Array<Maybe<Game>>;
+  games_connection: Maybe<GameRelationResponseCollection>;
   highlight: Maybe<ComponentPageHighlight>;
   id: Scalars['ID']['output'];
   title: Scalars['String']['output'];
 };
 
+
+export type ComponentPagePopularGamesGamesArgs = {
+  filters: InputMaybe<GameFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type ComponentPagePopularGamesGames_ConnectionArgs = {
+  filters: InputMaybe<GameFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentPagePopularGamesFiltersInput = {
+  and: InputMaybe<Array<InputMaybe<ComponentPagePopularGamesFiltersInput>>>;
+  games: InputMaybe<GameFiltersInput>;
+  highlight: InputMaybe<ComponentPageHighlightFiltersInput>;
+  not: InputMaybe<ComponentPagePopularGamesFiltersInput>;
+  or: InputMaybe<Array<InputMaybe<ComponentPagePopularGamesFiltersInput>>>;
+  title: InputMaybe<StringFilterInput>;
+};
+
 export type ComponentPagePopularGamesInput = {
-  game: InputMaybe<Scalars['ID']['input']>;
+  games: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   highlight: InputMaybe<ComponentPageHighlightInput>;
   id: InputMaybe<Scalars['ID']['input']>;
   title: InputMaybe<Scalars['String']['input']>;
@@ -541,7 +576,7 @@ export type GameRelationResponseCollection = {
   nodes: Array<Game>;
 };
 
-export type GenericMorph = Banner | Category | ComponentPageButton | ComponentPageHighlight | ComponentPagePopularGames | ComponentPageRibbon | ComponentPageSection | Developer | Game | Home | I18NLocale | Platform | Publisher | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = Banner | Category | ComponentPageButton | ComponentPageHighlight | ComponentPagePopularGames | ComponentPageRibbon | ComponentPageSection | Developer | Game | Home | I18NLocale | Platform | Publisher | Recommended | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Home = {
   __typename?: 'Home';
@@ -689,6 +724,7 @@ export type Mutation = {
   deleteHome: Maybe<DeleteMutationResponse>;
   deletePlatform: Maybe<DeleteMutationResponse>;
   deletePublisher: Maybe<DeleteMutationResponse>;
+  deleteRecommended: Maybe<DeleteMutationResponse>;
   deleteReviewWorkflowsWorkflow: Maybe<DeleteMutationResponse>;
   deleteReviewWorkflowsWorkflowStage: Maybe<DeleteMutationResponse>;
   deleteUploadFile: Maybe<UploadFile>;
@@ -712,6 +748,7 @@ export type Mutation = {
   updateHome: Maybe<Home>;
   updatePlatform: Maybe<Platform>;
   updatePublisher: Maybe<Publisher>;
+  updateRecommended: Maybe<Recommended>;
   updateReviewWorkflowsWorkflow: Maybe<ReviewWorkflowsWorkflow>;
   updateReviewWorkflowsWorkflowStage: Maybe<ReviewWorkflowsWorkflowStage>;
   updateUploadFile: UploadFile;
@@ -917,6 +954,12 @@ export type MutationUpdatePublisherArgs = {
 };
 
 
+export type MutationUpdateRecommendedArgs = {
+  data: RecommendedInput;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
 export type MutationUpdateReviewWorkflowsWorkflowArgs = {
   data: ReviewWorkflowsWorkflowInput;
   documentId: Scalars['ID']['input'];
@@ -1102,6 +1145,7 @@ export type Query = {
   publisher: Maybe<Publisher>;
   publishers: Array<Maybe<Publisher>>;
   publishers_connection: Maybe<PublisherEntityResponseCollection>;
+  recommended: Maybe<Recommended>;
   reviewWorkflowsWorkflow: Maybe<ReviewWorkflowsWorkflow>;
   reviewWorkflowsWorkflowStage: Maybe<ReviewWorkflowsWorkflowStage>;
   reviewWorkflowsWorkflowStages: Array<Maybe<ReviewWorkflowsWorkflowStage>>;
@@ -1279,6 +1323,11 @@ export type QueryPublishers_ConnectionArgs = {
 };
 
 
+export type QueryRecommendedArgs = {
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
 export type QueryReviewWorkflowsWorkflowArgs = {
   documentId: Scalars['ID']['input'];
   status?: InputMaybe<PublicationStatus>;
@@ -1386,6 +1435,27 @@ export type QueryUsersPermissionsUsers_ConnectionArgs = {
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
+};
+
+export type Recommended = {
+  __typename?: 'Recommended';
+  createdAt: Maybe<Scalars['DateTime']['output']>;
+  documentId: Scalars['ID']['output'];
+  publishedAt: Maybe<Scalars['DateTime']['output']>;
+  section: Array<Maybe<ComponentPagePopularGames>>;
+  updatedAt: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type RecommendedSectionArgs = {
+  filters: InputMaybe<ComponentPagePopularGamesFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type RecommendedInput = {
+  publishedAt: InputMaybe<Scalars['DateTime']['input']>;
+  section: InputMaybe<Array<InputMaybe<ComponentPagePopularGamesInput>>>;
 };
 
 export type ReviewWorkflowsWorkflow = {
@@ -1805,7 +1875,12 @@ export type GameBySlugQueryQuery = { __typename?: 'Query', games: Array<{ __type
 export type Query_HomeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Query_HomeQuery = { __typename?: 'Query', banners: Array<{ __typename?: 'Banner', title: string, subtitle: string, image: { __typename?: 'UploadFile', url: string, name: string }, button: { __typename?: 'ComponentPageButton', label: string, link: string } | null, ribbon: { __typename?: 'ComponentPageRibbon', text: string | null, color: Enum_Componentpageribbon_Color | null, size: Enum_Componentpageribbon_Size | null } | null } | null>, newGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null>, upcomingGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null>, freeGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null>, sections: { __typename?: 'Home', newGames: { __typename?: 'ComponentPageSection', title: string | null, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null } | null, popularGames: { __typename?: 'ComponentPagePopularGames', title: string, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null, game: { __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null } | null, upcomingGames: { __typename?: 'ComponentPageSection', title: string | null, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null } | null, freeGames: { __typename?: 'ComponentPageSection', title: string | null, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null };
+export type Query_HomeQuery = { __typename?: 'Query', banners: Array<{ __typename?: 'Banner', title: string, subtitle: string, image: { __typename?: 'UploadFile', url: string, name: string }, button: { __typename?: 'ComponentPageButton', label: string, link: string } | null, ribbon: { __typename?: 'ComponentPageRibbon', text: string | null, color: Enum_Componentpageribbon_Color | null, size: Enum_Componentpageribbon_Size | null } | null } | null>, newGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null>, upcomingGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null>, freeGames: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null>, sections: { __typename?: 'Home', newGames: { __typename?: 'ComponentPageSection', title: string | null, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null } | null, popularGames: { __typename?: 'ComponentPagePopularGames', title: string, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null, games: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null> } | null, upcomingGames: { __typename?: 'ComponentPageSection', title: string | null, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null } | null, freeGames: { __typename?: 'ComponentPageSection', title: string | null, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null };
+
+export type QueryRecommendedQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type QueryRecommendedQuery = { __typename?: 'Query', recommended: { __typename?: 'Recommended', section: Array<{ __typename?: 'ComponentPagePopularGames', title: string, highlight: { __typename?: 'ComponentPageHighlight', title: string, subtitle: string, buttonLabel: string, buttonLink: string, alignment: Enum_Componentpagehighlight_Alignment | null, background: { __typename?: 'UploadFile', url: string }, floatImage: { __typename?: 'UploadFile', url: string } | null } | null, games: Array<{ __typename?: 'Game', name: string, slug: string | null, price: number, short_description: string | null, description: string | null, rating: Enum_Game_Rating | null, release_date: any | null, cover: { __typename?: 'UploadFile', url: string } | null, gallery: Array<{ __typename?: 'UploadFile', url: string, name: string } | null>, developers: Array<{ __typename?: 'Developer', name: string } | null>, publisher: { __typename?: 'Publisher', name: string } | null, categories: Array<{ __typename?: 'Category', name: string } | null>, platforms: Array<{ __typename?: 'Platform', name: string } | null> } | null> } | null> } | null };
 
 export const BannerFragmentFragmentDoc = gql`
     fragment BannerFragment on Banner {
@@ -1964,7 +2039,7 @@ export const Query_HomeDocument = gql`
     ...GameFragment
   }
   upcomingGames: games(
-    filters: {release_date: {gte: "2025-08-20"}}
+    filters: {release_date: {gte: "2024-08-20"}}
     sort: "release_date:asc"
     pagination: {limit: 8}
   ) {
@@ -1985,7 +2060,7 @@ export const Query_HomeDocument = gql`
       highlight {
         ...HighlightFragment
       }
-      game {
+      games {
         ...GameFragment
       }
     }
@@ -2038,3 +2113,51 @@ export type Query_HomeQueryHookResult = ReturnType<typeof useQuery_HomeQuery>;
 export type Query_HomeLazyQueryHookResult = ReturnType<typeof useQuery_HomeLazyQuery>;
 export type Query_HomeSuspenseQueryHookResult = ReturnType<typeof useQuery_HomeSuspenseQuery>;
 export type Query_HomeQueryResult = Apollo.QueryResult<Query_HomeQuery, Query_HomeQueryVariables>;
+export const QueryRecommendedDocument = gql`
+    query QueryRecommended {
+  recommended {
+    section {
+      title
+      highlight {
+        ...HighlightFragment
+      }
+      games {
+        ...GameFragment
+      }
+    }
+  }
+}
+    ${HighlightFragmentFragmentDoc}
+${GameFragmentFragmentDoc}`;
+
+/**
+ * __useQueryRecommendedQuery__
+ *
+ * To run a query within a React component, call `useQueryRecommendedQuery` and pass it any options that fit your needs.
+ * When your component renders, `useQueryRecommendedQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useQueryRecommendedQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useQueryRecommendedQuery(baseOptions?: Apollo.QueryHookOptions<QueryRecommendedQuery, QueryRecommendedQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<QueryRecommendedQuery, QueryRecommendedQueryVariables>(QueryRecommendedDocument, options);
+      }
+export function useQueryRecommendedLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<QueryRecommendedQuery, QueryRecommendedQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<QueryRecommendedQuery, QueryRecommendedQueryVariables>(QueryRecommendedDocument, options);
+        }
+export function useQueryRecommendedSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<QueryRecommendedQuery, QueryRecommendedQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<QueryRecommendedQuery, QueryRecommendedQueryVariables>(QueryRecommendedDocument, options);
+        }
+export type QueryRecommendedQueryHookResult = ReturnType<typeof useQueryRecommendedQuery>;
+export type QueryRecommendedLazyQueryHookResult = ReturnType<typeof useQueryRecommendedLazyQuery>;
+export type QueryRecommendedSuspenseQueryHookResult = ReturnType<typeof useQueryRecommendedSuspenseQuery>;
+export type QueryRecommendedQueryResult = Apollo.QueryResult<QueryRecommendedQuery, QueryRecommendedQueryVariables>;

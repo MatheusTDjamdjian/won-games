@@ -45,7 +45,7 @@ export const QUERY_HOME = gql`
         highlight {
           ...HighlightFragment
         }
-        game {
+        games {
           ...GameFragment
         }
       }
