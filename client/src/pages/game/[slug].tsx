@@ -4,7 +4,12 @@ import { initializeApollo } from '@/utils/apollo'
 import Game, { GameTemplateProps } from '@/templates/Game'
 
 import { QUERY_GAME_BY_SLUG, QUERY_GAMES } from '@/graphql/queries/games'
-import { GamesListQuery, GamesListQueryVariables, GameBySlugQueryQuery, GameBySlugQueryQueryVariables } from '@/graphql/generated'
+import { 
+  GamesListQuery, 
+  GamesListQueryVariables, 
+  GameBySlugQueryQuery, 
+  GameBySlugQueryQueryVariables 
+} from '@/graphql/generated'
 
 import gamesMock from '@/components/GameCardSlider/mock'
 import highlightMock from '@/components/Highlight/mock'
