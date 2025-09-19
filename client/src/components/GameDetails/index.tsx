@@ -68,8 +68,9 @@ const GameDetails = ({
             {rating === 'BR0'
               ? 'FREE'
               : rating
-              ? `${rating.replace('BR', '')}+`
-              : ' '}
+                ? `${rating.replace('BR', '')}+`
+                : 'N/A'
+            }
           </S.Description>
         </S.Block>
 

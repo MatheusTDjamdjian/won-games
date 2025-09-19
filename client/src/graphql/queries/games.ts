@@ -11,10 +11,35 @@ export const QUERY_GAMES = gql`
 `
 
 export const QUERY_GAME_BY_SLUG = gql`
-  query GameBySlugQuery($slug: String!) {
-  games(filters: { slug: { eq: $slug } }) {
-    ...GameFragment
+    query GameBySlugQuery($slug: String!) {
+    games(filters: { slug: { eq: $slug } }) {
+      name
+      slug
+      price
+      short_description
+      description
+      rating
+      release_date
+      cover {
+        url
+      }
+      gallery {
+        url
+        name
+      }
+      developers {
+        name
+      }
+      publisher {
+        name
+      }
+      categories {
+        name
+      }
+      platforms {
+        name
+      }
+    }
   }
-}
-${GameFragment}
+  
 `
