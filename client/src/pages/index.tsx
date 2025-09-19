@@ -43,9 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
       mostPopularGamesTitle: sections?.popularGames?.title,
       mostPopularHighlight: highlightMapper(sections?.popularGames?.highlight),
-      mostPopularGames: sections?.popularGames?.games
-      ? gamesMapper(sections.popularGames.games)
-      : [],
+      mostPopularGames: gamesMapper(upcomingGames),
 
       upcomingGamesTitle: sections?.upcomingGames?.title,
       upcomingGames: gamesMapper(upcomingGames),

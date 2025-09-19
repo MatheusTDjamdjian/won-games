@@ -1989,10 +1989,35 @@ export type GamesListQueryResult = Apollo.QueryResult<GamesListQuery, GamesListQ
 export const GameBySlugQueryDocument = gql`
     query GameBySlugQuery($slug: String!) {
   games(filters: {slug: {eq: $slug}}) {
-    ...GameFragment
+    name
+    slug
+    price
+    short_description
+    description
+    rating
+    release_date
+    cover {
+      url
+    }
+    gallery {
+      url
+      name
+    }
+    developers {
+      name
+    }
+    publisher {
+      name
+    }
+    categories {
+      name
+    }
+    platforms {
+      name
+    }
   }
 }
-    ${GameFragmentFragmentDoc}`;
+    `;
 
 /**
  * __useGameBySlugQueryQuery__
@@ -2032,14 +2057,14 @@ export const Query_HomeDocument = gql`
     ...BannerFragment
   }
   newGames: games(
-    filters: {release_date: {lte: "2024-04-20"}}
+    filters: {release_date: {lte: "2022-11-04"}}
     sort: "release_date:desc"
     pagination: {limit: 8}
   ) {
     ...GameFragment
   }
   upcomingGames: games(
-    filters: {release_date: {gte: "2024-04-20"}}
+    filters: {release_date: {gte: "2019-08-04"}}
     sort: "release_date:asc"
     pagination: {limit: 8}
   ) {
