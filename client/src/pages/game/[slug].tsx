@@ -56,7 +56,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       revalidate: 60,
-      cover: gameData.cover?.url || null,
+      cover: gameData.cover?.url
+      ? gameData.cover.url.startsWith('http')
+        ? gameData.cover.url
+        : `http://localhost:1337${gameData.cover.url}`
+      : null,
       gameInfo: {
         title: gameData.name,
         price: gameData.price ?? 0,
