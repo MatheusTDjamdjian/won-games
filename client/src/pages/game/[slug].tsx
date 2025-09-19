@@ -12,7 +12,6 @@ import {
 } from '@/graphql/generated'
 
 import gamesMock from '@/components/GameCardSlider/mock'
-import highlightMock from '@/components/Highlight/mock'
 
 const apolloClient = initializeApollo()
 
@@ -72,8 +71,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           rating: gameData.rating || null,
           genres: gameData.categories?.map((c) => c?.name),
 
-        upcomingGames: gamesMock,
-        upcomingHighlight: highlightMock,
         recommendedGames: gamesMock
       }
     }

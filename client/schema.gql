@@ -293,9 +293,9 @@ type GameRelationResponseCollection {
 type Home {
   documentId: ID!
   newGames: ComponentPageSection
+  popularGames: ComponentPagePopularGames
   upcomingGames: ComponentPageSection
   freeGames: ComponentPageSection
-  popularGames: ComponentPagePopularGames
   createdAt: DateTime
   updatedAt: DateTime
   publishedAt: DateTime
@@ -1030,9 +1030,9 @@ input GameInput {
 
 input HomeInput {
   newGames: ComponentPageSectionInput
+  popularGames: ComponentPagePopularGamesInput
   upcomingGames: ComponentPageSectionInput
   freeGames: ComponentPageSectionInput
-  popularGames: ComponentPagePopularGamesInput
   publishedAt: DateTime
 }
 

@@ -2032,14 +2032,14 @@ export const Query_HomeDocument = gql`
     ...BannerFragment
   }
   newGames: games(
-    filters: {release_date: {lte: "2025-08-20"}}
+    filters: {release_date: {lte: "2024-04-20"}}
     sort: "release_date:desc"
     pagination: {limit: 8}
   ) {
     ...GameFragment
   }
   upcomingGames: games(
-    filters: {release_date: {gte: "2024-08-20"}}
+    filters: {release_date: {gte: "2024-04-20"}}
     sort: "release_date:asc"
     pagination: {limit: 8}
   ) {

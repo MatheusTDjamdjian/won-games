@@ -35,8 +35,6 @@ const Game = ({
   gallery,
   description,
   details,
-  upcomingGames,
-  upcomingHighlight,
   recommendedGames
 }: GameTemplateProps) => (
   <Base>
@@ -59,12 +57,6 @@ const Game = ({
         <GameDetails {...details} />
         <Divider/>
       </S.SectionGameDetails>
-
-      <Showcase
-        title="Upcoming"
-        games={upcomingGames}
-        highlight={upcomingHighlight}
-      />
 
       <Showcase title="You may like these games" games={recommendedGames} />
     </S.Main>
