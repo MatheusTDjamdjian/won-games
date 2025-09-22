@@ -54,23 +54,41 @@ export const Content = styled.div`
 `
 
 export const Info = styled.a`
-    max-width: calc(100% - 2.5rem);
+  ${({ theme }) => css`
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: ${theme.spacings.xsmall};
+        width: 100%;
+        margin-bottom: ${theme.spacings.xxsmall};
+  `}
 `
 
 export const Title = styled.h3`
-    ${({ theme }) => css`
+  ${({ theme }) => css`
+        flex: 1 1 0;
+        min-width: 0;
         font-size: ${theme.font.sizes.medium};
-        line-height: ${theme.font.sizes.medium};
         font-weight: ${theme.font.bold};
         color: ${theme.colors.black};
-    `}
+        margin: 0;
+        word-break: break-word;
+        white-space: normal; // Permite quebra automática
+        overflow-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.2;
+        display: block;
+        max-width: 100%;
+  `}
 `
 
 export const Developer = styled.h4`
 ${({ theme }) => css`
-     font-size: ${theme.font.sizes.small};
-     font-weight: ${theme.font.bold};
-     color: ${theme.colors.gray};
+        font-size: ${theme.font.sizes.small};
+        font-weight: ${theme.font.bold};
+        color: ${theme.colors.gray};
+        margin: 0 0 ${theme.spacings.xxsmall} 0; // Remove espaço extra e adiciona só embaixo
    `}
 `
 

@@ -23,21 +23,22 @@ const GameCard = ({slug, title, developer, img, price, promotionalPrice, favorit
       <Link href={`game/${slug}`} passHref>
         <S.Info>
           <S.Title>{title}</S.Title>
-          <S.Developer>{developer}</S.Developer>
+          <S.FavButton onClick={onFav} role="button">
+            <Button
+              icon={
+                favorite ? (
+                  <img src="/img/icons/coracao.png" alt="Remove from Wishlist" />
+                ) : (
+                  <S.FavBorder>
+                    <img src="/img/icons/favorite.png" aria-label="Add to Wishlist" />
+                  </S.FavBorder>
+                )
+              }
+            />
+          </S.FavButton>
         </S.Info>
       </Link>
-      <S.FavButton onClick={onFav} role="button">
-      <Button
-  icon={
-    favorite ? ( <img src="/img/icons/coracao.png"alt="Remove from Wishlist" /> ) :
-    (
-      <S.FavBorder>
-        <img src="/img/icons/favorite.png" aria-label="Add to Wishlist" />
-      </S.FavBorder>
-    )
-  }
-/>
-      </S.FavButton>
+      <S.Developer>{developer}</S.Developer>
       <S.BuyBox>
         {!!promotionalPrice && (
           <S.Price $isPromotional>{formatPrice(price)}</S.Price>
