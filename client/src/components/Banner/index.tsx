@@ -19,7 +19,7 @@ const Banner = ({ img, title, subtitle, buttonLabel, buttonLink, ribbon, ribbonC
     <S.Caption>
       <S.Title>{title}</S.Title>
       <S.Subtitle dangerouslySetInnerHTML={{ __html: subtitle }}/> 
-      <Button as="a" href={buttonLink} size="large">{buttonLabel}</Button>
+      <Button href={buttonLink} size="large">{buttonLabel}</Button>
     </S.Caption>
   </S.Wrapper>
 )

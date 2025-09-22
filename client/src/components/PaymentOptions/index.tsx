@@ -42,7 +42,7 @@ const PaymentOptions = ({ cards, handlePayment }: PaymentOptionsProps) => {
         </S.CardsList>
       </S.Body>
       <S.Footer>
-        <Button as="a" $fullWidth $minimal>
+        <Button $fullWidth $minimal>
           Continue shopping
         </Button>
         <Button
