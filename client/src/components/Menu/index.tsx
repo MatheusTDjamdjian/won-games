@@ -29,7 +29,7 @@ const Menu = ({ username } : MenuProps) => {
   return (
     <S.Wrapper>
       <MediaMatch $lessThan="medium">
-        <S.IconWrapper onClick={() => setIsOpen(true)}> 
+        <S.IconWrapper onClick={() => setIsOpen(true)}>
           <MenuIcon aria-label="Open Menu"/>
         </S.IconWrapper>
       </MediaMatch>
@@ -52,7 +52,7 @@ const Menu = ({ username } : MenuProps) => {
         <S.IconWrapper>
           <SearchIcon aria-label="Search"/>
         </S.IconWrapper>
-        <S.IconWrapper> 
+        <S.IconWrapper>
           <MediaMatch $greaterThan="medium">
             <CartDropdown/>
           </MediaMatch>
@@ -64,9 +64,7 @@ const Menu = ({ username } : MenuProps) => {
         </S.IconWrapper>
           <MediaMatch $greaterThan="medium">
         { isClient && !username ? (
-            <Link href="/sign-in" passHref>
-              <Button>Sign in</Button>
-            </Link>
+            <Button as="a" href='/sign-in'>Sign in</Button>
         ) : (<UserDropdown username={username as string} />)}
         </MediaMatch>
       </S.MenuGroup>
@@ -92,11 +90,9 @@ const Menu = ({ username } : MenuProps) => {
         </S.MenuNav>
         {isClient && !username && (
           <S.RegisterBox>
-             <Link href="/sign-in" passHref>
-              <Button $fullWidth size="large">
-                Sign in
-              </Button>
-            </Link>
+            <Button as="a" href='/sign-in' $fullWidth size="large">
+              Sign in
+            </Button>
             <span>or</span>
              <Link href="/sign-up" passHref>
               <S.CreateAccount title="Sign Up">Sign Up</S.CreateAccount>

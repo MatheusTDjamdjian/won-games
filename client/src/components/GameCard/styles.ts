@@ -12,7 +12,7 @@ export const Wrapper = styled.article`
     `}
 `
 
-export const ImageBox = styled.a`
+export const ImageBox = styled.span`
     height: 14rem;
     width: 100%;
     background: #f6f7f8;
@@ -53,7 +53,7 @@ export const Content = styled.div`
     `}
 `
 
-export const Info = styled.a`
+export const Info = styled.div`
   ${({ theme }) => css`
         display: flex;
         align-items: flex-start;
@@ -98,7 +98,7 @@ export const FavButton = styled.div`
         right: 0;
         top: -0.5rem;
         cursor: pointer;
-    
+
         svg {
         width: 2.5rem;
         }
@@ -141,7 +141,7 @@ const priceModifiers = {
         border-radius: ${theme.border.radius};
         margin-right: calc(${theme.spacings.xxsmall} / 2);
     `,
-  
+
     promotional: (theme: DefaultTheme) => css`
         color: ${theme.colors.gray};
         text-decoration: line-through;
@@ -155,7 +155,7 @@ export const Price = styled.div<PriceProps>`
         font-weight: ${theme.font.bold};
         height: 3rem;
         align-items: center;
-    
+
         ${!$isPromotional && priceModifiers.default(theme)};
         ${$isPromotional && priceModifiers.promotional(theme)};
     `}

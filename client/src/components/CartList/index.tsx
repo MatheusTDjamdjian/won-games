@@ -21,9 +21,9 @@ const CartList = ({ items = [], total, hasButton = false }: CartListProps) => (
           <S.Total>{total}</S.Total>
 
       {hasButton && (
-            <Link href="/cart">
-              <Button >Buy it now</Button>
-            </Link>
+          <Link href="/cart" passHref>
+            <Button>Buy it now</Button>
+          </Link>
           )}
         </S.Footer>
       </>

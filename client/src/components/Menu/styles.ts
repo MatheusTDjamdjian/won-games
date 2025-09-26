@@ -49,7 +49,7 @@ export const MenuNav = styled.div`
     `}
 `
 
-export const MenuLink = styled.a`
+export const MenuLink = styled.span`
 ${({ theme }) => css`
      position: relative;
      color: ${theme.colors.white};
@@ -57,7 +57,7 @@ ${({ theme }) => css`
      margin: 0.3rem ${theme.spacings.small} 0;
      text-decoration: none;
      text-align: center;
- 
+
      &:hover {
        &::after {
          content: '';
@@ -67,7 +67,7 @@ ${({ theme }) => css`
          background-color: ${theme.colors.primary};
          animation: hoverAnimation 0.2s forwards;
        }
- 
+
        @keyframes hoverAnimation {
          from {
            width: 0;
@@ -136,7 +136,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
             transition: transform 0.3s ease-in-out;
         }
 
-    `} 
+    `}
 `
 
 export const RegisterBox = styled.div`
@@ -154,7 +154,7 @@ export const RegisterBox = styled.div`
   `}
 `
 
-export const CreateAccount = styled.a`
+export const CreateAccount = styled.span`
     ${({ theme }) => css`
     text-decoration: none;
     color: ${theme.colors.primary};
