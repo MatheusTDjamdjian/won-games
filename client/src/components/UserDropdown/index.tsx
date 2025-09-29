@@ -1,7 +1,6 @@
 import React from 'react'
 import * as S from './styles'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { ChevronDown } from 'styled-icons/boxicons-regular'
 
