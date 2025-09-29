@@ -47,12 +47,12 @@ Ele permite ao usuário navegar por categorias, ver detalhes de jogos,, gerencia
 
 # <h3>Instale as dependências</h3>
 npm install
-# <h4>ou</h4>
+<h4>**ou**</h4>
 yarn install
 
 # <h3>Execute em modo de desenvolvimento</h3>
 npm run dev
-# <h4>ou</h4>
+<h4>**ou**</h4>
 yarn dev
 
 # <h3>Acesse no navegador:</h3>
