@@ -1,9 +1,8 @@
-# Won Games
-🕹️ Won Games
+# <h1 align="center">🕹️ Won Games</h1>
 
 Projeto de e-commerce de jogos (front + backend) utilizando Next.js / React / TypeScript no frontend e API para gestão dos dados.
 
-# Índice
+# <h2>Índice<h2>
 
 🔍 Sobre o Projeto
 
@@ -21,53 +20,53 @@ Projeto de e-commerce de jogos (front + backend) utilizando Next.js / React / Ty
 
 📄 Licença
 
-# 🔍 Sobre o Projeto
+# <h2>🔍 Sobre o Projeto</h2>
 
 O Won Games é um projeto de e-commerce voltado para venda de jogos digitais. O frontend é feito com Next.js + React + TypeScript, consumindo uma API para fornecer dados de produtos, categorias, carrinho e cadastros de usuários.
 
 Ele permite ao usuário navegar por categorias, ver detalhes de jogos,, gerenciar carrinho, realizar login/cadastro, além de outras páginas de interações típicas de um site de vendas de jogos.
 
-# 🛠 Tecnologias Utilizadas
+# <h2>🛠 Tecnologias Utilizadas</h2>
 
-Next.js
+- Next.js ![Next.js](https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white)
 
-React
+- React ![React](https://img.shields.io/badge/React-blue?logo=react&logoColor=white)
 
-TypeScript
+- TypeScript ![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&logoColor=white)
 
-CSS / Styled Components / Tailwind
+- CSS / Styled Components / Tailwind
 
-Biblioteca(s) para filtros, roteamento, formulários
+- Biblioteca(s) para filtros, roteamento, formulários
 
-API backend (separada) para lidar com produtos, usuários etc.
+- API backend (separada) para lidar com produtos, usuários etc.
 
-Strapi / Graphql
+- Strapi / Graphql
 
-# 🔧 Instalação & Execução Local
+# 🔧 <h2>Instalação & Execução Local</h2>
 
-# Clone este repositório
+# <h3>Clone este repositório</h3>
 git clone https://github.com/MatheusTDjamdjian/won-games.git
 cd won-games
 cd client
 
-# Instale as dependências
+# <h3>Instale as dependências</h3>
 npm install
 # ou
 yarn install
 
-# Execute em modo de desenvolvimento
+# <h3>Execute em modo de desenvolvimento</h3>
 npm run dev
 # ou
 yarn dev
 
-# Acesse no navegador:
+# <h3>Acesse no navegador:</h3>
 http://localhost:3000
 
 
-# Variáveis de ambiente:
+# <h3>Variáveis de ambiente:</h3>
 .env.example
 
-# 🧩 Arquitetura & Funcionalidades Principais
+# <h2>🧩 Arquitetura & Funcionalidades Principais</h2>
 
 Aqui estão algumas das funcionalidades comuns do projeto :
 
@@ -83,7 +82,7 @@ Página de categorias	Listagem de categorias de jogos.
 
 No frontend Next.js, haverá uma pasta pages/ com arquivos correspondentes às rotas (ex: pages/index.tsx, pages/game/[slug].tsx, pages/cart.tsx, pages/login.tsx, etc.).
 
-# 📄 Páginas / Rotas Acessíveis
+# <h2>📄 Páginas / Rotas Acessíveis</h2>
 
 Aqui estão algumas rotas que o usuário poderá acessar:
 
@@ -97,19 +96,10 @@ Aqui estão algumas rotas que o usuário poderá acessar:
 
 /sign-in ou /sign-up — cadastro de usuário
 
-# Estilos:
+# <h2>Estilos:</h2>
 /src/styles
 
 
+<p align="center">MIT License</p>
 
-
-
-
-
-
-
-MIT License
-
-Copyright (c) 2025 Nome do Autor
-
-Permission is hereby granted, free of charge, ...
+<p align="center">Copyright (c) 2025 Matheus Tasso</p>
