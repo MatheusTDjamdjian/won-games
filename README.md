@@ -1,8 +1,8 @@
 # <h1 align="center">🕹️ Won Games</h1>
 
-Projeto de e-commerce de jogos (front + backend) utilizando Next.js / React / TypeScript no frontend e API para gestão dos dados.
+<p align="center">Projeto de e-commerce de jogos (front + backend) utilizando Next.js / React / TypeScript no frontend e API para gestão dos dados.</p>
 
-# <h2>Índice<h2>
+# <h2 align="center">Índice<h2>
 
 🔍 Sobre o Projeto
 
@@ -14,19 +14,15 @@ Projeto de e-commerce de jogos (front + backend) utilizando Next.js / React / Ty
 
 📄 Páginas Disponíveis / Rotas do Usuário
 
-🧰 Bibliotecas / Funções Importantes
-
-🚀 Contribuindo
-
 📄 Licença
 
-# <h2>🔍 Sobre o Projeto</h2>
+# <h2 align="center">🔍 Sobre o Projeto</h2>
 
-O Won Games é um projeto de e-commerce voltado para venda de jogos digitais. O frontend é feito com Next.js + React + TypeScript, consumindo uma API para fornecer dados de produtos, categorias, carrinho e cadastros de usuários.
+<p align="center">O Won Games é um projeto de e-commerce voltado para venda de jogos digitais. O frontend é feito com Next.js + React + TypeScript, consumindo uma API para fornecer dados de produtos, categorias, carrinho e cadastros de usuários.
 
-Ele permite ao usuário navegar por categorias, ver detalhes de jogos,, gerenciar carrinho, realizar login/cadastro, além de outras páginas de interações típicas de um site de vendas de jogos.
+Ele permite ao usuário navegar por categorias, ver detalhes de jogos,, gerenciar carrinho, realizar login/cadastro, além de outras páginas de interações típicas de um site de vendas de jogos.</p>
 
-# <h2>🛠 Tecnologias Utilizadas</h2>
+# <h2 align="center">🛠 Tecnologias Utilizadas</h2>
 
 - Next.js ![Next.js](https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white)
 
@@ -42,21 +38,21 @@ Ele permite ao usuário navegar por categorias, ver detalhes de jogos,, gerencia
 
 - Strapi / Graphql
 
-# 🔧 <h2>Instalação & Execução Local</h2>
+# <h2 align="center">🔧 Instalação & Execução Local</h2>
 
 # <h3>Clone este repositório</h3>
-git clone https://github.com/MatheusTDjamdjian/won-games.git
-cd won-games
-cd client
+- git clone https://github.com/MatheusTDjamdjian/won-games.git
+- cd won-games
+- cd client
 
 # <h3>Instale as dependências</h3>
 npm install
-# ou
+# <h4>ou</h4>
 yarn install
 
 # <h3>Execute em modo de desenvolvimento</h3>
 npm run dev
-# ou
+# <h4>ou</h4>
 yarn dev
 
 # <h3>Acesse no navegador:</h3>
@@ -66,7 +62,7 @@ http://localhost:3000
 # <h3>Variáveis de ambiente:</h3>
 .env.example
 
-# <h2>🧩 Arquitetura & Funcionalidades Principais</h2>
+# <h2 align="center">🧩 Arquitetura & Funcionalidades Principais</h2>
 
 Aqui estão algumas das funcionalidades comuns do projeto :
 
@@ -82,7 +78,7 @@ Página de categorias	Listagem de categorias de jogos.
 
 No frontend Next.js, haverá uma pasta pages/ com arquivos correspondentes às rotas (ex: pages/index.tsx, pages/game/[slug].tsx, pages/cart.tsx, pages/login.tsx, etc.).
 
-# <h2>📄 Páginas / Rotas Acessíveis</h2>
+# <h2 align="center">📄 Páginas / Rotas Acessíveis</h2>
 
 Aqui estão algumas rotas que o usuário poderá acessar:
 
@@ -96,8 +92,8 @@ Aqui estão algumas rotas que o usuário poderá acessar:
 
 /sign-in ou /sign-up — cadastro de usuário
 
-# <h2>Estilos:</h2>
-/src/styles
+# <h2 align="center">Estilos:</h2>
+- /src/styles
 
 
 <p align="center">MIT License</p>
