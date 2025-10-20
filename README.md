@@ -6,7 +6,7 @@
 
 🔍 Sobre o Projeto
 
-🛠 Tecnologias Utiladas
+🛠 Tecnologias Utilizadas
 
 🔧 Instalação & Execução Local
 
@@ -42,8 +42,7 @@ Ele permite ao usuário navegar por categorias, ver detalhes de jogos,, gerencia
 
 # <h3>Clone este repositório</h3>
 - git clone https://github.com/MatheusTDjamdjian/won-games.git
-- cd won-games
-- cd client
+- cd won-games/client
 
 # <h3>Instale as dependências</h3>
 npm install

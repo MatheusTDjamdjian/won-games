@@ -4,12 +4,12 @@ import { initializeApollo } from '@/utils/apollo'
 import Game, { GameTemplateProps } from '@/templates/Game'
 
 import { QUERY_GAME_BY_SLUG, QUERY_GAMES } from '@/graphql/queries/games'
-import { 
+import {
   Query_HomeQuery,
-  GamesListQuery, 
-  GamesListQueryVariables, 
-  GameBySlugQueryQuery, 
-  GameBySlugQueryQueryVariables 
+  GamesListQuery,
+  GamesListQueryVariables,
+  GameBySlugQueryQuery,
+  GameBySlugQueryQueryVariables
 } from '@/graphql/generated'
 
 import { gamesMapper } from '@/utils/mappers'
@@ -67,11 +67,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         description: gameData.short_description || ''
       },
       gallery: gameData.gallery
-      .filter((image): image is NonNullable<typeof image> => image !== null)
-      .map((image) => ({
-        src: image?.url ? `http://localhost:1337${image.url}` : '',
-        label: image?.name || ''
-      })) || [],
+        .filter((image) => image !== null)
+        .map((image) => ({
+          src: image?.url ? `http://localhost:1337${image.url}` : '',
+          label: image?.name || ''
+        })) || [],
       description: gameData.description || '',
       details: {
         developer: gameData.developers?.[0]?.name || '',

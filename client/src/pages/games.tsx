@@ -27,7 +27,7 @@ export async function getStaticProps() {
       games: data.games.map((game: any) => ({
         title: game.name,
         slug: game.slug,
-        developer: game.developers[0].name,
+        developer: game.developers[0] ? game.developers[0].name : '',
         img: `http://localhost:1337${game.cover!.url}`,
         price: game.price
       })),
