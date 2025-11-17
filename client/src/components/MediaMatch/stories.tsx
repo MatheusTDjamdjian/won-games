@@ -24,9 +24,10 @@ export const Desktop: StoryObj = {
 
 export const Mobile: StoryObj = {
   render: () => <MediaMatch $lessThan="medium">Only on Mobile</MediaMatch>,
-  parameters: {
+  globals: {
     viewport: {
-      defaultViewport: 'mobile1'
+      value: 'mobile1',
+      isRotated: false
     }
   }
 }

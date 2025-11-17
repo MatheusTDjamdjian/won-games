@@ -34,7 +34,7 @@ export const parameters = {
     ]
   },
   viewport: {
-    viewports: {
+    options: {
       desktopLarge: {
         name: 'Desktop Large',
         styles: {
@@ -63,12 +63,18 @@ export const parameters = {
           height: '800px'
         }
       }
-    },
-    defaultViewport: 'desktopLarge' // inicia já no maior para ver o slider funcionando
+    }
   }
 }
 
 export default {
   decorators,
-  parameters
-}
+  parameters,
+
+  initialGlobals: {
+    viewport: {
+      value: 'desktopLarge',
+      isRotated: false
+    }
+  }
+};
